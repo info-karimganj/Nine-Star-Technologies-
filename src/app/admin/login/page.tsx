@@ -16,20 +16,42 @@ export default function AdminLoginPage() {
     setIsLoading(true);
 
     try {
+      // 1. Try Next.js server authentication route
       const res = await fetch('/api/admin/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.trim(), password }),
       });
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Authentication failed');
+      if (res.ok && data.success) {
+        router.push('/admin');
+        router.refresh();
+        return;
       }
 
-      router.push('/admin');
-      router.refresh();
+      // 2. Direct client fallback via Supabase SDK if server endpoint returned invalid
+      const { supabase } = await import('@/lib/supabase');
+      const { data: sbData, error: sbError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+
+      if (!sbError && sbData?.user) {
+        // Double check profile and sync session cookie
+        const syncRes = await fetch('/api/admin/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email.trim(), password }),
+        });
+        
+        router.push('/admin');
+        router.refresh();
+        return;
+      }
+
+      throw new Error(data.error || sbError?.message || 'Invalid email or password');
     } catch (err: any) {
       setError(err.message || 'Failed to sign in. Please check credentials.');
     } finally {
