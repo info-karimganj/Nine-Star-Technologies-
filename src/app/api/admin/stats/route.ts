@@ -4,13 +4,15 @@ import { db } from '@/lib/db';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
 
-export const dynamic = 'force-dynamic';
-
 async function getAuthUser() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get('9star_admin_token')?.value;
-  if (!token) return null;
-  return verifyToken(token);
+  try {
+    const cookieStore = await cookies();
+    const token = cookieStore.get('9star_admin_token')?.value;
+    if (!token) return null;
+    return verifyToken(token);
+  } catch {
+    return null;
+  }
 }
 
 export async function GET() {
