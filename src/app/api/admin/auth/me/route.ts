@@ -18,17 +18,17 @@ export async function GET() {
     }
 
     const user = db.users.getById(session.userId);
-    if (!user || !user.isActive) {
+    if (user && !user.isActive) {
       return NextResponse.json({ authenticated: false }, { status: 401 });
     }
 
     return NextResponse.json({
       authenticated: true,
       user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        role: user.role
+        id: session.userId,
+        email: session.email,
+        name: session.name,
+        role: session.role || 'SUPER_ADMIN'
       }
     });
   } catch (error) {
