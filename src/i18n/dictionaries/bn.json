@@ -1,0 +1,1137 @@
+{
+  "navigation": {
+    "offerings": "অফারিংস",
+    "company": "কোম্পানি",
+    "services": "সেবাসমূহ",
+    "solutions": "সমাধান",
+    "products": "পণ্য",
+    "about": "আমাদের সম্পর্কে",
+    "process": "প্রক্রিয়া",
+    "caseStudies": "কেইস স্টাডিজ",
+    "contact": "যোগাযোগ",
+    "search": "অনুসন্ধান",
+    "startRequest": "একটি সেবা অনুরোধ শুরু করুন",
+    "resources": "সম্পদ",
+    "support": "সাপোর্ট",
+    "legalAndSocial": "আইনি এবং সামাজিক",
+    "privacyPolicy": "গোপনীয়তা নীতি",
+    "termsOfService": "পরিষেবার শর্তাবলী",
+    "cookiePolicy": "কুকি নীতি",
+    "home": "হোম",
+    "faq": "FAQ"
+  },
+  "common": {
+    "language": "ভাষা",
+    "english": "English",
+    "bangla": "বাংলা",
+    "arabic": "العربية"
+  },
+  "footer": {
+    "tagline": "পরিচ্ছন্ন এবং পেশাদার প্রযুক্তি সমাধানের মাধ্যমে ভবিষ্যতকে ক্ষমতায়ন করা।",
+    "allRightsReserved": "সর্বস্বত্ব সংরক্ষিত।"
+  },
+  "home": {
+    "hero": {
+      "title": "9STAR Technologies",
+      "subtitle": "ডিজিটাল সেবা এবং প্রযুক্তি সমাধান",
+      "description": "আমরা মানুষ এবং সংস্থাগুলিকে ডিজিটাল, অনলাইন, নথিপত্র, ওয়েবসাইট, অ্যাপ, অটোমেশন এবং প্রযুক্তিগত সমস্যা সমাধানে সহায়তা করি। সহজ ভাষা, পরিষ্কার প্রক্রিয়া এবং বাস্তব সমাধান।",
+      "ctaPrimary": "আমি জানি আমার কী প্রয়োজন",
+      "ctaSecondary": "আমার সাহায্য প্রয়োজন"
+    },
+    "trust": {
+      "title": "Trusted to simplify complex digital challenges"
+    },
+    "popularServices": {
+      "title": "Popular Services",
+      "subtitle": "The most frequent ways we help our clients succeed.",
+      "cards": [
+        {
+          "title": "Website Development",
+          "desc": "Custom, high-performance websites built for your specific business goals, ensuring speed and reliability."
+        },
+        {
+          "title": "Custom Applications",
+          "desc": "Web and mobile applications designed natively around your unique workflows and internal processes."
+        },
+        {
+          "title": "Business Automation",
+          "desc": "Replace repetitive manual tasks with highly reliable, automated digital workflows that save time."
+        }
+      ]
+    },
+    "problemFinder": {
+      "title": "What are you trying to solve?",
+      "subtitle": "Select the statement that best matches your situation to get started.",
+      "problems": [
+        "I need a website",
+        "I need an app",
+        "I have an online problem",
+        "I need help with documents",
+        "I want to automate my business",
+        "I need a digital solution",
+        "I am not sure what I need"
+      ]
+    },
+    "overview": {
+      "servicesTitle": "Services Overview",
+      "servicesDesc": "We offer end-to-end digital services covering design, engineering, documentation, and maintenance to keep your digital assets running smoothly.",
+      "servicesLink": "View All Services",
+      "solutionsTitle": "Business Solutions",
+      "solutionsDesc": "Packaged solutions designed to tackle specific industry challenges, from e-commerce optimization to complex internal data management.",
+      "solutionsLink": "Explore Solutions",
+      "productsTitle": "Our Products",
+      "productsDesc": "Proprietary tools and platforms built in-house by 9STAR to accelerate your digital transformation journey without starting from scratch.",
+      "productsLink": "Discover Products"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": [
+        {
+          "title": "Discover",
+          "desc": "We listen to your challenges and goals without using heavy technical jargon."
+        },
+        {
+          "title": "Understand",
+          "desc": "We analyze your requirements deeply to define the exact problem space."
+        },
+        {
+          "title": "Request",
+          "desc": "You receive a clear, straightforward proposal and technical roadmap."
+        },
+        {
+          "title": "Process",
+          "desc": "We build your solution transparently, keeping you continuously updated."
+        },
+        {
+          "title": "Deliver",
+          "desc": "We launch your project with rigorous quality assurance and testing."
+        },
+        {
+          "title": "Support",
+          "desc": "We provide ongoing maintenance, documentation, and dedicated support."
+        }
+      ]
+    },
+    "selectedWork": {
+      "title": "Selected Work",
+      "subtitle": "Real results for organizations and individuals.",
+      "viewAll": "View All",
+      "viewAllMobile": "View All Work",
+      "cases": [
+        {
+          "imageText": "Project Preview",
+          "title": "Enterprise Automation Overhaul",
+          "desc": "Reduced manual data entry by 80% using custom cloud automation functions and refined document parsing."
+        },
+        {
+          "imageText": "Project Preview",
+          "title": "Global E-Commerce Replatforming",
+          "desc": "Modernized a legacy web store resulting in significantly faster load times, cleaner documentation, and higher conversions."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose 9STAR",
+      "reasons": [
+        {
+          "title": "Clarity",
+          "desc": "No confusing tech speak or hidden complexity."
+        },
+        {
+          "title": "Process",
+          "desc": "Predictable, proven methods for every project."
+        },
+        {
+          "title": "Support",
+          "desc": "Always here when you need us, post-launch."
+        },
+        {
+          "title": "Technology",
+          "desc": "Modern, secure, and robust technology stacks."
+        },
+        {
+          "title": "Transparency",
+          "desc": "Clear pricing, timelines, and open communication."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "q": "Do I need to know exactly what I want before contacting you?",
+          "a": "Not at all. We specialize in helping you define the problem. Just tell us what you're struggling with, and we'll recommend the best technical approach in simple language."
+        },
+        {
+          "q": "How long does a typical project take?",
+          "a": "Timelines vary based on scope. Simple websites might take a few weeks, while complex applications or automations may take a few months. We always provide a clear timeline before any work begins."
+        },
+        {
+          "q": "Do you provide ongoing support after launch?",
+          "a": "Yes, we offer maintenance and support packages to ensure your solution stays secure, updated, and performing optimally long after delivery."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to solve your digital challenges?",
+      "subtitle": "Take the first step towards a cleaner, faster, and more efficient digital operation.",
+      "button": "Start a Service Request"
+    }
+  },
+  "servicesData": {
+    "categories": {
+      "documents-online": {
+        "title": "Documents & Online Services",
+        "shortDescription": "Secure, structured document processing and online management solutions."
+      },
+      "business-digital": {
+        "title": "Business & Digital Services",
+        "shortDescription": "End-to-end digital transformation for modern business operations."
+      },
+      "web-development": {
+        "title": "Web Development",
+        "shortDescription": "High-performance, accessible, and scalable web platforms."
+      },
+      "app-development": {
+        "title": "App Development",
+        "shortDescription": "Native and cross-platform applications for all devices."
+      },
+      "automation-ai": {
+        "title": "Automation & AI",
+        "shortDescription": "Intelligent workflows and AI integrations to save time."
+      },
+      "digital-problem-solving": {
+        "title": "Digital Problem Solving",
+        "shortDescription": "Strategic consulting to overcome your toughest tech hurdles."
+      }
+    },
+    "items": {
+      "doc-1": {
+        "title": "Digital Archiving",
+        "description": "Convert physical documents to secure, searchable digital formats."
+      },
+      "doc-2": {
+        "title": "Secure Cloud Storage",
+        "description": "Encrypted, redundant cloud storage for sensitive business data."
+      },
+      "doc-3": {
+        "title": "Document Workflows",
+        "description": "Automated routing and approval systems for online documentation."
+      },
+      "doc-4": {
+        "title": "Compliance Management",
+        "description": "Ensure your documents meet regulatory and legal standards."
+      },
+      "biz-1": {
+        "title": "Digital Transformation",
+        "description": "Comprehensive strategies to modernize your business operations."
+      },
+      "biz-2": {
+        "title": "IT Consulting",
+        "description": "Expert advice on infrastructure, software, and tech investments."
+      },
+      "biz-3": {
+        "title": "Cloud Migration",
+        "description": "Seamless transition of your operations to cloud environments."
+      },
+      "biz-4": {
+        "title": "Data Analytics",
+        "description": "Turn raw business data into actionable, visual insights."
+      },
+      "biz-5": {
+        "title": "Cybersecurity Audits",
+        "description": "Identify and resolve security vulnerabilities in your business."
+      },
+      "web-1": {
+        "title": "Corporate Websites",
+        "description": "Professional, fast, and SEO-optimized sites for your brand.",
+        "longDescription": "A corporate website is the digital face of your business. We build custom, high-performance web platforms tailored to your specific goals, ensuring maximum speed, accessibility, and reliability.",
+        "problemSolved": "You have an outdated, slow, or poorly converting website that doesn't accurately reflect the quality of your brand or services.",
+        "targetAudience": "Established businesses, growing startups, and enterprises looking for a premium online presence.",
+        "whatYouGet": {
+          "included": [
+            "Custom UI/UX Design",
+            "Responsive Development",
+            "SEO Fundamentals",
+            "CMS Integration",
+            "Analytics Setup",
+            "Security Hardening"
+          ],
+          "notIncluded": [
+            "Content Writing",
+            "Domain Name Registration",
+            "Ongoing Marketing"
+          ]
+        },
+        "requirements": {
+          "documents": [
+            "Brand Guidelines (Logo, Colors)",
+            "Sitemap / Page Structure",
+            "Initial Copywriting (Text)"
+          ],
+          "prerequisites": [
+            "Clear understanding of business goals"
+          ]
+        },
+        "process": [
+          {
+            "title": "Discovery",
+            "description": "We analyze your business, competitors, and target audience."
+          },
+          {
+            "title": "Design",
+            "description": "We create wireframes and high-fidelity mockups for your approval."
+          },
+          {
+            "title": "Development",
+            "description": "We build the site using modern, fast technologies."
+          },
+          {
+            "title": "Testing & Launch",
+            "description": "Rigorous quality assurance before pushing your site live."
+          }
+        ],
+        "estimatedTime": "4 - 8 Weeks",
+        "pricing": {
+          "packages": [
+            {
+              "name": "Essential",
+              "description": "Perfect for small businesses.",
+              "features": [
+                "Up to 5 Pages",
+                "Custom Design",
+                "Mobile Responsive",
+                "Basic SEO"
+              ]
+            },
+            {
+              "name": "Professional",
+              "description": "Ideal for growing companies.",
+              "features": [
+                "Up to 15 Pages",
+                "Advanced Animations",
+                "CMS Integration",
+                "Advanced SEO"
+              ]
+            }
+          ],
+          "addons": [
+            {
+              "name": "Additional Pages",
+              "description": "Price per additional custom page."
+            },
+            {
+              "name": "E-Commerce Integration",
+              "description": "Add a store to your corporate site."
+            }
+          ]
+        },
+        "faqs": [
+          {
+            "question": "Will I be able to edit the site myself?",
+            "answer": "Yes, we integrate a user-friendly CMS so you can edit text and images easily."
+          },
+          {
+            "question": "Do you provide hosting?",
+            "answer": "We can recommend hosting providers or handle the hosting for an additional monthly fee."
+          }
+        ]
+      },
+      "web-2": {
+        "title": "E-Commerce Platforms",
+        "description": "Scalable online stores with seamless payment integrations."
+      },
+      "web-3": {
+        "title": "Custom Web Applications",
+        "description": "Complex, interactive web apps tailored to your unique needs."
+      },
+      "web-4": {
+        "title": "CMS Development",
+        "description": "Easy-to-manage content systems like WordPress or Headless CMS."
+      },
+      "web-5": {
+        "title": "Website Maintenance",
+        "description": "Ongoing updates, security patches, and performance tuning."
+      },
+      "web-6": {
+        "title": "UI/UX Design",
+        "description": "User-centric interface design focused on conversions."
+      },
+      "app-1": {
+        "title": "iOS App Development",
+        "description": "Native applications built specifically for the Apple ecosystem."
+      },
+      "app-2": {
+        "title": "Android App Development",
+        "description": "High-performance applications for Android devices."
+      },
+      "app-3": {
+        "title": "Cross-Platform Apps",
+        "description": "React Native and Flutter apps that work on both platforms."
+      },
+      "app-4": {
+        "title": "Enterprise Mobility",
+        "description": "Internal apps designed to empower your mobile workforce."
+      },
+      "ai-1": {
+        "title": "Workflow Automation",
+        "description": "Connect your apps and automate repetitive daily tasks."
+      },
+      "ai-2": {
+        "title": "AI Chatbots & Assistants",
+        "description": "Intelligent conversational agents for customer support."
+      },
+      "ai-3": {
+        "title": "Process Mining",
+        "description": "Analyze your operations to find automation opportunities."
+      },
+      "ai-4": {
+        "title": "Custom AI Models",
+        "description": "Machine learning models trained on your proprietary data."
+      },
+      "ai-5": {
+        "title": "RPA (Robotic Process Automation)",
+        "description": "Software robots that emulate human interaction with digital systems."
+      },
+      "prob-1": {
+        "title": "Technical Rescue",
+        "description": "We fix broken projects, legacy codebases, and failing systems."
+      },
+      "prob-2": {
+        "title": "Architecture Review",
+        "description": "Evaluate and redesign your technical infrastructure."
+      },
+      "prob-3": {
+        "title": "Emergency Support",
+        "description": "Rapid response for critical downtime or data loss scenarios."
+      }
+    },
+    "common": {
+      "viewAllServices": "View All Services",
+      "popularAndRecommended": "Popular & Recommended",
+      "noServicesFound": "No services found",
+      "noServicesFoundDesc": "We couldn't find any services matching your search for",
+      "filterAll": "All Categories",
+      "searchPlaceholder": "Search services...",
+      "learnMore": "Learn More"
+    }
+  },
+  "solutionsData": {
+    "items": {
+      "sol-1": {
+        "slug": "digital-transformation",
+        "title": "Enterprise Digital Transformation",
+        "shortDescription": "Modernize legacy systems and digitize paper-based workflows.",
+        "problem": "Relying on outdated software and manual paper processes slows down operations, increases costs, and creates data silos that prevent informed decision-making.",
+        "whoNeedsIt": [
+          "Traditional businesses moving online",
+          "Organizations with heavy paper workflows",
+          "Companies outgrowing their current software"
+        ],
+        "solution": "We conduct a full audit of your current processes and systematically replace inefficient legacy systems with modern, integrated digital alternatives tailored to your specific operational needs.",
+        "workflow": [
+          {
+            "title": "Discovery & Audit",
+            "description": "Map out existing workflows and identify bottlenecks."
+          },
+          {
+            "title": "Strategy Design",
+            "description": "Create a phased modernization roadmap."
+          },
+          {
+            "title": "Development & Integration",
+            "description": "Build and connect the new digital infrastructure."
+          },
+          {
+            "title": "Training & Handoff",
+            "description": "Ensure your team is comfortable with the new systems."
+          }
+        ],
+        "benefits": [
+          "Reduced operational costs",
+          "Real-time data visibility",
+          "Improved employee productivity",
+          "Enhanced security and compliance"
+        ],
+        "implementation": "Typically 3-6 months depending on the scale of modernization required. We use a phased approach to minimize disruption to your daily operations.",
+        "ctaText": "Discuss Your Transformation"
+      },
+      "sol-2": {
+        "slug": "custom-automation",
+        "title": "Custom Business Automation",
+        "shortDescription": "Bespoke automation systems to eliminate repetitive manual tasks.",
+        "problem": "Your team spends hours every week copying data between systems, formatting reports, and performing repetitive tasks that a computer should be doing.",
+        "whoNeedsIt": [
+          "Data-heavy operational teams",
+          "Agencies managing multiple client platforms",
+          "E-commerce businesses with complex fulfillment"
+        ],
+        "solution": "We build custom middleware and scripts that connect your disparate systems, allowing data to flow freely and automatically without human intervention.",
+        "workflow": [
+          {
+            "title": "Process Mapping",
+            "description": "Identify the exact steps of the manual task."
+          },
+          {
+            "title": "API Integration",
+            "description": "Connect the required software platforms."
+          },
+          {
+            "title": "Logic Implementation",
+            "description": "Code the business rules and error handling."
+          },
+          {
+            "title": "Monitoring Setup",
+            "description": "Deploy dashboards to track automated tasks."
+          }
+        ],
+        "benefits": [
+          "Eliminate human error in data entry",
+          "Free up staff for high-value work",
+          "Speed up processing times",
+          "Highly scalable as volume increases"
+        ],
+        "implementation": "Typically 4-8 weeks. We start with the highest-ROI tasks first to deliver immediate value.",
+        "ctaText": "Start Automating"
+      }
+    }
+  },
+  "solutionsPage": {
+    "hero": {
+      "title": "Business Solutions",
+      "description": "We don't just write code; we solve fundamental business problems through smart, tailored technology solutions and digital transformation."
+    },
+    "list": {
+      "problemLabel": "The Problem",
+      "exploreButton": "Explore Solution"
+    },
+    "cta": {
+      "title": "Don't see your problem listed?",
+      "description": "Every business is unique. We specialize in mapping out complex operational issues and building the precise systems required to fix them.",
+      "button": "Consult with an Architect"
+    }
+  },
+  "productsData": {
+    "items": {
+      "prod-1": {
+        "slug": "nexus-portal",
+        "title": "Nexus Portal",
+        "shortDescription": "A unified digital workspace for team collaboration and document management.",
+        "overview": "Nexus Portal brings all your fragmented documents, communications, and workflows into one centralized, secure hub.",
+        "problem": "Teams waste hours searching for files across different platforms, leading to duplicated work, miscommunication, and lost productivity.",
+        "features": [
+          {
+            "title": "Unified Search",
+            "description": "Find any document across all connected platforms instantly."
+          },
+          {
+            "title": "Secure Access",
+            "description": "Enterprise-grade permission controls and auditing."
+          },
+          {
+            "title": "Workflow Automation",
+            "description": "Automate repetitive document approval processes."
+          }
+        ],
+        "media": [],
+        "useCases": [
+          {
+            "title": "Remote Teams",
+            "description": "Keep distributed teams aligned with a single source of truth."
+          },
+          {
+            "title": "Compliance",
+            "description": "Maintain strict audit logs for regulated industries."
+          }
+        ],
+        "technology": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "AWS"
+        ],
+        "availability": "Available",
+        "ctaText": "Request a Demo"
+      },
+      "prod-2": {
+        "slug": "automate-x",
+        "title": "AutomateX",
+        "shortDescription": "Intelligent process automation engine for small businesses.",
+        "overview": "AutomateX simplifies complex business operations by connecting your existing tools and automating data transfer between them.",
+        "problem": "Small businesses struggle with manual data entry between incompatible software, leading to human error and wasted time.",
+        "features": [
+          {
+            "title": "Visual Builder",
+            "description": "Drag-and-drop interface for creating workflows."
+          },
+          {
+            "title": "Pre-built Connectors",
+            "description": "Integrates with over 50 popular business tools."
+          },
+          {
+            "title": "Error Handling",
+            "description": "Intelligent alerts when a workflow needs human intervention."
+          }
+        ],
+        "media": [],
+        "useCases": [
+          {
+            "title": "E-commerce",
+            "description": "Sync inventory and orders across multiple storefronts."
+          },
+          {
+            "title": "Accounting",
+            "description": "Automatically generate invoices from CRM deals."
+          }
+        ],
+        "technology": [
+          "Python",
+          "Vue.js",
+          "GraphQL"
+        ],
+        "availability": "Beta",
+        "ctaText": "Join the Beta"
+      }
+    }
+  },
+  "productsPage": {
+    "hero": {
+      "title": "Our Products",
+      "description": "Software platforms and digital products designed to streamline your workflows, secure your data, and scale your operations."
+    },
+    "list": {
+      "interfacePreview": "Interface Preview",
+      "viewDetails": "View Product Details"
+    }
+  },
+  "caseStudiesData": {
+    "items": {
+      "enterprise-automation": {
+        "slug": "enterprise-automation",
+        "clientName": "Global Logistics Corp",
+        "industry": "Supply Chain & Logistics",
+        "shortDescription": "Modernized a legacy logistics platform to automate dispatching and reduce operational overhead by 40%.",
+        "problem": "The client relied on a deeply fragmented legacy system that required significant manual data entry, resulting in delays, human errors, and limited visibility into their supply chain.",
+        "challenge": "Integrating with an array of older on-premise databases without disrupting active daily operations was a significant technical hurdle.",
+        "solution": "We implemented a custom cloud-based middleware solution to unify their data streams, alongside a modern web portal for real-time dispatch management.",
+        "process": [
+          {
+            "title": "Discovery",
+            "description": "Analyzed existing workflows and identified key bottlenecks in the dispatch process."
+          },
+          {
+            "title": "Architecture",
+            "description": "Designed a scalable cloud architecture focused on high availability and secure data transmission."
+          },
+          {
+            "title": "Execution",
+            "description": "Developed the middleware and web portal using agile methodologies, ensuring iterative feedback."
+          },
+          {
+            "title": "Delivery",
+            "description": "Conducted comprehensive training sessions and a phased rollout to minimize disruption."
+          }
+        ],
+        "technology": [
+          "Node.js",
+          "React",
+          "AWS Cloud"
+        ],
+        "outcome": [
+          "40% reduction in dispatch overhead.",
+          "Real-time tracking visibility achieved.",
+          "Zero downtime during deployment."
+        ],
+        "screenshots": [],
+        "gallery": [],
+        "relatedServices": []
+      }
+    }
+  },
+  "caseStudiesPage": {
+    "hero": {
+      "title": "Our Work",
+      "description": "We focus on delivering tangible results. Explore our case studies to see how we tackle complex challenges and deliver robust technology solutions."
+    },
+    "emptyState": {
+      "title": "No Case Studies Published Yet",
+      "description": "Check back later as we update our portfolio with recent projects."
+    },
+    "list": {
+      "projectThumbnail": "[ Project Thumbnail ]",
+      "readCaseStudy": "Read Case Study"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "About 9STAR Technologies",
+      "description": "We are a dedicated team providing practical digital services and technology solutions to help people and organizations solve problems."
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "p1": "9STAR Technologies is a digital problem-solving organization. We believe that technology should be accessible, practical, and focused on real-world results.",
+      "p2": "We are not just developers or consultants; we are partners who take the time to understand your unique challenges and deliver solutions that actually work."
+    },
+    "whatWeDo": {
+      "title": "What We Do",
+      "p1": "We build websites, develop applications, automate business processes, and solve complex online challenges.",
+      "p2": "Whether you need a simple digital presence, help with complex documentation, or a complete operational automation system, we have the capability to guide you from concept to launch."
+    },
+    "missionVision": {
+      "missionTitle": "Our Mission",
+      "missionDesc": "To simplify the digital landscape for our clients by providing straightforward, reliable, and high-quality technology solutions that solve tangible problems.",
+      "visionTitle": "Our Vision",
+      "visionDesc": "To become the most trusted and approachable technology partner for organizations looking to navigate and thrive in a digital-first world."
+    },
+    "coreValues": {
+      "title": "Our Core Values",
+      "values": [
+        {
+          "title": "Transparency",
+          "desc": "We speak plainly, set clear expectations, and keep you informed every step of the way. No hidden surprises."
+        },
+        {
+          "title": "Practicality",
+          "desc": "We focus on what works. We prioritize functional, effective solutions over unnecessary complexity."
+        },
+        {
+          "title": "Quality",
+          "desc": "We take pride in our craft. Our work is built to be secure, reliable, and scalable for the long term."
+        },
+        {
+          "title": "Human-Centric",
+          "desc": "Technology is for people. We design and build with the end-user in mind, ensuring our solutions are usable and accessible."
+        }
+      ]
+    },
+    "howWeWork": {
+      "title": "How We Work",
+      "description": "Our process is designed to be clear, collaborative, and focused on delivering exactly what you need.",
+      "steps": [
+        {
+          "title": "Understand",
+          "desc": "We start by listening. We learn about your goals, challenges, and requirements to ensure we have a clear picture."
+        },
+        {
+          "title": "Plan",
+          "desc": "We outline the solution, establish timelines, and agree on the deliverables so you know exactly what to expect."
+        },
+        {
+          "title": "Build",
+          "desc": "Our team develops the solution with regular check-ins, ensuring alignment with the plan and high-quality standards."
+        },
+        {
+          "title": "Deliver",
+          "desc": "We hand over the finished project, provide necessary training, and offer ongoing support to ensure your success."
+        }
+      ]
+    },
+    "technology": {
+      "title": "Technology & Capability",
+      "p1": "We are technology agnostic, meaning we choose the right tools for your specific problem, rather than forcing a one-size-fits-all solution.",
+      "p2": "Our capabilities span modern web frameworks, native and cross-platform app development, secure backend infrastructure, and intelligent automation systems. We stay current with technology so you don't have to.",
+      "items": {
+        "web": {
+          "title": "Web",
+          "desc": "Responsive, accessible, and fast web applications."
+        },
+        "mobile": {
+          "title": "Mobile",
+          "desc": "iOS and Android applications built for real users."
+        },
+        "automation": {
+          "title": "Automation",
+          "desc": "Streamlined workflows and integrated systems."
+        },
+        "infrastructure": {
+          "title": "Infrastructure",
+          "desc": "Secure, scalable, and reliable cloud hosting."
+        }
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "placeholderTitle": "Experienced Professionals",
+      "placeholderDesc": "Our team consists of dedicated software engineers, designers, and strategists committed to delivering exceptional digital solutions."
+    },
+    "storyDirection": {
+      "storyTitle": "Our Story",
+      "storyPlaceholderTitle": "A Journey of Innovation",
+      "storyPlaceholderDesc": "9STAR Technologies was founded with a singular vision: to bridge the gap between complex business challenges and elegant technical solutions. Over the years, we have grown from a small consultancy into a full-service agency.",
+      "directionTitle": "Future Direction",
+      "directionPlaceholderTitle": "Building the Future",
+      "directionPlaceholderDesc": "As technology evolves, so do we. Our strategic focus remains on adopting emerging technologies to provide our clients with scalable, future-proof platforms."
+    },
+    "cta": {
+      "title": "Ready to work together?",
+      "description": "Whether you know exactly what you need or you're just starting to explore solutions, we're here to help. Let's discuss your next project.",
+      "explore": "Explore Our Services",
+      "contact": "Contact Us"
+    }
+  },
+  "process": {
+    "meta": {
+      "title": "Our Process | 9STAR Technologies",
+      "description": "Learn exactly how we work, from discovery to delivery. A transparent process designed to reduce risk and guarantee results."
+    },
+    "hero": {
+      "title": "How We Work",
+      "subtitle": "We believe in total transparency. Our structured 8-step process is designed to reduce anxiety, minimize risk, and ensure you always know exactly what happens next."
+    },
+    "timeline": {
+      "title": "The 9STAR Methodology",
+      "subtitle": "A predictable, repeatable path from your initial idea to a launched solution."
+    },
+    "steps": {
+      "01": {
+        "title": "Discover",
+        "description": "We start by learning about your organization, your goals, and identifying your core challenges without technical jargon."
+      },
+      "02": {
+        "title": "Understand",
+        "description": "We dive deep into the specific problem to ensure we are treating the root cause, not just the symptoms."
+      },
+      "03": {
+        "title": "Plan",
+        "description": "We map out a clear, step-by-step strategy including timelines, technical architecture, and exact deliverables."
+      },
+      "04": {
+        "title": "Request",
+        "description": "Once the plan is approved, we formalize the project requirements and gather any necessary assets from your team."
+      },
+      "05": {
+        "title": "Execute",
+        "description": "Our team builds the solution. You receive regular updates and maintain full visibility into our progress."
+      },
+      "06": {
+        "title": "Review",
+        "description": "We test thoroughly and present the work for your feedback, ensuring it matches the agreed-upon specifications."
+      },
+      "07": {
+        "title": "Deliver",
+        "description": "We hand over the finalized project, handle deployment, and provide necessary training for your team."
+      },
+      "08": {
+        "title": "Support",
+        "description": "We provide ongoing assistance, monitoring, and maintenance to keep your systems running smoothly long-term."
+      }
+    },
+    "faqSection": {
+      "title": "Common Questions",
+      "subtitle": "Everything you need to know before we begin."
+    },
+    "faqs": {
+      "afterContact": {
+        "question": "What happens after I contact you?",
+        "answer": "We typically schedule a brief, no-pressure introductory call. The goal is simply to discuss your needs, answer your initial questions, and determine if we are the right fit for your project."
+      },
+      "informationNeeded": {
+        "question": "What information do you need?",
+        "answer": "Initially, just a general idea of your goal or problem. Once a project begins, we will provide a clear checklist of specific assets, access credentials, or documentation required."
+      },
+      "responseWhen": {
+        "question": "When will you respond?",
+        "answer": "We respect your time. Our team aims to respond to all new inquiries and service requests within 1 to 2 business days."
+      },
+      "pricing": {
+        "question": "How does pricing work?",
+        "answer": "We believe in transparent, upfront pricing. Depending on the nature of the work, we provide a fixed project fee, a structured package, or a clear hourly estimate. No hidden surprises."
+      },
+      "revisions": {
+        "question": "How are revisions handled?",
+        "answer": "Each project phase includes designated review cycles. We ensure you are completely satisfied with the progress before we lock it in and move to the next phase."
+      },
+      "receiveResult": {
+        "question": "How do I receive the final result?",
+        "answer": "We handle the technical deployment and data migration. Upon completion, we hand off all ownership, source files (if applicable), and documentation via secure channels."
+      },
+      "afterCompletion": {
+        "question": "What happens after completion?",
+        "answer": "Technology requires upkeep. We offer optional support and maintenance plans to ensure your solution remains secure, updated, and optimized as your business grows."
+      }
+    },
+    "cta": {
+      "title": "Ready to start the process?",
+      "subtitle": "Submit a service request today and we'll guide you through the rest.",
+      "viewServices": "View Services",
+      "contactUs": "Contact Us"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions."
+    },
+    "sidebar": {
+      "categories": "ক্যাটাগরি",
+      "allQuestions": "সব প্রশ্ন"
+    },
+    "emptyState": "এই ক্যাটাগরির জন্য কোনো প্রশ্ন পাওয়া যায়নি।",
+    "categories": {
+      "general": "General",
+      "services": "Services",
+      "pricing": "Pricing",
+      "documents": "Documents",
+      "websites": "Websites",
+      "apps": "Apps",
+      "automation": "Automation",
+      "payments": "Payments",
+      "support": "Support",
+      "security": "Security"
+    },
+    "items": {
+      "general1": {
+        "question": "Dummy Question for general1",
+        "answer": "Dummy Answer for general1"
+      },
+      "services1": {
+        "question": "Dummy Question for services1",
+        "answer": "Dummy Answer for services1"
+      },
+      "pricing1": {
+        "question": "Dummy Question for pricing1",
+        "answer": "Dummy Answer for pricing1"
+      },
+      "websites1": {
+        "question": "Dummy Question for websites1",
+        "answer": "Dummy Answer for websites1"
+      },
+      "security1": {
+        "question": "Dummy Question for security1",
+        "answer": "Dummy Answer for security1"
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Us | 9STAR Technologies",
+      "description": "Get in touch with our team for service inquiries, support, or general questions."
+    },
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "We're here to help. Reach out to discuss a project, request support, or learn more about our solutions."
+    },
+    "form": {
+      "title": "Send a Message",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Jane",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "jane@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Provide details about your inquiry...",
+      "submit": "Submit Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "office": "Office Location",
+      "hours": "Business Hours"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "metaTitle": "Privacy Policy | 9STAR Technologies",
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated: October 2023",
+      "cmsPlaceholderTitle": "Privacy Policy Update in Progress",
+      "cmsPlaceholderDesc": "We are currently reviewing our policies to ensure compliance with the latest regulations. Please check back shortly for the updated document."
+    },
+    "terms": {
+      "metaTitle": "Terms & Conditions | 9STAR Technologies",
+      "title": "Terms & Conditions",
+      "lastUpdated": "Last Updated: October 2023",
+      "cmsPlaceholderTitle": "Terms & Conditions Update in Progress",
+      "cmsPlaceholderDesc": "We are currently reviewing our policies to ensure compliance with the latest regulations. Please check back shortly for the updated document."
+    },
+    "refund": {
+      "metaTitle": "Refund Policy | 9STAR Technologies",
+      "title": "Refund / Cancellation Policy",
+      "lastUpdated": "Last Updated: October 2023",
+      "cmsPlaceholderTitle": "Refund Policy Update in Progress",
+      "cmsPlaceholderDesc": "We are currently reviewing our policies to ensure compliance with the latest regulations. Please check back shortly for the updated document."
+    },
+    "cookie": {
+      "metaTitle": "Cookie Policy | 9STAR Technologies",
+      "title": "Cookie Policy",
+      "lastUpdated": "Last Updated: October 2023",
+      "cmsPlaceholderTitle": "Cookie Policy Update in Progress",
+      "cmsPlaceholderDesc": "We are currently reviewing our policies to ensure compliance with the latest regulations. Please check back shortly for the updated document."
+    }
+  },
+  "serviceDetail": {
+    "theProblem": "সমস্যা",
+    "whoItsFor": "যাদের জন্য",
+    "whatsIncluded": "যা যা অন্তর্ভুক্ত",
+    "howItWorks": "কিভাবে কাজ করে",
+    "pricingOptions": "মূল্য বিকল্প",
+    "availableAddons": "উপলব্ধ অ্যাড-অন",
+    "whatWeNeed": "আমাদের যা প্রয়োজন",
+    "requiredDocuments": "প্রয়োজনীয় কাগজপত্র",
+    "prerequisites": "পূর্বশর্ত",
+    "faq": "সচরাচর জিজ্ঞাস্য",
+    "pricing": "মূল্য",
+    "customQuote": "কাস্টম কোট",
+    "startingFrom": "শুরু",
+    "multiplePackages": "একাধিক প্যাকেজ উপলব্ধ",
+    "timeline": "সময়কাল",
+    "category": "ক্যাটাগরি",
+    "requestServicePrimary": "এই পরিষেবাটি অনুরোধ করুন",
+    "requestServiceMobile": "পরিষেবা অনুরোধ",
+    "needHelpChoosing": "বেছে নিতে সাহায্য প্রয়োজন?",
+    "haveQuestions": "কোন প্রশ্ন আছে?",
+    "supportText": "আমাদের দল আপনার ব্যবসার জন্য সঠিক সমাধান খুঁজে পেতে সাহায্য করতে প্রস্তুত।",
+    "contactSupport": "সাপোর্টে যোগাযোগ করুন",
+    "relatedServices": "সম্পর্কিত পরিষেবাগুলি"
+  },
+  "productDetail": {
+    "notFound": "Product Not Found",
+    "pageTitleSuffix": "| 9STAR Products",
+    "backToProducts": "← Back to Products",
+    "getStarted": "Get Started",
+    "contactSales": "Contact Sales",
+    "uiScreenshot": "[ UI / Application Screenshot ]",
+    "problemSolves": "The Problem It Solves",
+    "coreFeatures": "Core Features",
+    "useCases": "Use Cases",
+    "technology": "Technology",
+    "techSubtitle": "Built on a modern, secure, and scalable technology stack.",
+    "readyToAction": "Ready to see it in action?",
+    "requestDemo": "Request a personalized demonstration of {productTitle} to see how it can fit into your workflow.",
+    "requestDemoBtn": "Request a Demo"
+  },
+  "solutionDetail": {
+    "notFound": "Solution Not Found",
+    "pageTitleSuffix": "| 9STAR Solutions",
+    "backToSolutions": "← Back to Solutions",
+    "discussSolution": "Discuss This Solution",
+    "theChallenge": "The Challenge",
+    "whoNeedsThis": "Who Needs This",
+    "ourSolution": "Our Solution",
+    "keyBenefits": "Key Benefits",
+    "howWeImplementIt": "How We Implement It",
+    "implementationTimeline": "Implementation Timeline",
+    "readyToSolve": "Ready to solve this problem?",
+    "discussChallenges": "Let's discuss your specific operational challenges and map out a transformation plan.",
+    "getStarted": "Get Started"
+  },
+  "caseStudyDetail": {
+    "notFound": "Case Study Not Found",
+    "pageTitleSuffix": "Case Study | 9STAR Technologies",
+    "backToCaseStudies": "← Back to Case Studies",
+    "theProblem": "The Problem",
+    "theChallenge": "The Challenge",
+    "theSolution": "The Solution",
+    "ourProcess": "Our Process",
+    "theOutcome": "The Outcome",
+    "technologyUsed": "Technology Used",
+    "servicesProvided": "Services Provided",
+    "viewServiceReference": "View Service Reference →",
+    "projectGallery": "Project Gallery",
+    "galleryImage1": "[ Gallery Image 1 ]",
+    "galleryImage2": "[ Gallery Image 2 ]",
+    "galleryImage3": "[ Gallery Image 3 ]"
+  },
+  "requestForm": {
+    "progress": {
+      "service": "Service",
+      "details": "Details",
+      "requirements": "Requirements",
+      "files": "Files",
+      "review": "Review"
+    },
+    "step1": {
+      "title": "Confirm Service",
+      "selectedService": "Selected Service",
+      "continueBtn": "Continue to Details"
+    },
+    "step2": {
+      "title": "Your Information",
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email Address *",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "country": "Country / Region",
+      "countryPlaceholder": "United States",
+      "communication": "Preferred Communication Method",
+      "commEmail": "Email",
+      "commPhone": "Phone",
+      "commVideo": "Video Call",
+      "backBtn": "Back",
+      "nextBtn": "Next: Requirements"
+    },
+    "step3": {
+      "title": "Service Requirements",
+      "goal": "Primary Goal *",
+      "goalPlaceholder": "What is the main objective you want to achieve with this service?",
+      "budget": "Estimated Budget Range",
+      "budgetOptions": {
+        "none": "Not Sure",
+        "tier1": "Under ,000",
+        "tier2": ",000 - ,000",
+        "tier3": ",000 - ,000",
+        "tier4": ",000+"
+      },
+      "deadline": "Target Deadline",
+      "description": "Detailed Description *",
+      "descPlaceholder": "Please provide any additional details, requirements, or context...",
+      "reminder": "Reminder",
+      "reminderText": "This service generally requires the following documents to begin:",
+      "backBtn": "Back",
+      "nextBtn": "Next: Files"
+    },
+    "step4": {
+      "title": "Upload Documents",
+      "subtitle": "If you have any initial files, brand guidelines, or documents required for this service, you can upload them here.",
+      "chooseFiles": "Choose Files (Max 10MB per file)",
+      "attachedFiles": "Attached Files:",
+      "backBtn": "Back",
+      "nextBtn": "Next: Review"
+    },
+    "step5": {
+      "title": "Review Your Request",
+      "service": "Service",
+      "contactInfo": "Contact Info",
+      "edit": "Edit",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "countryLabel": "Country",
+      "requirements": "Requirements",
+      "goalLabel": "Primary Goal",
+      "descLabel": "Description",
+      "budgetLabel": "Budget",
+      "deadlineLabel": "Deadline",
+      "attachedFiles": "Attached Files",
+      "backBtn": "Back",
+      "submitBtn": "Submit Request"
+    },
+    "success": {
+      "title": "Request Received",
+      "thankYou": "Thank you for requesting",
+      "receivedSuccess": "We have received your details successfully.",
+      "referenceNumber": "Reference Number",
+      "whatNext": "What happens next?",
+      "step1": "Our team will review your request and requirements.",
+      "step2": "You will receive an email within 24-48 hours.",
+      "step3": "We may schedule a brief consultation to clarify details.",
+      "supportText": "Need immediate assistance? Contact support at support@9startechnologies.com",
+      "returnHome": "Return Home"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "goalRequired": "Primary goal is required",
+      "descRequired": "Description is required",
+      "fileTooLarge": "One or more files exceed the 10MB size limit.",
+      "networkError": "There was a network error submitting your request. Please try again."
+    }
+  }
+}

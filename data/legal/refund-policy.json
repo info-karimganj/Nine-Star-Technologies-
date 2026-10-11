@@ -1,0 +1,50 @@
+{
+  "slug": "refund-policy",
+  "title": {
+    "en": "Refund, Cancellation & Modification Policy",
+    "bn": "রিফান্ড, বাতিল ও পরিবর্তন নীতি",
+    "ar": "سياسة الاسترداد والإلغاء"
+  },
+  "subtitle": {
+    "en": "Commercial terms governing service scoping, milestone billing, cancellations, and revision requests.",
+    "bn": "সেবা চুক্তি বাতিল, মাইলস্টোন বিলিং এবং রিফান্ড সংক্রান্ত বাণিজ্যিক নীতি ও নিয়ম।",
+    "ar": "الشروط التجارية المنظمة للإلغاء والفوترة المرحلية وطلبات الاسترداد."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This policy establishes transparent refund and cancellation criteria for professional technical engagements with 9STAR Technologies.",
+    "bn": "৯স্টার টেকনোলজিসের পেশাদার প্রযুক্তি সেবা ও কাস্টম ডেভেলপমেন্ট কাজের ক্ষেত্রে রিফান্ড ও বাতিলের সুনির্দিষ্ট নিয়ম।",
+    "ar": "تحدد هذه السياسة معايير واضحة للاسترداد وإلغاء المشاريع التقنية."
+  },
+  "sections": [
+    {
+      "id": "bespoke-services",
+      "title": {
+        "en": "1. Custom Software & Engineering Projects",
+        "bn": "১. কাস্টম সফটওয়্যার ও ইঞ্জিনিয়ারিং প্রজেক্ট",
+        "ar": "١. مشاريع البرمجيات والتطوير المخصص"
+      },
+      "content": {
+        "en": "Because software development and architectural consulting involve dedicated engineering labor and intellectual time, fees paid for completed milestones or approved design phases are non-refundable.\n\n- **Pre-commencement Cancellation:** If a client cancels a project before work begins, advance deposits may be refunded minus documented administrative or scoping expenses.\n- **Active Milestone Cancellation:** If cancellation occurs mid-milestone, fees will be calculated prorated against verifiable hours expended, and the remaining unspent deposit will be refunded.\n- **Deliverable Acceptance:** Once a milestone deliverable is reviewed and approved by the client in writing, the associated milestone fee is final.",
+        "bn": "কাস্টম সফটওয়্যার তৈরিতে প্রকৌশলীদের শ্রম ও মেধা ব্যয় হয়, তাই অনুমোদিত বা সমাপ্ত মাইলস্টোনের ফি অফেরতযোগ্য। কাজ শুরুর পূর্বে বাতিল করা হলে প্রশাসনিক খরচ বাদে বাকি অর্থ ফেরত দেওয়া হতে পারে।",
+        "ar": "نظراً لأن تطوير البرمجيات يتطلب وقداً وجهداً هندسياً مخصصاً، فإن المبالغ المدفوعة للمراحل المنجزة والمعتمدة غير قابلة للاسترداد."
+      }
+    },
+    {
+      "id": "disputes-and-requests",
+      "title": {
+        "en": "2. Initiating a Refund Request",
+        "bn": "২. রিফান্ডের আবেদন প্রক্রিয়া",
+        "ar": "٢. آلية تقديم طلب الاسترداد"
+      },
+      "content": {
+        "en": "To formally request a cancellation or review an invoice, clients must email their dedicated account manager and copy **billing@9startechnologies.com** within fourteen (14) calendar days of the disputed billing date.",
+        "bn": "রিফান্ড বা বিলিং পর্যালোচনার জন্য ১৪ দিনের মধ্যে **billing@9startechnologies.com** এ ইমেইল করতে হবে।",
+        "ar": "لطلب الإلغاء أو الاسترداد، يرجى مراسلة billing@9startechnologies.com خلال ١٤ يوماً من تاريخ الفاتورة."
+      }
+    }
+  ]
+}

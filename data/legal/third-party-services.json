@@ -1,0 +1,37 @@
+{
+  "slug": "third-party-services",
+  "title": {
+    "en": "Third-Party Services Notice",
+    "bn": "তৃতীয় পক্ষের সেবা ও বাহ্যিক লিংক বিজ্ঞপ্তি",
+    "ar": "إشعار الخدمات والروابط الخارجية"
+  },
+  "subtitle": {
+    "en": "Clarification regarding external service providers, hosting networks, and hyperlinked resources.",
+    "bn": "বহিরাগত সেবা প্রদানকারী, ক্লাউড নেটওয়ার্ক এবং সংযুক্ত অন্যান্য লিংক সম্পর্কিত তথ্য।",
+    "ar": "توضيح قانوني حول مزودي الخدمات الخارجيين والروابط المرتبطة بالموقع."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This notice explains how third-party infrastructure components interact with our website and where our legal responsibility ends.",
+    "bn": "এই নোটিশে তৃতীয় পক্ষের প্রযুক্তিগত উপাদান এবং বাহ্যিক লিংকের ক্ষেত্রে প্রযোজ্য নীতি ব্যাখ্যা করা হয়েছে।",
+    "ar": "يوضح هذا الإشعار حدود المسؤولية بشأن الروابط الخارجية ومزودي البنية التحتية."
+  },
+  "sections": [
+    {
+      "id": "external-links",
+      "title": {
+        "en": "1. External Hyperlinks",
+        "bn": "১. বাহ্যিক হাইপারলিংক",
+        "ar": "١. الروابط الخارجية"
+      },
+      "content": {
+        "en": "Our website may contain hyperlinks to third-party sites (e.g. professional associations, partners, or technical resources). We do not control and are not responsible for the privacy practices, content, or policies of those third-party sites.",
+        "bn": "আমাদের ওয়েবসাইটে তৃতীয় পক্ষের লিংক থাকতে পারে। ঐসকল সাইটের গোপনীয়তা নীতি বা তথ্যের জন্য ৯স্টার টেকনোলজিস দায়ী নয়।",
+        "ar": "قد يحتوي موقعنا على روابط لمواقع خارجية، ونحن لسنا مسؤولين عن سياسات الخصوصية لتلك المواقع."
+      }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "slug": "terms-and-conditions",
+  "title": {
+    "en": "Terms & Conditions",
+    "bn": "ব্যবহারের শর্তাবলী (Terms & Conditions)",
+    "ar": "الشروط والأحكام"
+  },
+  "subtitle": {
+    "en": "Binding agreement governing the access to the 9STAR Technologies website, service requests, and digital engineering solutions.",
+    "bn": "৯স্টার টেকনোলজিস ওয়েবসাইট ব্যবহার এবং প্রযুক্তি সেবার সাথে সম্পর্কিত আইনি নিয়ম ও শর্তাবলী।",
+    "ar": "الاتفاقية الحاكمة لاستخدام موقع ناين ستار للتقنية وطلب الحلول الرقمية."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.1",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "These Terms and Conditions govern your access to and use of 9STAR Technologies' online portal and consulting services. By browsing our website or submitting a service request, you acknowledge and agree to these terms.",
+    "bn": "এই শর্তাবলী ৯স্টার টেকনোলজিসের সেবা ও ওয়েবসাইট ব্যবহারের নিয়মাবলী পরিচালনা করে। সাইট ব্যবহারের মাধ্যমে আপনি এই শর্তাবলীতে সম্মতি প্রদান করছেন।",
+    "ar": "تنظم هذه الشروط استخدام المنصة والخدمات المقدمة من ناين ستار للتقنية."
+  },
+  "sections": [
+    {
+      "id": "acceptance-and-scope",
+      "title": {
+        "en": "1. Acceptance of Terms & Eligibility",
+        "bn": "১. শর্তাবলীর গ্রহণযোগ্যতা ও যোগ্যতা",
+        "ar": "١. قبول الشروط والأهلية"
+      },
+      "content": {
+        "en": "By accessing or using the 9STAR Technologies website (the \"Site\"), you confirm that you are at least 18 years of age, possess the legal capacity to enter into binding agreements, and agree to abide by these Terms & Conditions. If you represent a company, you warrant that you are authorized to bind that entity.",
+        "bn": "এই ওয়েবসাইটে প্রবেশ বা সেবা গ্রহণের মাধ্যমে আপনি নিশ্চিত করছেন যে আপনার বয়স ন্যূনতম ১৮ বছর এবং আপনি আইনগতভাবে চুক্তি সম্পাদনে সক্ষম।",
+        "ar": "بدخولك للموقع واستخدامه، تؤكد أن عمرك لا يقل عن ١٨ عاماً وأنك مؤهل قانونياً للالتزام بهذه الشروط."
+      }
+    },
+    {
+      "id": "description-of-services",
+      "title": {
+        "en": "2. Technology Offerings & Scope of Website",
+        "bn": "২. সেবাসমূহের বিবরণ ও সীমাবদ্ধতা",
+        "ar": "٢. وصف الخدمات والحلول"
+      },
+      "content": {
+        "en": "9STAR Technologies provides software engineering, web application development, digital transformation, cloud architecture, and technical consulting services.\n\n**Independent Private Enterprise Notice:** 9STAR Technologies is a private, independent technology company. We are NOT a government authority, official consulate, or sovereign regulatory body. Any document preparation or online filing assistance provided is purely technical and administrative in nature.",
+        "bn": "৯স্টার টেকনোলজিস একটি স্বাধীন ও বেসরকারি প্রযুক্তি প্রতিষ্ঠান। আমরা সফটওয়্যার তৈরি, ওয়েব ডেভেলপমেন্ট, ক্লাউড এবং টেকনিক্যাল কনসাল্টিং সেবা প্রদান করি। আমরা কোনো সরকারি সংস্থা বা প্রতিনিধি নই।",
+        "ar": "ناين ستار للتقنية هي شركة تكنولوجية خاصة ومستقلة، وليست جهة حكومية أو تمثيلية رسمية."
+      }
+    },
+    {
+      "id": "service-requests-and-proposals",
+      "title": {
+        "en": "3. Service Inquiries, Quotations & Formal Contracts",
+        "bn": "৩. সেবা অনুরোধ, কোটেশন ও আনুষ্ঠানিক চুক্তি",
+        "ar": "٣. طلبات الخدمات والعقود"
+      },
+      "content": {
+        "en": "Submitting a service request via this website constitutes an inquiry and does not create an automatic contract for development. A binding commercial engagement requires a mutually executed Master Services Agreement (MSA) or formal Statement of Work (SOW) specifying deliverables, milestones, fees, and acceptance criteria.",
+        "bn": "ওয়েবসাইটে সেবা অনুরোধ সাবমিট করা মানেই সরাসরি চুক্তি নয়। নির্দিষ্ট কাজ শুরুর পূর্বে একটি আনুষ্ঠানিক চুক্তিপত্র বা স্টেটমেন্ট অব ওয়ার্ক (SOW) স্বাক্ষরিত হবে।",
+        "ar": "إرسال طلب الخدمة عبر الموقع يُعد استفساراً أولياً، ويتطلب البدء الفعلي توقيع اتفاقية خدمات ومواصفات عمل محددة."
+      }
+    },
+    {
+      "id": "intellectual-property",
+      "title": {
+        "en": "4. Intellectual Property Rights",
+        "bn": "৪. মেধা সম্পদ ও স্বত্বাধিকার (Intellectual Property)",
+        "ar": "٤. حقوق الملكية الفكرية"
+      },
+      "content": {
+        "en": "All site content, branding, trademarks, code snippets, visual designs, and UI architecture are the proprietary intellectual property of 9STAR Technologies or its licensors. You may not copy, scrape, reverse-engineer, or mirror our digital assets without written consent. Client deliverables are governed by individual MSA terms upon full payment.",
+        "bn": "ওয়েবসাইটের যাবতীয় কোড, ডিজাইন, লোগো এবং কনটেন্ট ৯স্টার টেকনোলজিসের মেধা সম্পদ। লিখিত অনুমতি ব্যতীত এগুলো নকল বা পুনরায় বিতরণ নিষিদ্ধ।",
+        "ar": "جميع تصاميم الموقع والأكواد والعلامات التجارية محمية بموجب حقوق الملكية الفكرية لشركة ناين ستار."
+      }
+    },
+    {
+      "id": "acceptable-use-clause",
+      "title": {
+        "en": "5. Prohibited Conduct",
+        "bn": "৫. নিষিদ্ধ কার্যকলাপ",
+        "ar": "٥. السلوكيات المحظورة"
+      },
+      "content": {
+        "en": "You agree not to:\n- Deploy automated scraping bots, web crawlers, or fuzzing tools against our APIs.\n- Attempt unauthorized access to administrative endpoints or inject malicious scripts.\n- Submit deceptive or forged information through service forms.\n- Abuse our contact channels for spamming or harassment.",
+        "bn": "আপনি সম্মতি দিচ্ছেন যে সাইটে কোনো ধরনের স্ক্র্যাপিং বট, হ্যাকিং প্রচেষ্টা, ক্ষতিকারক কোড ইনজেকশন অথবা ভুয়া তথ্য সাবমিট করবেন না।",
+        "ar": "يحظر تماماً استخدام برامج الزحف الآلي، محاولة اختراق لوحة التحكم، أو إرسال بيانات مضللة ومزيفة."
+      }
+    },
+    {
+      "id": "disclaimers-and-liability",
+      "title": {
+        "en": "6. Disclaimers & Limitation of Liability",
+        "bn": "৬. দায়বদ্ধতার সীমাবদ্ধতা ও ডিসক্লেইমার",
+        "ar": "٦. إخلاء المسؤولية وحدود الالتزام"
+      },
+      "content": {
+        "en": "The website is provided on an \"AS IS\" and \"AS AVAILABLE\" basis without warranties of uninterrupted availability. To the maximum extent permitted by applicable law, 9STAR Technologies shall not be liable for indirect, incidental, special, or consequential damages resulting from website downtime or third-party telecommunications failures.",
+        "bn": "ওয়েবসাইটটি \"যেমন আছে\" (AS IS) ভিত্তিতে পরিচালিত। কারিগরি বিভ্রাট বা ইন্টারনেটের সমস্যার কারণে কোনো পরোক্ষ ক্ষতির জন্য ৯স্টার টেকনোলজিস দায়ী থাকবে না।",
+        "ar": "يتم توفير الموقع بحالته الراهنة، ولا تتحمل الشركة المسؤولية عن أي أضرار غير مباشرة ناتجة عن انقطاع الخدمة المؤقت."
+      }
+    },
+    {
+      "id": "governing-law-placeholder",
+      "title": {
+        "en": "7. Governing Law & Dispute Resolution",
+        "bn": "৭. পরিচালনা আইন ও বিরোধ নিষ্পত্তি",
+        "ar": "٧. القانون الواجب التطبيق وفض النزاعات"
+      },
+      "content": {
+        "en": "**Jurisdiction Clause:** Unless otherwise specified in a signed bilateral agreement, disputes arising from website interactions shall be addressed primarily through good-faith negotiation.\n\n*[Administrative Placeholder: Specific legal jurisdiction, court venue, and governing territory are determined pursuant to formal registered entity incorporation documentation].*",
+        "bn": "ওয়েবসাইট সংক্রান্ত যে কোনো বিরোধ প্রথমে বন্ধুত্বপূর্ণ আলোচনার মাধ্যমে নিষ্পত্তি করা হবে। আনুষ্ঠানিক পরিচালনা আইন কর্পোরেট নিবন্ধিত অধিক্ষেত্র অনুযায়ী নির্ধারিত হবে।",
+        "ar": "تتم تسوية أي نزاعات بالطرق الودية والمفاوضات، ويخضع الاختصاص القضائي لمقر التسجيل الرسمي للشركة."
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "userId": "usr-superadmin-1",
+    "userName": "System Super Admin",
+    "userEmail": "admin@9star.com",
+    "action": "CREATE",
+    "entity": "media",
+    "entityId": "media-1791674526380",
+    "details": "Uploaded media: Screenshot 2026-09-04 171211.png (105.1 KB)",
+    "id": "log-1791674526382-v0yb",
+    "createdAt": "2026-10-10T23:22:06.382Z"
+  },
+  {
+    "userId": "usr-superadmin-1",
+    "userName": "System Super Admin",
+    "userEmail": "admin@9star.com",
+    "action": "LOGIN",
+    "entity": "AUTH",
+    "details": "User logged into Admin Panel",
+    "id": "log-1791674446912-59s5",
+    "createdAt": "2026-10-10T23:20:46.912Z"
+  }
+]

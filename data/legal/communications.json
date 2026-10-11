@@ -1,0 +1,37 @@
+{
+  "slug": "communications",
+  "title": {
+    "en": "Electronic Communications Notice",
+    "bn": "ইলেকট্রনিক যোগাযোগ ও বিপণন বিজ্ঞপ্তি",
+    "ar": "إشعار المراسلات والتواصل الإلكتروني"
+  },
+  "subtitle": {
+    "en": "Information on transactional messages, service notifications, and opt-out mechanisms.",
+    "bn": "সেবামূলক বার্তা, প্রজেক্ট নোটিফিকেশন এবং যোগাযোগের সম্মতি ও প্রত্যাহারের নিয়ম।",
+    "ar": "معلومات حول الرسائل التشغيلية وإشعارات المشاريع وخيارات إلغاء الاشتراك."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This notice defines the distinction between mandatory transactional service emails and optional marketing updates.",
+    "bn": "এই নোটিশে প্রজেক্টের জরুরি বার্তা এবং সাধারণ যোগাযোগের মধ্যে পার্থক্য ও অধিকারসমূহ তুলে ধরা হয়েছে।",
+    "ar": "يوضح هذا الإشعار الفرق بين رسائل الخدمة الضرورية والرسائل الإخبارية الاختيارية."
+  },
+  "sections": [
+    {
+      "id": "transactional-vs-promotional",
+      "title": {
+        "en": "1. Transactional vs Promotional Communications",
+        "bn": "১. প্রাতিষ্ঠানিক ও প্রচারমূলক যোগাযোগ",
+        "ar": "١. المراسلات التشغيلية مقابل الترويجية"
+      },
+      "content": {
+        "en": "- **Transactional Emails:** Necessary communications regarding ongoing service requests, quotes, invoices, or security notices. You cannot opt out of these essential notifications.\n- **Marketing Updates:** Sent only with affirmative consent. Every marketing email includes an instant one-click unsubscribe mechanism.",
+        "bn": "- **প্রয়োজনীয় বার্তা:** চলমান সেবা বা কোটেশন সম্পর্কিত তথ্য যা অপরিহার্য।\n- **মার্কেটিং বার্তা:** কেবল আপনার সম্মতিতেই পাঠানো হয় এবং যেকোনো সময় এক ক্লিকে আনসাবস্ক্রাইব করা যায়।",
+        "ar": "رسائل الخدمة المتعلقة بالمشاريع إلزامية ولا يمكن إلغاؤها، بينما تخضع الرسائل الترويجية للموافقة الكاملة وتتضمن رابط إلغاء."
+      }
+    }
+  ]
+}

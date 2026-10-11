@@ -1,0 +1,50 @@
+{
+  "slug": "accessibility",
+  "title": {
+    "en": "Accessibility Statement",
+    "bn": "অ্যাক্সেসিবিলিটি বিবৃতি (Accessibility Statement)",
+    "ar": "بيان إمكانية الوصول"
+  },
+  "subtitle": {
+    "en": "Our ongoing commitment to digital accessibility, inclusive design, and WCAG 2.1 standards.",
+    "bn": "সকল ব্যবহারকারীর জন্য সহজলভ্য ও অন্তর্ভুক্তিমূলক ডিজিটাল অভিজ্ঞতা নিশ্চিত করার অঙ্গীকার।",
+    "ar": "التزامنا المستمر بتسهيل وصول الجميع وفقاً لأفضل المعايير الرقمية العالمية."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "9STAR Technologies is committed to ensuring our digital experiences are accessible to everyone, including individuals with disabilities, conforming to Web Content Accessibility Guidelines (WCAG) 2.1 AA benchmarks.",
+    "bn": "৯স্টার টেকনোলজিস প্রতিবন্ধী ব্যক্তি সহ সকল মানুষের জন্য ওয়েব কন্টেন্ট সহজলভ্য করতে WCAG 2.1 AA মানদণ্ড বাস্তবায়নে প্রতিশ্রুতিবদ্ধ।",
+    "ar": "نلتزم بضمان سهولة الوصول إلى موقعنا لجميع المستخدمين وفق معايير WCAG 2.1 المستوى AA."
+  },
+  "sections": [
+    {
+      "id": "accessibility-features",
+      "title": {
+        "en": "1. Implemented Accessibility Features",
+        "bn": "১. বাস্তবায়িত অ্যাক্সেসিবিলিটি সুবিধাসমূহ",
+        "ar": "١. الميزات المنفذة لتسهيل الوصول"
+      },
+      "content": {
+        "en": "Our platform incorporates:\n- **High Color Contrast:** Designed with deep navy (`#0a192f`) and refined gold (`#d4af37`) exceeding minimum 4.5:1 text contrast ratios.\n- **Semantic HTML5:** Native landmark tags (`<header>`, `<main>`, `<footer>`, `<aside>`, `aria-label`).\n- **Full Keyboard Operability:** All interactive buttons, modals, and cookie preference controls are accessible via keyboard Tab, Enter, and Space keys.\n- **Multilingual Typography & RTL Support:** Optimized font rendering for Bengali and right-to-left layout direction for Arabic.",
+        "bn": "আমাদের ওয়েবসাইটে উচ্চ কালার কন্ট্রাস্ট, কিবোর্ড নেভিগেশন সুবিধা, স্ক্রিন রিডার সহায়ক লেবেল এবং বাংলা ও আরবি ফ্রন্টের বিশেষ সামঞ্জস্য বিধান করা হয়েছে।",
+        "ar": "يشمل الموقع تباين ألوان مرتفع، دعم التنقل بالكامل عبر لوحة المفاتيح، وتوافق تام مع قارئات الشاشة واللغات من اليمين إلى اليسار."
+      }
+    },
+    {
+      "id": "feedback-channel",
+      "title": {
+        "en": "2. Accessibility Feedback & Assistance",
+        "bn": "২. মতামত ও সহায়তা চ্যানেল",
+        "ar": "٢. قنوات الدعم والملاحظات"
+      },
+      "content": {
+        "en": "If you encounter any accessibility barrier or require content in an alternative format, please email **accessibility@9startechnologies.com**. We review all submissions within three (3) business days.",
+        "bn": "কোনো ধরনের সমস্যা লক্ষ্য করলে আমাদের **accessibility@9startechnologies.com** এ জানান। আমরা ৩ কার্যদিবসের মধ্যে সহায়তা প্রদান করব।",
+        "ar": "إذا واجهت أي صعوبة في الوصول، يرجى مراسلتنا على accessibility@9startechnologies.com."
+      }
+    }
+  ]
+}

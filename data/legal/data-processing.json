@@ -1,0 +1,50 @@
+{
+  "slug": "data-processing",
+  "title": {
+    "en": "Data Processing & Protection Notice",
+    "bn": "ডাটা প্রসেসিং ও সুরক্ষা বিবরণী",
+    "ar": "إشعار معالجة وحماية البيانات"
+  },
+  "subtitle": {
+    "en": "Operational technical details on controller/processor relationships, data handling, and client project confidentiality.",
+    "bn": "ডাটা কন্ট্রোলার ও প্রসেসরের দায়িত্ব, ক্লায়েন্ট প্রজেক্টের নিরাপত্তা ও তথ্যের সুরক্ষার বিস্তারিত।",
+    "ar": "تفاصيل فنية حول مسؤوليات معالجة البيانات وأمن المشاريع الرقمية."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This notice defines how 9STAR Technologies acts both as a Data Controller for our website visitors and as a Data Processor for clients who engage us to build and host custom software systems.",
+    "bn": "এই বিবরণীতে স্পষ্ট করা হয়েছে যে ৯স্টার টেকনোলজিস সাধারণ ওয়েব ভিজিটরদের জন্য কন্ট্রোলার এবং ক্লায়েন্টের সফটওয়্যার প্রজেক্টের জন্য প্রসেসর হিসেবে কীভাবে কাজ করে।",
+    "ar": "يوضح هذا المستند دورنا كمسؤول بيانات لزوار الموقع وكمعالج بيانات لعملاء المشاريع البرمجية."
+  },
+  "sections": [
+    {
+      "id": "processing-roles",
+      "title": {
+        "en": "1. Distinction of Processing Roles",
+        "bn": "১. প্রসেসিং ভূমিকার স্বাতন্ত্র্য",
+        "ar": "١. تحديد أدوار معالجة البيانات"
+      },
+      "content": {
+        "en": "- **As a Data Controller:** We determine the purposes and means of processing personal data collected from website visitors and prospective clients submitting service forms.\n- **As a Data Processor:** When clients hire us to build, deploy, or maintain bespoke software systems containing their end-users' data, 9STAR Technologies processes that data strictly pursuant to the client's documented instructions and bilateral Data Processing Agreement (DPA).",
+        "bn": "- **কন্ট্রোলার হিসেবে:** আমাদের ওয়েবসাইটে সরাসরি জমা দেওয়া তথ্যের ক্ষেত্রে আমরা কন্ট্রোলার হিসেবে দায়িত্ব পালন করি।\n- **প্রসেসর হিসেবে:** ক্লায়েন্টের জন্য যখন আমরা কাস্টম সফটওয়্যার তৈরি বা হোস্ট করি, তখন ক্লায়েন্টের নির্দেশিকা এবং চুক্তির আওতায় আমরা প্রসেসর হিসেবে কাজ করি।",
+        "ar": "نعمل كمسؤول بيانات لزوار موقعنا، وكمعالج بيانات معتمد لبيانات مشاريع عملائنا وفقاً لاتفاقية المعالجة."
+      }
+    },
+    {
+      "id": "technical-safeguards",
+      "title": {
+        "en": "2. Technical & Organizational Measures (TOMs)",
+        "bn": "২. প্রযুক্তিগত ও সাংগঠনিক নিরাপত্তা ব্যবস্থা",
+        "ar": "٢. التدابير الفنية والتنظيمية"
+      },
+      "content": {
+        "en": "We implement robust measures to protect against accidental loss or unauthorized disclosure:\n- **Least-Privilege RBAC:** Access to development databases and client requests is restricted strictly to authorized engineers.\n- **Encrypted Transmission:** TLS 1.3 encryption across all communication endpoints.\n- **Separation of Environments:** Development, testing, and production environments are isolated.",
+        "bn": "আমরা ডেভলপমেন্ট ডাটাবেজে কঠোর ভূমিকা-ভিত্তিক প্রবেশাধিকার (RBAC), TLS 1.3 এনক্রিপশন এবং পৃথক পরিবেশ বজায় রাখি।",
+        "ar": "نعتمد ضوابط أمنية صارمة تشمل الفصل بين بيئات التطوير والتشغيل وتشفير كافة الاتصالات."
+      }
+    }
+  ]
+}

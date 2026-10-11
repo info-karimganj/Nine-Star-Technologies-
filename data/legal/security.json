@@ -1,0 +1,50 @@
+{
+  "slug": "security",
+  "title": {
+    "en": "Security & Vulnerability Disclosure",
+    "bn": "নিরাপত্তা ও ভালনারেবিলিটি প্রকাশ নীতি",
+    "ar": "سياسة الأمان والإبلاغ عن الثغرات"
+  },
+  "subtitle": {
+    "en": "Guidelines for responsible cybersecurity vulnerability disclosure and technical infrastructure defense.",
+    "bn": "সাইবার নিরাপত্তা ত্রুটি দায়িত্বশীলভাবে রিপোর্ট করার নিয়মাবলী ও পরিকাঠামো সুরক্ষার বিবরণ।",
+    "ar": "إرشادات الإبلاغ المسؤول عن الثغرات الأمنية لحماية البنية التحتية."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "9STAR Technologies takes information security seriously. We welcome responsible disclosures from ethical researchers and maintain strict defense standards.",
+    "bn": "৯স্টার টেকনোলজিস সাইবার নিরাপত্তাকে সর্বোচ্চ অগ্রাধিকার দেয় এবং গবেষকদের কাছ থেকে দায়িত্বশীল ত্রুটি প্রকাশের আহ্বান জানায়।",
+    "ar": "تولي ناين ستار أقصى درجات الاهتمام بالأمان السيبراني وترحب بالإبلاغ المسؤول عن أي ثغرات."
+  },
+  "sections": [
+    {
+      "id": "responsible-disclosure",
+      "title": {
+        "en": "1. Responsible Vulnerability Disclosure Guidelines",
+        "bn": "১. দায়িত্বশীল ত্রুটি প্রকাশের নির্দেশিকা",
+        "ar": "١. إرشادات الإبلاغ المسؤول"
+      },
+      "content": {
+        "en": "If you discover a potential vulnerability in our online services, we ask that you:\n- Email full technical details to **security@9startechnologies.com**.\n- Allow us reasonable time (minimum 30 days) to remediate the vulnerability before public disclosure.\n- Avoid compromising user privacy, disrupting production servers, or executing data destruction.\n- Do not perform social engineering, phishing, or physical attacks.",
+        "bn": "কোনো নিরাপত্তা ত্রুটি পাওয়া গেলে **security@9startechnologies.com** এ বিস্তারিত জানান। জনসমক্ষে প্রকাশের আগে সমাধানের জন্য উপযুক্ত সময় দিন এবং সাইটের ক্ষতিসাধন থেকে বিরত থাকুন।",
+        "ar": "يرجى إرسال تفاصيل الثغرات إلى security@9startechnologies.com مع إمهال الفريق وقتاً لمعالجتها قبل أي نشر علني."
+      }
+    },
+    {
+      "id": "safe-harbor",
+      "title": {
+        "en": "2. Safe Harbor Commitment",
+        "bn": "২. সেইফ হারবার প্রতিশ্রুতি",
+        "ar": "٢. تعهد الملاذ الآمن للباحثين"
+      },
+      "content": {
+        "en": "We will not initiate legal action against security researchers who act in good faith and strictly adhere to these responsible disclosure principles.",
+        "bn": "নীতিমালা মেনে দায়িত্বশীলভাবে কাজ করা গবেষকদের বিরুদ্ধে কোনো আইনি পদক্ষেপ নেওয়া হবে না।",
+        "ar": "تتعهد الشركة بعدم اتخاذ أي إجراءات قانونية ضد الباحثين الذين يلتزمون بحسن النية وهذه الشروط."
+      }
+    }
+  ]
+}

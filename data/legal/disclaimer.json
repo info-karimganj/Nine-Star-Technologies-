@@ -1,0 +1,50 @@
+{
+  "slug": "disclaimer",
+  "title": {
+    "en": "Website & Service Disclaimer",
+    "bn": "ওয়েবসাইট ও সেবামূলক ডিসক্লেইমার",
+    "ar": "إخلاء المسؤولية العامة"
+  },
+  "subtitle": {
+    "en": "Legal boundaries regarding website content, non-agency status, and technological estimations.",
+    "bn": "ওয়েবসাইটের তথ্য, বেসরকারি মর্যাদা এবং কারিগরি অনুমানের আইনি সীমানা।",
+    "ar": "الحدود القانونية لمعلومات الموقع والصفة المؤسسية للشركة."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This disclaimer clarifies that 9STAR Technologies provides software and IT services on an independent commercial basis and makes no unauthorized regulatory representations.",
+    "bn": "এই ডিসক্লেইমারে স্পষ্ট করা হয়েছে যে ৯স্টার টেকনোলজিস একটি স্বাধীন প্রযুক্তি প্রতিষ্ঠান এবং ওয়েবসাইটের তথ্য কেবল প্রাথমিক ধারণার জন্য প্রযোজ্য।",
+    "ar": "يوضح هذا الإخلاء أن خدمات ناين ستار هي خدمات تقنية تجارية مستقلة."
+  },
+  "sections": [
+    {
+      "id": "independent-entity",
+      "title": {
+        "en": "1. No Government Agency Affiliation",
+        "bn": "১. কোনো সরকারি সংস্থার সাথে সম্পর্কহীনতা",
+        "ar": "١. عدم التبعية لأي جهة حكومية"
+      },
+      "content": {
+        "en": "9STAR Technologies is a private technology consulting firm. We are NOT affiliated with, sponsored by, or an agent of any governmental agency, department, or consular authority. Any document management services are purely technological and administrative tools provided for our clients' convenience.",
+        "bn": "৯স্টার টেকনোলজিস একটি বেসরকারি আইটি প্রতিষ্ঠান। আমরা কোনো সরকারি সংস্থা, দূতাবাস বা কর্তৃপক্ষের শাখা নই।",
+        "ar": "ناين ستار للتقنية شركة خاصة مستقلة ولا تتبع أي وزارة أو مؤسسة حكومية أو قنصلية."
+      }
+    },
+    {
+      "id": "estimates-and-outcomes",
+      "title": {
+        "en": "2. Estimates and Timeframes",
+        "bn": "২. সময় ও বাজেট সংক্রান্ত অনুমান",
+        "ar": "٢. التقديرات الزمنية والتكاليف"
+      },
+      "content": {
+        "en": "Project timelines, budgets, and technical estimates displayed on this site are indicative benchmarks based on standard project scopes. Exact delivery schedules and costs are established solely in formal written contracts.",
+        "bn": "ওয়েবসাইটে উল্লিখিত আনুমানিক সময়সীমা ও মূল্য প্রাথমিক ধারণামাত্র। চূড়ান্ত সময় ও মূল্য আনুষ্ঠানিক চুক্তির মাধ্যমে নির্ধারিত হবে।",
+        "ar": "المدد الزمنية والأسعار التقديرية بالموقع هي للمؤشرات الأولية فقط، والعقد الرسمي هو المرجع الحاسم."
+      }
+    }
+  ]
+}

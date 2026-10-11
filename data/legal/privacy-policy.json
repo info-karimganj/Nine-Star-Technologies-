@@ -1,0 +1,141 @@
+{
+  "slug": "privacy-policy",
+  "title": {
+    "en": "Privacy Policy",
+    "bn": "গোপনীয়তা নীতি (Privacy Policy)",
+    "ar": "سياسة الخصوصية"
+  },
+  "subtitle": {
+    "en": "Comprehensive information on how 9STAR Technologies handles personal data, technical diagnostics, and user rights.",
+    "bn": "৯স্টার টেকনোলজিস কীভাবে আপনার ব্যক্তিগত তথ্য, কারিগরি ডাটা এবং অধিকারসমূহ পরিচালনা করে তার বিস্তারিত বিবরণ।",
+    "ar": "معلومات شاملة حول كيفية تعامل ناين ستار مع البيانات الشخصية وحقوق المستخدمين."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.1",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This Privacy Policy describes how 9STAR Technologies collects, processes, and protects your personal data when you visit our website, submit service inquiries, or engage with our technical solutions. We respect global privacy standards, avoid unnecessary data gathering, and ensure technical transparency.",
+    "bn": "এই গোপনীয়তা নীতিতে ব্যাখ্যা করা হয়েছে কীভাবে ৯স্টার টেকনোলজিস আপনার ব্যক্তিগত তথ্য ও পরিষেবা অনুরোধ নিরাপদভাবে পরিচালনা করে। আমরা তথ্যের অনাবশ্যক সংগ্রহ পরিহার করি এবং আন্তর্জাতিক মানদণ্ড অনুসরণ করি।",
+    "ar": "توضح هذه السياسة كيفية جمع البيانات ومعالجتها بشفافية وأمان عند طلب الخدمات أو تصفح موقعنا."
+  },
+  "sections": [
+    {
+      "id": "operator-identification",
+      "title": {
+        "en": "1. Data Controller & Operator Identification",
+        "bn": "১. দায়িত্বপ্রাপ্ত প্রতিষ্ঠান ও যোগাযোগ",
+        "ar": "١. تحديد مسؤول معالجة البيانات"
+      },
+      "content": {
+        "en": "This website and its associated technological services are operated by **9STAR Technologies** (\"we\", \"us\", or \"our\").\n\n- **Operating Entity:** 9STAR Technologies\n- **Primary Contact & Support:** contact@9startechnologies.com\n- **Security & Privacy Desk:** privacy@9startechnologies.com\n- **Administrative Headquarters / Physical Office:** [Official Registered Office Address Pending Corporate Formalization — Please contact support for administrative inquiries].\n\nIf you have any questions or wish to exercise your statutory rights regarding personal data, please contact our privacy desk directly.",
+        "bn": "এই ওয়েবসাইট এবং প্রযুক্তিগত সেবা কার্যক্রম **৯স্টার টেকনোলজিস** (9STAR Technologies) দ্বারা পরিচালিত।\n\n- **অপারেটর:** ৯স্টার টেকনোলজিস\n- **যোগাযোগ ও সাপোর্ট:** contact@9startechnologies.com\n- **গোপনীয়তা ও ডাটা সুরক্ষা ডেস্ক:** privacy@9startechnologies.com\n- **নিবন্ধিত ঠিকানা:** [প্রাতিষ্ঠানিক ঠিকানা চূড়ান্তকরণাধীন — প্রশাসনিক তথ্যের জন্য ইমেইলে যোগাযোগ করুন]।",
+        "ar": "يتم تشغيل هذا الموقع والخدمات التقنية بواسطة ناين ستار للتقنية (9STAR Technologies).\n\n- البريد الإلكتروني للدعم: contact@9startechnologies.com\n- مكتب الخصوصية: privacy@9startechnologies.com"
+      }
+    },
+    {
+      "id": "scope-and-applicability",
+      "title": {
+        "en": "2. Scope of this Policy",
+        "bn": "২. নীতির আওতা ও ক্ষেত্র",
+        "ar": "٢. نطاق هذه السياسة"
+      },
+      "content": {
+        "en": "This policy applies exclusively to personal information gathered through the 9STAR Technologies public website, interactive service request wizards, contact forms, and automated communications. It does not govern third-party platforms, social networks, or independent services linked from our portal.",
+        "bn": "এই নীতি ৯স্টার টেকনোলজিস ওয়েবসাইটের মাধ্যমে প্রাপ্ত ভিজিট, যোগাযোগ ফর্ম, এবং সেবা অনুরোধ ফর্মের তথ্যের ক্ষেত্রে প্রযোজ্য। সাইট থেকে লিঙ্ক করা কোনো তৃতীয় পক্ষের বাহ্যিক ওয়েবসাইটের ক্ষেত্রে এটি প্রযোজ্য নয়।",
+        "ar": "ينطبق هذا البيان فقط على البيانات التي يتم جمعها من خلال هذا الموقع ونماذج طلب الخدمات المباشرة."
+      }
+    },
+    {
+      "id": "data-categories-collected",
+      "title": {
+        "en": "3. Categories of Information Collected",
+        "bn": "৩. সংগৃহীত তথ্যের ধরণসমূহ",
+        "ar": "٣. فئات البيانات التي نجمعها"
+      },
+      "content": {
+        "en": "We collect two core classes of data:\n\n**A. Information You Voluntarily Provide:**\n- **Contact & Identity Details:** Full name, business email address, phone number, and country of residence.\n- **Project & Service Specifications:** Project goals, requirements, technical constraints, budget range, and timeline estimates.\n- **Document Attachments:** Files, specifications, and project assets uploaded via the multi-step service request form.\n\n**B. Technical & Operational Information (Automatically Logged):**\n- **Diagnostics & Network Telemetry:** Truncated/anonymized IP addresses, browser user-agent string, operating system type, screen dimensions, and referring URL.\n- **Session & Essential Storage:** Cryptographic authentication tokens (for verified administrators only) and your privacy consent preferences stored locally in your browser.",
+        "bn": "আমরা দুই ধরনের তথ্য সংগ্রহ করি:\n\n**ক. আপনার স্বেচ্ছায় প্রদত্ত তথ্য:**\n- নাম, ইমেইল ঠিকানা, ফোন নম্বর এবং দেশ।\n- প্রজেক্টের বিবরণ, বাজেট, সময়সীমা এবং সংযুক্ত ফাইলসমূহ।\n\n**খ. স্বয়ংক্রিয় কারিগরি তথ্য:**\n- ব্রাউজারের ধরণ, অপারেটিং সিস্টেম, এবং ছদ্মনামযুক্ত নেটওয়ার্ক ডায়াগনস্টিক তথ্য।\n- ব্রাউজার স্টোরেজে সংরক্ষিত আপনার কুকি পছন্দ এবং অ্যাডমিন সেশন টোকেন।",
+        "ar": "نجمع البيانات التي تقدمها طواعية في نماذج الاتصال وطلب الخدمات (الاسم، البريد، تفاصيل المشروع والملفات المرفقة) بالإضافة إلى البيانات التقنية الضرورية لأمان النظام."
+      }
+    },
+    {
+      "id": "purposes-and-legal-bases",
+      "title": {
+        "en": "4. Purposes of Processing & Legal Grounds",
+        "bn": "৪. ডাটা প্রক্রিয়াকরণের উদ্দেশ্য ও আইনি ভিত্তি",
+        "ar": "٤. أغراض ومعايير المعالجة القانونية"
+      },
+      "content": {
+        "en": "Under international data protection frameworks (such as GDPR Art. 6), we only process your data on valid legal grounds:\n\n1. **Contractual Necessity & Pre-contractual Inquiries (Art. 6(1)(b)):** Evaluating, scoping, and quoting service requests; communicating project deliverables.\n2. **Legitimate Interests (Art. 6(1)(f)):** Protecting server infrastructure against brute-force attacks, spam bots, and abuse; analyzing aggregated system reliability.\n3. **Legal Compliance (Art. 6(1)(c)):** Retaining tax and administrative records where statutory obligations apply.\n4. **Affirmative Consent (Art. 6(1)(a)):** Storing non-essential functional preferences and anonymous telemetry (only activated after your explicit selection).",
+        "bn": "আমরা সুনির্দিষ্ট আইনি ভিত্তিতে তথ্য প্রক্রিয়া করি:\n\n১. **চুক্তি ও সেবা অনুরোধ বাস্তবায়ন:** আপনার জমা দেওয়া সেবা অনুরোধের প্রেক্ষিতে যোগাযোগ এবং কোটেশন প্রস্তুত করা।\n২. **ন্যায্য ব্যবসায়িক স্বার্থ (Legitimate Interest):** ওয়েবসাইটের নিরাপত্তা নিশ্চিতকরণ এবং সাইবার আক্রমণ প্রতিরোধ।\n৩. **সম্মতি (Consent):** ঐচ্ছিক কুকি এবং অ্যানালিটিক্স কেবল আপনার স্পষ্ট সম্মতির পরই সক্রিয় হয়।",
+        "ar": "تتم معالجة البيانات لأغراض إعداد العروض التعاقدية، حماية أمان الخوادم من الهجمات الإلكترونية، والامتثال للأنظمة القانونية."
+      }
+    },
+    {
+      "id": "third-party-disclosures",
+      "title": {
+        "en": "5. Processors, Third Parties & Data Recipients",
+        "bn": "৫. তৃতীয় পক্ষ ও সাব-প্রসেসর তথ্য",
+        "ar": "٥. الإفصاح للجهات الخارجية والمزودين"
+      },
+      "content": {
+        "en": "We do not sell, rent, or trade your personal data to advertisers or data brokers. Data is accessible solely to authorized personnel and necessary technical infrastructure providers:\n\n- **Cloud Hosting & CDN:** Modern cloud platform hosts providing TLS transport and edge routing.\n- **Database Infrastructure:** Local file-based and secured server environments with restricted access.\n- **Client Confidentiality:** All project files and documentation submitted are treated under strict commercial confidentiality.",
+        "bn": "আমরা কখনই আপনার তথ্য কোনো বিজ্ঞাপনী সংস্থা বা ব্রোকারের কাছে বিক্রি বা ভাড়া দিই না। শুধুমাত্র ক্লাউড হোস্টিং এবং অনুমোদিত প্রযুক্তিগত অবকাঠামোতে এনক্রিপ্ট অবস্থায় ডাটা সংরক্ষিত থাকে।",
+        "ar": "نحن لا نبيع أو نشارك بياناتك مع معلنين خارجيين. البيانات محصورة بالبنية التحتية السحابية الموثوقة والمشفرة."
+      }
+    },
+    {
+      "id": "data-retention",
+      "title": {
+        "en": "6. Data Retention Schedule & Criteria",
+        "bn": "৬. তথ্য সংরক্ষণের সময়সীমা ও নীতি",
+        "ar": "٦. فترات وسياسات الاحتفاظ بالبيانات"
+      },
+      "content": {
+        "en": "- **Service Inquiries & Quotes:** Retained for up to twenty-four (24) months to facilitate ongoing project collaboration and historical quotations, after which they are archived or securely expunged.\n- **Audit & Security Logs:** Administrative actions and security telemetry are preserved for up to twelve (12) months to detect malicious activity and fulfill security compliance.\n- **Consent Choices:** Preference records are maintained in your local browser storage for up to 12 months unless cleared manually.",
+        "bn": "- সেবা অনুসন্ধান ও যোগাযোগ তথ্য সর্বোচ্চ ২৪ মাস সংরক্ষিত থাকে এবং পরবর্তীতে নিরাপদভাবে মুছে ফেলা হয়।\n- সিকিউরিটি অডিট লগ সর্বোচ্চ ১২ মাস সংরক্ষিত থাকে।\n- কুকি সম্মতি তথ্য ব্রাউজারে ১২ মাস সংরক্ষিত থাকে।",
+        "ar": "يتم الاحتفاظ بطلبات الخدمات لمدة تصل إلى ٢٤ شهراً لأغراض المتابعة، بينما تحتفظ سجلات الأمان ببياناتها لمدة ١٢ شهراً."
+      }
+    },
+    {
+      "id": "user-rights",
+      "title": {
+        "en": "7. Your Rights & How to Submit Requests",
+        "bn": "৭. আপনার অধিকারসমূহ এবং আবেদন প্রক্রিয়া",
+        "ar": "٧. حقوق المستخدمين وآلية تقديم الطلبات"
+      },
+      "content": {
+        "en": "Depending on your jurisdiction (e.g. EU/EEA, UK, California, Bangladesh, Iraq), you may enjoy several statutory rights:\n\n- **Right to Access:** Obtain confirmation of data held and a copy thereof.\n- **Right to Rectification:** Correct inaccurate or outdated details.\n- **Right to Erasure (\"Right to be Forgotten\"):** Request deletion where data is no longer necessary.\n- **Right to Restrict or Object:** Limit processing in specific contested scenarios.\n- **Withdrawal of Consent:** Revoke previously granted cookie consent at any time without detriment.\n\nTo submit a verifiable privacy request, email us at **privacy@9startechnologies.com** with the subject \"Privacy Request: [Your Name]\". We verify identity and respond within thirty (30) days as required by prevailing standards.",
+        "bn": "আইন অনুযায়ী আপনার নিচের অধিকারসমূহ রয়েছে:\n\n- তথ্য দেখার ও জানার অধিকার (Right to Access)\n- ভুল তথ্য সংশোধনের অধিকার (Right to Rectification)\n- তথ্য মুছে ফেলার অনুরোধের অধিকার (Right to Erasure)\n- সম্মতি প্রত্যাহারের অধিকার (Right to Withdraw Consent)\n\nঅধিকার প্রয়োগ করতে **privacy@9startechnologies.com** এ ইমেইল করুন।",
+        "ar": "يحق لك طلب الوصول إلى بياناتك، تصحيحها، أو حذفها وسحب الموافقة في أي وقت عبر التواصل مع privacy@9startechnologies.com."
+      }
+    },
+    {
+      "id": "security-measures",
+      "title": {
+        "en": "8. Cybersecurity Safeguards",
+        "bn": "৮. সাইবার নিরাপত্তা ও সুরক্ষা ব্যবস্থা",
+        "ar": "٨. تدابير الأمن السيبراني"
+      },
+      "content": {
+        "en": "We deploy defense-in-depth security standards: HSTS (HTTP Strict Transport Security), modern TLS 1.3 cryptographic transport, strict Content-Security and Framing headers, rate limiting, and salted password hashing (PBKDF2/SHA-256) for administrator accounts.\n\n*Important Notice:* No internet transmission is 100% impenetrable. While we enforce strict safeguards, users share responsibility for securing their communication devices and credentials.",
+        "bn": "আমরা আধুনিক সাইবার নিরাপত্তা ব্যবস্থা যেমন TLS 1.3 এনক্রিপশন, HSTS, সিকিউরিটি হেডার এবং শক্তিশালী পাসওয়ার্ড হ্যাশিং ব্যবহার করি।",
+        "ar": "نطبق معايير أمان مشددة تشمل التشفير الكامل لنقل البيانات وضوابط الوصول المشددة."
+      }
+    },
+    {
+      "id": "children-privacy",
+      "title": {
+        "en": "9. Children's Privacy",
+        "bn": "৯. অপ্রাপ্তবয়স্কদের গোপনীয়তা",
+        "ar": "٩. خصوصية الأطفال"
+      },
+      "content": {
+        "en": "Our website and enterprise technology offerings are directed solely to business professionals, founders, and adults over the age of majority (18+). We do not knowingly solicit or collect personal data from minors.",
+        "bn": "আমাদের সেবা এবং ওয়েবসাইট ১৮ বছরের ঊর্ধ্বের প্রাপ্তবয়স্ক ও ব্যবসায়িক প্রতিষ্ঠানের জন্য নির্ধারিত। আমরা অপ্রাপ্তবয়স্কদের তথ্য উদ্দেশ্যমূলকভাবে সংগ্রহ করি না।",
+        "ar": "خدماتنا موجهة حصرياً للبالغين والشركات، ولا نجمع عمداً بيانات تخص القاصرين."
+      }
+    }
+  ]
+}

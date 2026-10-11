@@ -1,0 +1,13 @@
+[
+  {
+    "id": "usr-superadmin-1",
+    "email": "admin@9star.com",
+    "name": "System Super Admin",
+    "role": "SUPER_ADMIN",
+    "isActive": true,
+    "passwordHash": "b264939a00eb68649002d30201c082cc51d9bddc4b81f537a16d3cca8066d038cec70cee71ef4ae3e6afc2eca0a7b0f54c5949d3a0097628b9682f38ada010ba",
+    "salt": "de73fa015926539f68c22534df57e236",
+    "createdAt": "2026-10-10T23:20:46.902Z",
+    "lastLoginAt": "2026-10-10T23:20:46.909Z"
+  }
+]

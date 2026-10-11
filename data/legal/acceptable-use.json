@@ -1,0 +1,50 @@
+{
+  "slug": "acceptable-use",
+  "title": {
+    "en": "Acceptable Use Policy (AUP)",
+    "bn": "গ্রহণযোগ্য ব্যবহার নীতি (Acceptable Use)",
+    "ar": "سياسة الاستخدام المقبول"
+  },
+  "subtitle": {
+    "en": "Standards of conduct, prohibited activities, and security protections governing our digital platform.",
+    "bn": "আমাদের ডিজিটাল প্ল্যাটফর্ম এবং সেবা ব্যবহারের ক্ষেত্রে আচরণবিধি ও নিষিদ্ধ কার্যক্রমের নির্দেশিকা।",
+    "ar": "معايير السلوك والأنشطة المحظورة لحماية أمان واستقرار المنصة."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.0",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This Acceptable Use Policy outlines the rules for interacting with 9STAR Technologies' online infrastructure, forms, and digital communication tools.",
+    "bn": "এই নীতিতে প্ল্যাটফর্মের নিরাপত্তা বিঘ্নিতকারী কোনো অনৈতিক বা ক্ষতিকর কার্যকলাপ প্রতিরোধে বিস্তারিত নির্দেশনা দেওয়া হয়েছে।",
+    "ar": "تحدد هذه السياسة القواعد الواجب اتباعها عند استخدام موقعنا والتفاعل مع خدماتنا الرقمية."
+  },
+  "sections": [
+    {
+      "id": "prohibited-activities",
+      "title": {
+        "en": "1. Strictly Prohibited Activities",
+        "bn": "১. কঠোরভাবে নিষিদ্ধ কার্যক্রম",
+        "ar": "١. الأنشطة المحظورة تماماً"
+      },
+      "content": {
+        "en": "Users must not engage in any activity that harms or attempts to harm the platform, including:\n- Distributing viruses, worms, malware, or destructive code.\n- Launching Denial-of-Service (DoS/DDoS) attacks or automated load spikes.\n- Scraping, automated harvesting, or unauthorized indexing of customer requests.\n- Attempting privilege escalation or administrative interface bypass.",
+        "bn": "প্ল্যাটফর্মে ম্যালওয়্যার ছড়ানো, ডিডিওএস (DDoS) আক্রমণ, অটোমেটেড স্ক্র্যাপিং বা অননুমোদিত অ্যাক্সেস সম্পূর্ণ নিষিদ্ধ।",
+        "ar": "يمنع منعاً باتاً نشر الفيروسات، شن هجمات حجب الخدمة، أو استخراج البيانات بطرق آلية غير مصرح بها."
+      }
+    },
+    {
+      "id": "enforcement-and-reporting",
+      "title": {
+        "en": "2. Violations and Enforcement",
+        "bn": "২. লঙ্ঘন এবং আইনি পদক্ষেপ",
+        "ar": "٢. الإجراءات عند مخالفة السياسة"
+      },
+      "content": {
+        "en": "We reserve the right to block offending IP addresses, cancel pending service inquiries, and report criminal cybersecurity breaches to competent law enforcement agencies.",
+        "bn": "নিয়ম লঙ্ঘনকারী আইপি ঠিকানা ব্লক করা এবং প্রয়োজনবোধে আইন প্রয়োগকারী সংস্থাকে অবহিত করার অধিকার সংরক্ষিত।",
+        "ar": "تحتفظ الشركة بحق حظر عناوين IP المخالفة وإبلاغ السلطات المختصة عن الجرائم السيبرانية."
+      }
+    }
+  ]
+}

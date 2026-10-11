@@ -1,0 +1,76 @@
+{
+  "slug": "cookie-policy",
+  "title": {
+    "en": "Cookie & Tracking Policy",
+    "bn": "কুকি ও ট্র্যাকিং নীতি (Cookie Policy)",
+    "ar": "سياسة ملفات تعريف الارتباط"
+  },
+  "subtitle": {
+    "en": "Transparent declaration of all browser storage technologies, purpose categories, and technical consent controls.",
+    "bn": "ওয়েবসাইটে ব্যবহৃত ব্রাউজার কুকি, লোকাল স্টোরেজ এবং আপনার সম্মতি নিয়ন্ত্রণের বিস্তারিত বিবরণ।",
+    "ar": "بيان شفاف حول ملفات تعريف الارتباط وتقنيات التخزين وخيارات التحكم المتاحة لك."
+  },
+  "effectiveDate": "2026-01-01",
+  "lastUpdated": "2026-10-12",
+  "version": "2.1",
+  "status": "PUBLISHED",
+  "summary": {
+    "en": "This Cookie Policy explains what cookies and local storage keys are utilized on 9STAR Technologies' platform, why they exist, and how you can exercise granular control over non-essential technologies.",
+    "bn": "এই নীতিতে ব্যাখ্যা করা হয়েছে ৯স্টার টেকনোলজিস কী কী কুকি ব্যবহার করে এবং কীভাবে আপনি আপনার পছন্দ নিয়ন্ত্রণ করতে পারেন।",
+    "ar": "توضح هذه السياسة كيفية استخدام ملفات تعريف الارتباط وتمنحك التحكم الكامل في قبولها أو رفضها."
+  },
+  "sections": [
+    {
+      "id": "what-are-cookies",
+      "title": {
+        "en": "1. What are Cookies and Browser Storage?",
+        "bn": "১. কুকি এবং ব্রাউজার স্টোরেজ কী?",
+        "ar": "١. ما هي ملفات تعريف الارتباط؟"
+      },
+      "content": {
+        "en": "Cookies and Web Storage (localStorage / sessionStorage) are small data files placed on your computer or mobile device by websites you visit. They are widely used to maintain security sessions, record user preferences, and ensure seamless navigation.",
+        "bn": "কুকি হলো ছোট ডাটা ফাইল যা আপনার ব্রাউজারে সংরক্ষিত হয় যাতে ওয়েবসাইট নিরাপদে পরিচালিত হতে পারে এবং আপনার পছন্দ মনে রাখতে পারে।",
+        "ar": "ملفات تعريف الارتباط هي ملفات بيانات صغيرة يتم حفظها على جهازك لتمكين الموقع من العمل بكفاءة وأمان."
+      }
+    },
+    {
+      "id": "cookie-categories",
+      "title": {
+        "en": "2. Categories of Technologies We Use",
+        "bn": "২. ব্যবহৃত প্রযুক্তির ক্যাটাগরি",
+        "ar": "٢. فئات التقنيات المستخدمة"
+      },
+      "content": {
+        "en": "We categorize our web storage items into four strict levels:\n\n1. **Strictly Necessary (Always Active):** Crucial for cryptographic authentication, CSRF defense, and persisting your cookie choices. These do not require consent under ePrivacy Directive Art. 5(3).\n2. **Preferences & Functional (Optional):** Stores your language preference across visits.\n3. **Analytics & Performance (Optional):** Measures page interaction anonymously to improve user experience without collecting PII. **Strictly blocked until you consent.**\n4. **Marketing & Targeting (Optional):** We do NOT deploy advertising trackers, behavioral pixels, or cross-site commercial cookies.",
+        "bn": "আমাদের ক্যাটাগরিসমূহ:\n\n১. **অপরিহার্য (Strictly Necessary):** নিরাপত্তার জন্য বাধ্যতামূলক (সর্বদা সক্রিয়)।\n২. **পছন্দসমূহ (Preferences):** ভাষা ও ইন্টারফেস পছন্দ।\n৩. **অ্যানালিটিক্স (Analytics):** সাইটের কার্যক্ষমতা পর্যবেক্ষণে ব্যবহৃত (আপনার সম্মতি ছাড়া সক্রিয় হয় না)।\n৪. **মার্কেটিং:** আমরা কোনো বিজ্ঞাপনী ট্র্যাকার ব্যবহার করি না।",
+        "ar": "نقسم التقنيات إلى: ضرورية للأمان، وظيفية للغات، وتحليلية مجهولة الهوية ولا يتم تفعيلها إلا بعد موافقتك الصريحة."
+      }
+    },
+    {
+      "id": "technical-inventory",
+      "title": {
+        "en": "3. Complete Technical Storage Inventory",
+        "bn": "৩. সম্পূর্ণ প্রযুক্তিগত কুকি ইনভেন্টরি",
+        "ar": "٣. سجل التقنيات وملفات تعريف الارتباط"
+      },
+      "content": {
+        "en": "| Key / Identifier | Provider & Domain | Category | Lifespan | Purpose |\n|---|---|---|---|---|\n| `9star_admin_token` | 9STAR Platform (First-Party) | Strictly Necessary | Session / 24h | Cryptographic admin authentication cookie |\n| `9star_cookie_consent_v1` | 9STAR Platform (localStorage) | Strictly Necessary | 12 Months | Stores your privacy category choices |\n| `9star_consent` | 9STAR Platform (First-Party) | Strictly Necessary | 12 Months | SSR middleware consent indicator |\n| `9star_lang` | 9STAR Platform (First-Party) | Preferences | 12 Months | Remembers language choice (EN/BN/AR) |\n| `9star_analytics_events` | 9STAR Platform (localStorage) | Analytics | Session | Anonymized funnel metrics (Gated by consent) |",
+        "bn": "| কী (Key) | উৎস | ক্যাটাগরি | মেয়াদ | উদ্দেশ্য |\n|---|---|---|---|---|\n| `9star_admin_token` | ৯স্টার প্ল্যাটফর্ম | প্রয়োজনীয় | ২৪ ঘণ্টা | অ্যাডমিন প্রমাণীকরণ |\n| `9star_cookie_consent_v1` | লোকাল স্টোরেজ | প্রয়োজনীয় | ১২ মাস | আপনার গোপনীয়তা পছন্দ রেকর্ড |\n| `9star_consent` | কুকি | প্রয়োজনীয় | ১২ মাস | সার্ভার-সাইড সম্মতি স্ট্যাটাস |\n| `9star_lang` | কুকি | প্রেফারেন্স | ১২ মাস | নির্বাচিত ভাষা সংরক্ষণ |\n| `9star_analytics_events` | লোকাল স্টোরেজ | অ্যানালিটিক্স | সেশন | বেনামে সাইটের ব্যবহার পর্যবেক্ষণ (সম্মতি সাপেক্ষ) |",
+        "ar": "جدول معتمد يسرد جميع مفاتيح التخزين المحلية والأمنية وفترات صلاحيتها وأغراضها بدقة تامة."
+      }
+    },
+    {
+      "id": "how-to-manage-consent",
+      "title": {
+        "en": "4. How to Manage or Withdraw Consent",
+        "bn": "৪. কীভাবে সম্মতি পরিবর্তন বা প্রত্যাহার করবেন",
+        "ar": "٤. كيفية إدارة وسحب الموافقة"
+      },
+      "content": {
+        "en": "You can modify your preferences at any moment. Simply click the **\"Cookie Settings\"** link in our website footer to reopen the Preference Center. You may also clear your browser's local cache directly at any time.",
+        "bn": "আপনি যেকোনো সময় ফুটারের **\"Cookie Settings\"** লিংকে ক্লিক করে আপনার পছন্দ পরিবর্তন বা সম্মতি প্রত্যাহার করতে পারেন।",
+        "ar": "يمكنك في أي وقت تغيير اختياراتك بالنقر على زر إعدادات ملفات تعريف الارتباط في أسفل الموقع."
+      }
+    }
+  ]
+}
