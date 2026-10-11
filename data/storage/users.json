@@ -9,5 +9,16 @@
     "salt": "de73fa015926539f68c22534df57e236",
     "createdAt": "2026-10-10T23:20:46.902Z",
     "lastLoginAt": "2026-10-10T23:20:46.909Z"
+  },
+  {
+    "id": "usr-yasin-superadmin",
+    "email": "mdyasinarafath20@gmail.com",
+    "name": "Yasin Arafath",
+    "role": "SUPER_ADMIN",
+    "isActive": true,
+    "passwordHash": "01df0b68afeed5308cbd981ab7ad6c85b90d796265bd786ade071c87bcbc5a2a8f1d823c4162f06dcb0aa5051c71b8159b193c05bc5e881c6b687f9fc798eea1",
+    "salt": "307862df8bf7f53a1685946559713713",
+    "createdAt": "2026-10-12T02:00:00.000Z",
+    "lastLoginAt": "2026-10-12T02:00:00.000Z"
   }
 ]
