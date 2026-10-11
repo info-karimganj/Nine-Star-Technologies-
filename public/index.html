@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9STAR Technologies — Enterprise Software & Cloud Automation</title>
+  <meta name="description" content="Simple solutions for complex digital challenges. Professional website development, custom apps, and AI business automation.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+  
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <span class="nav-badge">9★</span>
+        <span data-i18n="brand">9STAR Technologies</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link" data-i18n="servicesTitle">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#request" class="nav-link" data-i18n="intakeTitle">Request Quote</a></li>
+        <li><a href="/admin/login" class="nav-link" style="color: var(--primary-gold);">Admin Login</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <select id="langSelect" class="lang-select" aria-label="Select Language">
+          <option value="en">English</option>
+          <option value="bn">বাংলা (Bengali)</option>
+        </select>
+        <a href="#request" class="btn btn-primary" data-i18n="requestConsultation">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="section-tag">Next-Gen Digital Solutions</div>
+      <h1 class="hero-title">
+        <span data-i18n="tagline">Simple Solutions for Complex Problems</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="heroDesc">
+        We build websites, custom apps, and business automations without the tech jargon. Clear pricing, proven processes, and reliable enterprise support.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-primary" data-i18n="viewServices">Explore Services</a>
+        <a href="#request" class="btn btn-secondary" data-i18n="requestConsultation">Get Free Advice</a>
+      </div>
+
+      <!-- Live Performance Metrics -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <h3>100+</h3>
+          <p data-i18n="metricsCompleted">Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+          <h3>99.9%</h3>
+          <p data-i18n="metricsUptime">Service Availability</p>
+        </div>
+        <div class="stat-item">
+          <h3>2-4 Wks</h3>
+          <p data-i18n="metricsSpeed">Deployment Speed</p>
+        </div>
+        <div class="stat-item">
+          <h3>5.0 ★</h3>
+          <p data-i18n="metricsRating">Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">What We Build</div>
+        <h2 class="section-title" data-i18n="servicesTitle">Enterprise Services</h2>
+        <p class="section-desc" data-i18n="servicesSubtitle">
+          Engineered for scalability, security, and exponential business growth.
+        </p>
+      </div>
+
+      <div id="servicesGrid" class="cards-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Request Intake Form Section -->
+  <section id="request" class="section" style="background: rgba(13, 24, 41, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Direct Intake</div>
+        <h2 class="section-title" data-i18n="intakeTitle">Start a Service Request</h2>
+        <p class="section-desc" data-i18n="intakeSubtitle">
+          Submit your requirements directly to our engineering team.
+        </p>
+      </div>
+
+      <div class="form-container">
+        <div id="alertSuccess" class="alert alert-success"></div>
+        <div id="alertError" class="alert alert-error"></div>
+
+        <form id="serviceRequestForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="customerName" data-i18n="fullName">Full Name</label>
+              <input type="text" id="customerName" class="form-input" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customerEmail" data-i18n="emailAddr">Email Address</label>
+              <input type="email" id="customerEmail" class="form-input" required placeholder="name@company.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customerPhone" data-i18n="phoneNum">Phone Number (Optional)</label>
+              <input type="tel" id="customerPhone" class="form-input" placeholder="+1 ...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="serviceCategory" data-i18n="serviceCategory">Service Required</label>
+              <select id="serviceCategory" class="form-select">
+                <option value="Corporate & Web Applications">Corporate & Web Applications</option>
+                <option value="AI Systems & Business Automation">AI Systems & Business Automation</option>
+                <option value="Cloud Architecture & Security">Cloud Architecture & Security</option>
+                <option value="Cross-Platform Mobile Apps">Cross-Platform Mobile Apps</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label" for="projectGoal" data-i18n="projectGoal">Project Goal / Overview</label>
+              <textarea id="projectGoal" class="form-textarea" required placeholder="Describe your objectives, requirements, and target timeline..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" data-i18n="submitBtn">
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="nav-logo" style="margin-bottom: 1rem;">
+            <span class="nav-badge">9★</span>
+            <span>9STAR Technologies</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px;">
+            Empowering modern businesses with ultra-fast web systems, robust cloud architectures, and deterministic AI workflows.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Web Architecture</a></li>
+            <li><a href="#services">AI Automation</a></li>
+            <li><a href="#services">Cloud Infrastructure</a></li>
+            <li><a href="#services">Mobile Engineering</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Security & Compliance</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="/admin/login">Admin Panel</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@9startechnologies.com">contact@9startechnologies.com</a></li>
+            <li><a href="#request">Request a Quote</a></li>
+            <li><span>Mon - Fri (Global Support)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 9STAR Technologies. All rights reserved.</p>
+        <p>Built with Vanilla HTML5, CSS3, & High-Performance JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript -->
+  <script src="/app.js"></script>
+</body>
+</html>
