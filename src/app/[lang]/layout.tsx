@@ -9,6 +9,7 @@ import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/seo/config";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { i18n } from "@/i18n/config";
 
@@ -57,6 +58,7 @@ export default async function RootLayout(props: {
         <Footer dict={dict} />
         <CookieConsentBanner lang={lang} />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
