@@ -8,6 +8,7 @@ import { constructMetadata } from "@/seo/metadata";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/seo/config";
 import "../globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 import { i18n } from "@/i18n/config";
 
@@ -55,6 +56,7 @@ export default async function RootLayout(props: {
         </main>
         <Footer dict={dict} />
         <CookieConsentBanner lang={lang} />
+        <Analytics />
       </body>
     </html>
   );
