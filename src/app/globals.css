@@ -1,34 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
+  /* Editorial & Modern Theme Tokens from web srce */
+  --paper: #ffffff;
+  --paper-deep: #f8fafc;
+  --paper-cream: #f4f6fa;
+
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-faint: #94a3b8;
+  --ink-border: #e2e8f0;
+
+  --abyss: #080d1a;
+  --abyss-2: #0f172a;
+  --abyss-card: #131d36;
+  --abyss-border: #1e293b;
+
+  --nt-primary: #0f172a;
+  --nt-accent: #2563eb;
+  --nt-accent-hover: #1d4ed8;
+  --nt-cyan: #06b6d4;
+  --nt-gold: #f59e0b;
+  --nt-star: #3b82f6;
+
+  --nt-white: #ffffff;
+  --nt-ink-900: #080d1a;
+  --nt-ink-800: #0f172a;
+  --nt-ink-700: #1e293b;
+  --nt-ink-600: #334155;
+  --nt-ink-500: #64748b;
+  --nt-ink-400: #94a3b8;
+  --nt-ink-300: #cbd5e1;
+  --nt-ink-200: #e2e8f0;
+  --nt-ink-100: #f1f5f9;
+  --nt-ink-50: #f8fafc;
+
+  --font-display: 'Anton', -apple-system, sans-serif;
+  --font-serif: var(--font-fraunces, 'Fraunces', Georgia, serif);
+  --font-sans: var(--font-plus-jakarta, 'Plus Jakarta Sans', system-ui, sans-serif);
+  --font-mono: 'JetBrains Mono', monospace;
+
   /* Color System */
-  --color-primary: #0a192f;
-  /* Deep Navy */
-  --color-primary-light: #172a45;
-  --color-primary-dark: #020c1b;
+  --color-primary: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-primary-dark: #080d1a;
 
-  --color-secondary: #d4af37;
-  /* Gold accent */
-  --color-secondary-light: #f3e5ab;
-  --color-secondary-dark: #aa8c2c;
+  --color-secondary: #2563eb;
+  --color-secondary-light: #60a5fa;
+  --color-secondary-dark: #1d4ed8;
 
-  --color-base: #fafafa;
-  /* White / near-white */
+  --color-base: #ffffff;
   --color-surface: #ffffff;
-  /* pure white for cards */
 
-  --color-text: #111827;
-  /* Near-black */
-  --color-text-muted: #6b7280;
-  /* Soft gray */
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
 
-  --color-border: #e5e7eb;
+  --color-border: #e2e8f0;
 
   --color-error: #ef4444;
   --color-success: #10b981;
-
-  /* Typography */
-  --font-sans: 'Inter', var(--font-geist-sans), sans-serif;
 
   /* Spacing Scale */
   --spacing-1: 0.25rem;
@@ -738,4 +769,271 @@ h3,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ========================================================
+   Editorial & High-Tech Components (Imported from web srce)
+   ======================================================== */
+
+.display-xl {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+}
+
+.display-l {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.heading-xl {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.heading-lg {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nt-accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.body-lead {
+  font-family: var(--font-serif);
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--nt-ink-50);
+  border: 1px solid var(--nt-ink-200);
+  border-radius: 999px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+}
+
+.hero-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nt-accent);
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+
+.blob {
+  filter: blur(10px);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: 9s ease-in-out infinite drift;
+  position: absolute;
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-28px) translateX(16px);
+  }
+}
+
+.halftone {
+  position: relative;
+  background: var(--abyss);
+  padding-block: 52px;
+  overflow: hidden;
+}
+
+.halftone::after {
+  content: "";
+  opacity: 0.12;
+  background-image: radial-gradient(var(--nt-cyan) 1.2px, transparent 1.3px);
+  pointer-events: none;
+  background-size: 12px 12px;
+  position: absolute;
+  inset: 0;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-fade-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--abyss) 0%, transparent 8%, transparent 92%, var(--abyss) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 6px 0;
+  animation: marquee-forward 36s linear infinite;
+}
+
+.marquee-track-rev {
+  animation: marquee-reverse 38s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-forward {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.press-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 60px;
+  min-width: 170px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.press-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.6);
+  color: var(--nt-accent);
+}
+
+.services-grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--nt-ink-200);
+  background: var(--paper);
+}
+
+@media (max-width: 860px) {
+  .services-grid-editorial {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .services-grid-editorial {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.service-card-editorial {
+  background: var(--paper);
+  border-right: 1px solid var(--nt-ink-200);
+  border-bottom: 1px solid var(--nt-ink-200);
+  padding: 36px 32px;
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+}
+
+.service-card-editorial:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.service-card-editorial:hover * {
+  color: #ffffff !important;
+}
+
+.service-card-editorial:hover .service-icon {
+  transform: translate(3px, -3px);
+  color: var(--nt-cyan) !important;
+}
+
+.case-studies-grid-dark {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--nt-ink-700);
+}
+
+@media (max-width: 960px) {
+  .case-studies-grid-dark {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.case-study-card-dark {
+  background: var(--nt-ink-900);
+  border: 1px solid var(--nt-ink-600);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.case-study-card-dark:hover {
+  border-color: #ffffff;
+  transform: translateY(-2px);
 }

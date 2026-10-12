@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
 import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -15,6 +15,18 @@ import { i18n } from "@/i18n/config";
 
 const inter = Inter({
   variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
 });
@@ -47,7 +59,7 @@ export default async function RootLayout(props: {
     <html
       lang={lang}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${plusJakarta.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
