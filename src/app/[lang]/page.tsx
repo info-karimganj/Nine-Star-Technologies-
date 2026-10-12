@@ -347,7 +347,105 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         </div>
       </section>
 
-      {/* 7. FAQ Section */}
+      {/* 7. 04 / CLIENT PORTFOLIO TICKER */}
+      <section className="py-12 bg-white border-b border-[var(--nt-ink-200)] overflow-hidden">
+        <div className="site-container mx-auto px-4 mb-6 text-center">
+          <p className="eyebrow mb-2">TRUSTED ECOSYSTEM</p>
+          <h3 className="font-serif italic text-sm text-[var(--nt-ink-400)]">Powering high-velocity businesses and digital innovators</h3>
+        </div>
+        <div className="marquee-container">
+          <div className="marquee-fade-overlay"></div>
+          <div className="marquee-track">
+            {['Apex Cloud Solutions', 'Vanguard E-Commerce', 'Nordic Health Systems', 'Quantum Logistics', 'Fintech Velocity', 'SilkRoad Global', 'Starlight Hospitality', 'Synapse Media Group', 'Apex Cloud Solutions', 'Vanguard E-Commerce', 'Nordic Health Systems', 'Quantum Logistics'].map((client, idx) => (
+              <div key={idx} className="client-pill">
+                <span className="client-dot"></span>
+                <span>{client}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. 05 / INSIGHTS & STRATEGY */}
+      <section className="py-20 bg-[var(--paper)] border-b border-[var(--nt-ink-200)]" id="insights">
+        <div className="site-container max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="eyebrow mb-2">05 / INSIGHTS & STRATEGY</p>
+              <h2 className="heading-xl text-[var(--ink)]">Latest Articles & Engineering Breakdowns</h2>
+            </div>
+            <Link href={`/${lang}/services`} className="btn-pill-outline self-start sm:self-auto">
+              Explore All Articles →
+            </Link>
+          </div>
+
+          <div className="space-y-2">
+            <Link href={`/${lang}/services`} className="article-item group">
+              <span className="eyebrow block mb-2">GEO & AI Search</span>
+              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
+                What Is Generative Engine Optimisation (GEO) And Why It Dominates 2026
+              </h3>
+              <p className="article-desc">
+                GEO is the revolutionary marketing concept replacing manual search queries. Discover how AI answer engines index knowledge and how your company can become the top recommended source.
+              </p>
+              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
+                <time>October 2026</time>
+                <span>&bull;</span>
+                <span>8 min read</span>
+              </div>
+            </Link>
+
+            <Link href={`/${lang}/services`} className="article-item group">
+              <span className="eyebrow block mb-2">Engineering & Speed</span>
+              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
+                Why Legacy WordPress Sites Lose 60% of Mobile Visitors (And How We Fix It)
+              </h3>
+              <p className="article-desc">
+                Bloated plugins and sluggish Core Web Vitals kill conversions before prospects even read your offer. Here is how modern Next.js and JAMstack architecture restores sub-second load times.
+              </p>
+              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
+                <time>September 2026</time>
+                <span>&bull;</span>
+                <span>11 min read</span>
+              </div>
+            </Link>
+
+            <Link href={`/${lang}/services`} className="article-item group">
+              <span className="eyebrow block mb-2">Paid Acquisition</span>
+              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
+                The Real Reason Your Google Ads CPA Is Rising — And The Modern B2B Fix
+              </h3>
+              <p className="article-desc">
+                Blind broad-match bidding and lack of first-party data signals burn client capital. We reveal the exact full-funnel structure we run across our enterprise portfolio.
+              </p>
+              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
+                <time>August 2026</time>
+                <span>&bull;</span>
+                <span>7 min read</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Topics & Disciplines Strip */}
+      <section className="py-14 bg-[var(--paper-deep)] border-b border-[var(--nt-ink-200)]">
+        <div className="site-container max-w-4xl mx-auto px-4 text-center">
+          <h3 className="heading-lg mb-2 text-[var(--ink)]">Explore Topics & Disciplines</h3>
+          <p className="text-sm text-[var(--ink-soft)] max-w-lg mx-auto mb-6">
+            Practical insights straight from our engineers and marketers running high-volume enterprise infrastructure.
+          </p>
+          <div className="flex flex-wrap gap-2.5 justify-center">
+            {['Web Development', 'Generative Engine Optimization', 'Search Engine Optimization', 'AI Automation', 'Google Ads', 'Meta Ads', 'CRO & UI/UX', 'Cloud Architecture', 'Next.js Scalability'].map((topic, i) => (
+              <Link key={i} href={`/${lang}/services`} className="category-pill">
+                {topic}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FAQ Section */}
       <section className="py-20 bg-white border-b border-[var(--nt-ink-200)]">
         <div className="site-container max-w-4xl mx-auto px-4 sm:px-6">
           <p className="eyebrow text-center mb-2">FAQ</p>
@@ -363,20 +461,34 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         </div>
       </section>
 
-      {/* 8. Final Call to Action */}
-      <section className="py-24 text-center bg-[var(--abyss)] text-white relative overflow-hidden">
-        <div className="site-container max-w-2xl mx-auto px-4 relative z-10">
-          <p className="eyebrow eyebrow-light mb-3">GET STARTED</p>
-          <h2 className="display-l mb-4 text-white">Ready to Outpace the Competition?</h2>
-          <p className="body-lead mb-8 text-slate-300 max-w-lg mx-auto">
-            Book a complimentary engineering and growth audit. We will dissect your tech stack and give you a comprehensive scaling roadmap.
+      {/* 11. Final High-Converting CTA */}
+      <section className="py-28 text-center bg-[var(--abyss)] text-white relative overflow-hidden">
+        <div className="site-container max-w-3xl mx-auto px-4 relative z-10 flex flex-col items-center">
+          <div className="hero-badge !bg-white/10 !border-white/20 !text-white mb-6">
+            <span className="hero-pulse-dot !bg-[var(--nt-cyan)]"></span>
+            <span>Founder-Led Technical Execution</span>
+          </div>
+          <h2 className="display-l mb-4 text-white">Let’s Start a Conversation.</h2>
+          <p className="body-lead mb-8 text-slate-300 max-w-xl mx-auto text-base sm:text-lg">
+            Ready to discover what’s holding your digital growth back? Book a complimentary engineering and growth audit with Ninestar Technologies today.
           </p>
-          <Link
-            href={`/${lang}/request`}
-            className="btn btn-accent btn-lg shadow-xl"
-          >
-            {dict.home.finalCta?.button || 'Claim Your Free Audit'} →
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href={`/${lang}/request`}
+              className="btn btn-primary btn-lg !bg-[var(--nt-accent)] !border-[var(--nt-accent)] shadow-xl hover:!bg-[var(--nt-accent-hover)] transition-all"
+            >
+              <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[var(--nt-accent)] text-xs">
+                ⭐
+              </span>
+              Get a Free Tech Audit →
+            </Link>
+            <Link
+              href={`/${lang}/contact`}
+              className="btn btn-outline-white btn-lg"
+            >
+              Contact Our Engineers →
+            </Link>
+          </div>
         </div>
       </section>
     </main>
