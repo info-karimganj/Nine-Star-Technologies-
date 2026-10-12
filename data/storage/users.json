@@ -20,5 +20,27 @@
     "salt": "307862df8bf7f53a1685946559713713",
     "createdAt": "2026-10-12T02:00:00.000Z",
     "lastLoginAt": "2026-10-12T02:00:00.000Z"
+  },
+  {
+    "id": "usr-infokarimganj-superadmin",
+    "email": "infokarimganj@gmail.com",
+    "name": "Info Karimganj Admin",
+    "role": "SUPER_ADMIN",
+    "isActive": true,
+    "passwordHash": "ad7bf9b73ba056332882a7b760a818052d050df4f4c526a235412a381917b104d07f932a9af8c50c565c54a7136875cb32209219d68675bf7e50174550b2889d",
+    "salt": "d67ff45c94c193776bf9f81b39877e70",
+    "createdAt": "2026-10-12T03:40:00.000Z",
+    "lastLoginAt": "2026-10-12T03:40:00.000Z"
+  },
+  {
+    "id": "usr-yasinarafath25-superadmin",
+    "email": "yasinarafath25@gmail.com",
+    "name": "Yasin Arafath 25",
+    "role": "SUPER_ADMIN",
+    "isActive": true,
+    "passwordHash": "ad7bf9b73ba056332882a7b760a818052d050df4f4c526a235412a381917b104d07f932a9af8c50c565c54a7136875cb32209219d68675bf7e50174550b2889d",
+    "salt": "d67ff45c94c193776bf9f81b39877e70",
+    "createdAt": "2026-10-12T03:40:00.000Z",
+    "lastLoginAt": "2026-10-12T03:40:00.000Z"
   }
 ]
