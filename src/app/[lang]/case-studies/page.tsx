@@ -30,59 +30,69 @@ export default async function CaseStudiesPage(props: {
   const caseStudies = await getCaseStudies();
 
   return (
-    <main className="w-full">
-      {/* Hero Section */}
-      <section className="bg-[var(--color-surface)] pt-24 pb-16 md:pt-32 md:pb-24 border-b border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl">
-            <Typography variant="h1" className="mb-6">
-              {t.hero.title}
-            </Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-xl leading-relaxed">
-              {t.hero.description}
-            </Typography>
+    <main className="w-full bg-[#fbfcfd] min-h-screen">
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10 text-center">
+          <div className="hero-badge mb-4 mx-auto">
+            <span className="hero-pulse-dot"></span>
+            <span>Client Impact & Results</span>
           </div>
+          <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
+            {t.hero.title}
+          </h1>
+          <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+            {t.hero.description}
+          </p>
         </div>
       </section>
 
-      {/* Case Studies Listing */}
-      <section className="py-20 bg-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* 2. Case Studies Listing */}
+      <section className="py-20 md:py-24">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           
           {caseStudies.length === 0 ? (
             // Clean Empty State
-            <div className="text-center py-20 border border-dashed border-[var(--color-border)] rounded-xl bg-[var(--color-surface)]">
-              <Typography variant="h3" className="mb-4 text-[var(--color-text)] opacity-60">{t.emptyState.title}</Typography>
-              <Typography variant="body" className="text-[var(--color-text)] opacity-50">
+            <div className="text-center py-20 border border-dashed border-[var(--nt-ink-200)] rounded-3xl bg-white p-12">
+              <h3 className="text-xl font-bold text-[var(--ink)] mb-2">{t.emptyState.title}</h3>
+              <p className="text-[var(--ink-soft)] max-w-md mx-auto">
                 {t.emptyState.description}
-              </Typography>
+              </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
               {caseStudies.map((study: any) => {
                 const clientName = study.clientName;
                 const industry = study.industry[lang as 'en' | 'bn' | 'ar'] || study.industry.en;
-                // Since shortDescription is not on CaseStudy, use problem as description for the card
                 const description = study.problem[lang as 'en' | 'bn' | 'ar'] || study.problem.en;
                 
                 return (
                   <LocalizedLink key={study.id} href={`/case-studies/${study.slug}`} className="group block focus-visible:outline-none" style={{ textDecoration: 'none' }}>
-                    <Card className="h-full border border-[var(--color-border)] group-hover:border-[var(--color-primary)] transition-all duration-200 p-7 md:p-8 flex flex-col">
-                      <div className="flex justify-between items-start gap-4 mb-4">
-                        <Typography variant="h3" className="text-xl font-bold group-hover:text-[var(--color-primary)] transition-colors">{clientName}</Typography>
-                        <span className="text-xs font-semibold px-2.5 py-0.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-full text-[var(--color-text-muted)] shrink-0">
-                          {industry}
-                        </span>
+                    <div className="h-full rounded-2xl bg-white border border-[var(--nt-ink-200)] hover:border-[var(--nt-accent)] shadow-xs hover:shadow-xl transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-start gap-4 mb-4">
+                          <h3 className="text-2xl font-bold text-[var(--ink)] group-hover:text-[var(--nt-accent)] transition-colors">
+                            {clientName}
+                          </h3>
+                          <span className="text-xs font-mono font-semibold px-3 py-1 bg-blue-50/80 border border-blue-200/80 rounded-full text-[var(--nt-accent)] shrink-0">
+                            {industry}
+                          </span>
+                        </div>
+                        <p className="text-[var(--ink-soft)] text-sm sm:text-base leading-relaxed mb-8">
+                          {description}
+                        </p>
                       </div>
-                      <Typography variant="body" className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-grow">
-                        {description}
-                      </Typography>
                       
-                      <div className="mt-auto pt-4 border-t border-[var(--color-border)] flex items-center justify-between text-[var(--color-primary)] font-semibold text-sm">
+                      <div className="pt-6 border-t border-[var(--nt-ink-200)] flex items-center justify-between text-[var(--nt-accent)] font-bold text-sm">
                         <span>{t.list.readCaseStudy}</span>
-                        <span className="transition-transform duration-150 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                        <span className="transition-transform duration-200 group-hover:translate-x-1.5" aria-hidden="true">&rarr;</span>
                       </div>
-                    </Card>
+                    </div>
                   </LocalizedLink>
                 );
               })}

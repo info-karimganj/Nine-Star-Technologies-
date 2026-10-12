@@ -114,57 +114,69 @@ export default async function ProcessPage(props: { params: Promise<{ lang: Local
   ];
 
   return (
-    <main className="w-full">
-      {/* Hero Section */}
-      <section className="bg-[var(--color-primary)] text-[var(--color-base)] pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-3xl">
-            <Typography variant="h1" className="text-[var(--color-base)] mb-6">
-              {dict.process.hero.title}
-            </Typography>
-            <Typography variant="body" className="text-[var(--color-text-muted)] text-xl leading-relaxed">
-              {dict.process.hero.subtitle}
-            </Typography>
+    <main className="w-full bg-[#fbfcfd] min-h-screen">
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+        {/* Ambient Subtle Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10 text-center">
+          <div className="hero-badge mb-4 mx-auto">
+            <span className="hero-pulse-dot"></span>
+            <span>Delivery Methodology</span>
           </div>
+          <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
+            {dict.process.hero.title}
+          </h1>
+          <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+            {dict.process.hero.subtitle}
+          </p>
         </div>
       </section>
 
-      {/* Visual Timeline Section */}
-      <section className="py-20 md:py-28 bg-[var(--color-surface)] border-b border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      {/* 2. Visual Timeline Section */}
+      <section className="py-20 md:py-28 relative">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
           
-          <div className="text-center mb-16">
-            <Typography variant="h2" className="mb-4">{dict.process.timeline.title}</Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-lg">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+              Step-by-Step Execution
+            </span>
+            <h2 className="heading-md text-[var(--ink)] mb-3">{dict.process.timeline.title}</h2>
+            <p className="text-[var(--ink-soft)] text-base">
               {dict.process.timeline.subtitle}
-            </Typography>
+            </p>
           </div>
 
           <div className="relative">
             {/* Center Line for Desktop */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-px bg-[var(--nt-ink-200)] -translate-x-1/2"></div>
 
-            <div className="space-y-12 md:space-y-0">
-              {translatedProcessSteps.map((step, index) => (
+            <div className="space-y-10 md:space-y-12">
+              {translatedProcessSteps.map((step) => (
                 <div key={step.id} className="relative flex flex-col md:flex-row items-center md:even:flex-row-reverse group">
                   
-                  {/* Timeline Dot (Desktop) */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[var(--color-base)] border-4 border-surface shadow-sm items-center justify-center text-[var(--color-primary)] font-bold z-10 transition-transform group-hover:scale-110 duration-300">
+                  {/* Timeline Badge (Desktop) */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-2 border-[var(--nt-accent)] shadow-sm items-center justify-center text-[var(--nt-accent)] font-mono font-bold text-sm z-10 transition-transform group-hover:scale-110 duration-200">
                     {step.id}
                   </div>
 
                   {/* Content Card */}
-                  <div className="w-full md:w-[45%] flex justify-end md:even:justify-start">
-                    <Card className="w-full p-8 border-none shadow-sm hover:shadow-md transition-shadow relative overflow-hidden bg-[var(--color-base)]">
+                  <div className="w-full md:w-[46%] flex justify-end md:even:justify-start">
+                    <div className="w-full p-7 md:p-8 rounded-2xl bg-white border border-[var(--nt-ink-200)] shadow-xs hover:border-[var(--nt-accent)] hover:shadow-md transition-all relative overflow-hidden">
                       {/* Mobile Step Indicator */}
-                      <div className="md:hidden mb-4 text-[var(--color-primary)] font-bold text-xl opacity-50">
-                        {step.id}
+                      <div className="md:hidden inline-flex items-center px-2.5 py-1 rounded-full bg-blue-50 text-[var(--nt-accent)] font-mono text-xs font-bold mb-3 border border-blue-100">
+                        Phase {step.id}
                       </div>
-                      <Typography variant="h3" className="mb-3 text-xl group-hover:text-[var(--color-primary)] transition-colors">{step.title}</Typography>
-                      <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-base leading-relaxed">
+                      <h3 className="text-xl font-bold text-[var(--ink)] mb-2 group-hover:text-[var(--nt-accent)] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-[var(--ink-soft)] text-sm sm:text-base leading-relaxed">
                         {step.description}
-                      </Typography>
-                    </Card>
+                      </p>
+                    </div>
                   </div>
                   
                 </div>
@@ -175,47 +187,63 @@ export default async function ProcessPage(props: { params: Promise<{ lang: Local
         </div>
       </section>
 
-      {/* Frequently Asked Questions */}
-      <section className="py-20 md:py-24 bg-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      {/* 3. Frequently Asked Questions */}
+      <section className="py-20 md:py-24 bg-white border-t border-b border-[var(--nt-ink-200)]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="text-center mb-16">
-            <Typography variant="h2" className="mb-4">{dict.process.faqSection.title}</Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-lg">
+            <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+              Transparency First
+            </span>
+            <h2 className="heading-md text-[var(--ink)] mb-3">{dict.process.faqSection.title}</h2>
+            <p className="text-[var(--ink-soft)] text-base max-w-xl mx-auto">
               {dict.process.faqSection.subtitle}
-            </Typography>
+            </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {translatedFaqs.map((faq, idx) => (
-              <div key={idx} className="p-8 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)]">
-                <Typography variant="h3" className="mb-3 text-lg">{faq.question}</Typography>
-                <Typography variant="body" className="text-[var(--color-text)] opacity-70 leading-relaxed">
+              <div key={idx} className="p-6 sm:p-7 bg-[#f8fafc] rounded-2xl border border-[var(--nt-ink-200)] hover:border-slate-300 transition-colors">
+                <h3 className="text-base sm:text-lg font-bold text-[var(--ink)] mb-2">{faq.question}</h3>
+                <p className="text-[var(--ink-soft)] text-sm sm:text-base leading-relaxed">
                   {faq.answer}
-                </Typography>
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-[var(--color-primary)] text-[var(--color-base)] text-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <Typography variant="h2" className="text-[var(--color-base)] mb-6">{dict.process.cta.title}</Typography>
-          <Typography variant="body" className="text-[var(--color-text-muted)] text-lg mb-10">
-            {dict.process.cta.subtitle}
-          </Typography>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <LocalizedLink href="/services">
-              <Button size="lg" className="w-full sm:w-auto bg-[var(--color-base)] text-[var(--color-primary)] hover:bg-[var(--color-base)]/90">
-                {dict.process.cta.viewServices}
-              </Button>
-            </LocalizedLink>
-            <LocalizedLink href="/contact">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-[var(--color-base)]/20 text-[var(--color-base)] hover:bg-[var(--color-base)]/10 hover:text-[var(--color-base)]">
-                {dict.process.cta.contactUs}
-              </Button>
-            </LocalizedLink>
+      {/* 4. Luxury Dark CTA Card */}
+      <section className="py-20 md:py-28">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="bg-gradient-to-br from-[#080d1a] via-[#0f172a] to-[#1e293b] text-white p-10 md:p-16 rounded-3xl border border-slate-800 text-center relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <span className="hero-badge !bg-white/10 !border-white/20 !text-cyan-300 mb-4 mx-auto inline-flex">
+                <span className="hero-pulse-dot !bg-cyan-400"></span>
+                <span>Ready to Launch</span>
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                {dict.process.cta.title}
+              </h2>
+              <p className="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                {dict.process.cta.subtitle}
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <LocalizedLink 
+                  href="/services" 
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-sm bg-white text-slate-900 hover:bg-slate-100 transition-all shadow-md text-center"
+                >
+                  {dict.process.cta.viewServices}
+                </LocalizedLink>
+                <LocalizedLink 
+                  href="/contact" 
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full font-bold text-sm border border-white/20 text-white hover:bg-white/10 transition-all text-center"
+                >
+                  {dict.process.cta.contactUs}
+                </LocalizedLink>
+              </div>
+            </div>
           </div>
         </div>
       </section>

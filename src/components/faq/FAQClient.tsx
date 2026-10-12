@@ -18,60 +18,90 @@ export function FAQClient({ dict, categories, faqs }: FAQClientProps) {
     : faqs.filter(faq => faq.category === activeCategory);
 
   return (
-    <main className="w-full">
-      {/* Hero */}
-      <section className="bg-[var(--color-surface)] pt-24 pb-16 md:pt-32 md:pb-24 border-b border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <Typography variant="h1" className="mb-6">{dict.faq.hero.title}</Typography>
-          <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-xl max-w-2xl">
+    <main className="w-full bg-[#fbfcfd] min-h-screen">
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10 text-center">
+          <div className="hero-badge mb-4 mx-auto">
+            <span className="hero-pulse-dot"></span>
+            <span>Knowledge Base & Support</span>
+          </div>
+          <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
+            {dict.faq.hero.title}
+          </h1>
+          <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             {dict.faq.hero.subtitle}
-          </Typography>
+          </p>
         </div>
       </section>
 
-      <section className="py-20 bg-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex flex-col md:flex-row gap-12">
+      {/* 2. Main FAQ Explorer */}
+      <section className="py-20 md:py-24">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl flex flex-col md:flex-row gap-10 lg:gap-14">
           
           {/* Sidebar Categories */}
           <div className="w-full md:w-64 shrink-0">
-            <Typography variant="h3" className="mb-4 text-sm uppercase tracking-wider text-[var(--color-text)] opacity-50">{dict.faq.sidebar.categories}</Typography>
-            <div className="flex flex-col gap-2">
-              <button 
-                onClick={() => setActiveCategory('All')}
-                className={`text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeCategory === 'All' ? 'bg-[var(--color-primary)] text-[var(--color-base)]' : 'hover:bg-[var(--color-surface)] text-[var(--color-text)] opacity-70'}`}
-              >
-                {dict.faq.sidebar.allQuestions}
-              </button>
-              {categories.map(cat => (
+            <div className="sticky top-28 p-6 rounded-3xl bg-white border border-[var(--nt-ink-200)] shadow-xs">
+              <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-4 block">
+                {dict.faq.sidebar.categories}
+              </span>
+              <div className="flex flex-col gap-1.5">
                 <button 
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeCategory === cat ? 'bg-[var(--color-primary)] text-[var(--color-base)]' : 'hover:bg-[var(--color-surface)] text-[var(--color-text)] opacity-70'}`}
+                  type="button"
+                  onClick={() => setActiveCategory('All')}
+                  className={`text-left px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                    activeCategory === 'All' 
+                      ? 'bg-[var(--nt-accent)] text-white shadow-xs' 
+                      : 'text-[var(--ink-soft)] hover:bg-slate-50 hover:text-[var(--ink)]'
+                  }`}
                 >
-                  {cat}
+                  {dict.faq.sidebar.allQuestions}
                 </button>
-              ))}
+                {categories.map(cat => (
+                  <button 
+                    key={cat}
+                    type="button"
+                    onClick={() => setActiveCategory(cat)}
+                    className={`text-left px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                      activeCategory === cat 
+                        ? 'bg-[var(--nt-accent)] text-white shadow-xs' 
+                        : 'text-[var(--ink-soft)] hover:bg-slate-50 hover:text-[var(--ink)]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* FAQ List */}
           <div className="flex-grow">
             {filteredFaqs.length === 0 ? (
-              <div className="text-center py-16 bg-[var(--color-surface)] rounded-xl border border-dashed border-[var(--color-border)]">
-                <Typography variant="body" className="text-[var(--color-text)] opacity-50">
+              <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-[var(--nt-ink-200)] p-8">
+                <p className="text-[var(--ink-soft)]">
                   {dict.faq.emptyState}
-                </Typography>
+                </p>
               </div>
             ) : (
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {filteredFaqs.map((faq, idx) => (
-                  <Card key={idx} className="p-6 border border-[var(--color-border)] shadow-sm">
-                    <span className="text-xs font-medium text-[var(--color-text)]/70 mb-2 block uppercase tracking-wide">{faq.category}</span>
-                    <Typography variant="h3" className="mb-3 text-lg">{faq.question}</Typography>
-                    <Typography variant="body" className="text-[var(--color-text)] opacity-80">
+                  <div key={idx} className="p-7 sm:p-8 rounded-2xl bg-white border border-[var(--nt-ink-200)] shadow-xs hover:border-[var(--nt-accent)] hover:shadow-md transition-all">
+                    <span className="text-xs font-mono font-semibold text-[var(--nt-accent)] uppercase tracking-wider mb-2 block">
+                      {faq.category}
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-bold text-[var(--ink)] mb-3 leading-snug">
+                      {faq.question}
+                    </h3>
+                    <p className="text-[var(--ink-soft)] text-sm sm:text-base leading-relaxed">
                       {faq.answer}
-                    </Typography>
-                  </Card>
+                    </p>
+                  </div>
                 ))}
               </div>
             )}

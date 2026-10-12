@@ -70,54 +70,74 @@ export default async function SolutionDetailPage({ params }: Props) {
   }
 
   return (
-    <main className="w-full">
+    <main className="w-full bg-[#fbfcfd] min-h-screen">
       <ServiceJsonLd name={solution.title as unknown as string} description={solution.shortDescription as unknown as string} />
-      {/* Breadcrumb & Hero */}
-      <section className="bg-[var(--color-surface)] pt-24 pb-16 md:pt-32 md:pb-24 border-b border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-8">
-            <Link href={`/${resolvedParams.lang}/solutions`} className="text-[var(--color-text)] opacity-50 hover:text-[var(--color-primary)] transition-colors text-sm font-medium">
-              {dict.solutionDetail.backToSolutions}
+      
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+          <div className="mb-6">
+            <Link href={`/${resolvedParams.lang}/solutions`} className="inline-flex items-center gap-2 text-xs font-mono font-medium text-[var(--nt-accent)] hover:underline">
+              <span>&larr;</span>
+              <span>{dict.solutionDetail.backToSolutions}</span>
             </Link>
           </div>
           
           <div className="max-w-4xl">
-            <Typography variant="h1" className="mb-6">
+            <div className="hero-badge mb-4">
+              <span className="hero-pulse-dot"></span>
+              <span>Architecture Blueprint</span>
+            </div>
+            <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
               {solution.title}
-            </Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-xl leading-relaxed mb-8">
+            </h1>
+            <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl leading-relaxed mb-8">
               {solution.shortDescription}
-            </Typography>
-            <LocalizedLink href="/contact" className="btn btn-primary btn-lg" style={{ textDecoration: 'none', display: 'inline-block' }}>
+            </p>
+            <LocalizedLink 
+              href="/contact" 
+              className="inline-block px-8 py-3.5 rounded-full font-bold text-sm bg-[var(--nt-accent)] text-white hover:bg-blue-700 transition-all shadow-md"
+            >
               {solution.ctaText || dict.solutionDetail.discussSolution}
             </LocalizedLink>
           </div>
         </div>
       </section>
 
-      {/* Problem & Audience */}
-      <section className="py-20 bg-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+      {/* 2. Problem & Audience */}
+      <section className="py-20 md:py-24">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             
             {/* The Problem */}
             <div className="lg:col-span-2">
-              <Typography variant="h2" className="mb-6">{dict.solutionDetail.theChallenge}</Typography>
-              <Typography variant="body" className="text-[var(--color-text)] opacity-80 text-lg leading-relaxed p-8 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] border-l-4 border-l-red-500/50">
-                "{solution.problem}"
-              </Typography>
+              <span className="text-xs font-mono uppercase tracking-widest text-amber-600 font-semibold mb-2 block">
+                The Pain Point
+              </span>
+              <h2 className="heading-sm text-[var(--ink)] mb-4">{dict.solutionDetail.theChallenge}</h2>
+              <div className="text-[var(--ink)] text-base sm:text-lg leading-relaxed p-7 sm:p-8 bg-white rounded-2xl border border-[var(--nt-ink-200)] border-l-4 border-l-amber-500 shadow-xs italic">
+                &ldquo;{solution.problem}&rdquo;
+              </div>
             </div>
 
             {/* Who Needs It */}
             <div>
-              <Typography variant="h2" className="mb-6">{dict.solutionDetail.whoNeedsThis}</Typography>
-              <ul className="space-y-4">
+              <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+                Target Ecosystem
+              </span>
+              <h2 className="heading-sm text-[var(--ink)] mb-4">{dict.solutionDetail.whoNeedsThis}</h2>
+              <ul className="space-y-3">
                 {solution.whoNeedsIt.map((audience: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <svg className="w-6 h-6 text-[var(--color-text)]/50 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <Typography variant="body" className="text-[var(--color-text)] opacity-80 pt-0.5">{audience}</Typography>
+                    <span className="w-5 h-5 rounded-full bg-blue-50 text-[var(--nt-accent)] flex items-center justify-center text-xs font-bold mr-3 shrink-0 mt-0.5 border border-blue-100">
+                      ✓
+                    </span>
+                    <span className="text-[var(--ink-soft)] text-sm sm:text-base leading-relaxed">{audience}</span>
                   </li>
                 ))}
               </ul>
@@ -127,71 +147,85 @@ export default async function SolutionDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* The Solution & Benefits */}
-      <section className="py-20 bg-[var(--color-primary)] text-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-4xl mb-16">
-            <Typography variant="h2" className="text-[var(--color-base)] mb-6">{dict.solutionDetail.ourSolution}</Typography>
-            <Typography variant="body" className="text-[var(--color-text-muted)] text-lg leading-relaxed">
+      {/* 3. The Solution & Benefits (Luxury Dark Section with Crystal Clarity) */}
+      <section className="py-20 bg-gradient-to-br from-[#080d1a] via-[#0f172a] to-[#1e293b] text-white">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="max-w-4xl mb-14">
+            <span className="hero-badge !bg-white/10 !border-white/20 !text-cyan-300 mb-4 inline-flex">
+              <span className="hero-pulse-dot !bg-cyan-400"></span>
+              <span>Our Strategic Framework</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">{dict.solutionDetail.ourSolution}</h2>
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
               {solution.solution}
-            </Typography>
+            </p>
           </div>
 
-          <Typography variant="h3" className="text-[var(--color-base)] mb-8">{dict.solutionDetail.keyBenefits}</Typography>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-8 tracking-tight">{dict.solutionDetail.keyBenefits}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {solution.benefits.map((benefit: string, idx: number) => (
-              <div key={idx} className="p-6 bg-[var(--color-base)]/5 border border-[var(--color-base)]/10 rounded-xl flex items-center">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-base)]/10 flex items-center justify-center mr-4 shrink-0">
-                  <svg className="w-5 h-5 text-[var(--color-base)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              <div key={idx} className="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center backdrop-blur-xs">
+                <div className="w-10 h-10 rounded-full bg-cyan-400/10 text-cyan-300 flex items-center justify-center mr-4 shrink-0 font-bold">
+                  ✓
                 </div>
-                <Typography variant="body" className="text-[var(--color-base)] font-medium">{benefit}</Typography>
+                <span className="text-white font-medium text-sm sm:text-base">{benefit}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Workflow & Implementation */}
-      <section className="py-20 bg-[var(--color-surface)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* 4. Workflow & Implementation */}
+      <section className="py-20 md:py-24 bg-white border-b border-[var(--nt-ink-200)]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           
-          <div className="mb-20">
-            <Typography variant="h2" className="mb-12 text-center">{dict.solutionDetail.howWeImplementIt}</Typography>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+                Execution Phases
+              </span>
+              <h2 className="heading-md text-[var(--ink)]">{dict.solutionDetail.howWeImplementIt}</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {solution.workflow.map((step: any, idx: number) => (
-                <Card key={idx} className="p-8 border-none shadow-sm relative overflow-visible">
-                  <div className="absolute -top-6 -left-6 w-12 h-12 bg-[var(--color-primary)] text-[var(--color-base)] rounded-full flex items-center justify-center text-xl font-bold border-4 border-surface">
+                <div key={idx} className="p-7 rounded-2xl bg-[#f8fafc] border border-[var(--nt-ink-200)] shadow-xs relative">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 text-[var(--nt-accent)] border border-blue-200 font-mono font-bold text-sm flex items-center justify-center mb-4">
                     {idx + 1}
                   </div>
-                  <Typography variant="h3" className="mb-3 text-lg mt-2">{step.title}</Typography>
-                  <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-sm">
+                  <h3 className="font-bold text-[var(--ink)] mb-2 text-base">{step.title}</h3>
+                  <p className="text-[var(--ink-soft)] text-sm leading-relaxed">
                     {step.description}
-                  </Typography>
-                </Card>
+                  </p>
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto text-center bg-[var(--color-base)] p-10 rounded-2xl border border-[var(--color-border)] shadow-sm">
-            <Typography variant="h3" className="mb-4">{dict.solutionDetail.implementationTimeline}</Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-80 text-lg">
+          <div className="max-w-3xl mx-auto text-center bg-blue-50/50 p-8 sm:p-10 rounded-3xl border border-blue-100 shadow-xs">
+            <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-bold mb-2 block">
+              Estimated Delivery
+            </span>
+            <h3 className="text-xl font-bold text-[var(--ink)] mb-3">{dict.solutionDetail.implementationTimeline}</h3>
+            <p className="text-[var(--ink-soft)] text-base sm:text-lg leading-relaxed">
               {solution.implementation}
-            </Typography>
+            </p>
           </div>
 
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 md:py-24 bg-[var(--color-base)] border-t border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-          <Typography variant="h2" className="mb-6">{dict.solutionDetail.readyToSolve}</Typography>
-          <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-lg mb-10">
+      {/* 5. Bottom CTA */}
+      <section className="py-20 md:py-28 bg-[#fbfcfd]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+          <h2 className="heading-md text-[var(--ink)] mb-4">{dict.solutionDetail.readyToSolve}</h2>
+          <p className="text-[var(--ink-soft)] text-base sm:text-lg mb-8 leading-relaxed">
             {dict.solutionDetail.discussChallenges}
-          </Typography>
-          <LocalizedLink href="/contact" className="btn btn-primary btn-lg" style={{ textDecoration: 'none' }}>
+          </p>
+          <LocalizedLink 
+            href="/contact" 
+            className="inline-block px-8 py-3.5 rounded-full font-bold text-sm bg-[var(--nt-accent)] text-white hover:bg-blue-700 transition-all shadow-md"
+          >
             {solution.ctaText || dict.solutionDetail.getStarted}
           </LocalizedLink>
         </div>

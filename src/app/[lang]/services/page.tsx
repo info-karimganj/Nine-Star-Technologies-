@@ -53,19 +53,31 @@ export default async function ServicesPage(props: {
     : null;
 
   return (
-    <div className="pt-16 pb-16 min-h-screen flex flex-col">
-      <div className="container">
-        <header className="text-center max-w-3xl mx-auto mb-12 mt-8">
-          <Typography variant="h1" className="mb-4">
+    <main className="w-full bg-[#fbfcfd] min-h-screen pb-24">
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden mb-12">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10 text-center">
+          <div className="hero-badge mb-4 mx-auto">
+            <span className="hero-pulse-dot"></span>
+            <span>Enterprise Capabilities</span>
+          </div>
+          <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
             {categoryDetails ? (categoryDetails.title[lang] || categoryDetails.title.en) : dict.home.problemFinder.title}
-          </Typography>
-          <Typography variant="body" className="text-xl text-[var(--color-text-muted)]">
+          </h1>
+          <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             {categoryDetails && categoryDetails.description
               ? (categoryDetails.description[lang] || categoryDetails.description.en) 
               : dict.home.overview.servicesDesc}
-          </Typography>
-        </header>
+          </p>
+        </div>
+      </section>
 
+      <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <ServicesFilter 
           categories={serviceCategories} 
           activeCategory={activeCategory} 
@@ -76,7 +88,7 @@ export default async function ServicesPage(props: {
         />
 
         {filteredServices.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10">
             {filteredServices.map((service) => {
               const cat = serviceCategories.find(c => c.id === service.categoryId);
               return (
@@ -85,19 +97,17 @@ export default async function ServicesPage(props: {
             })}
           </div>
         ) : (
-          <div className="text-center py-20 border-2 border-dashed border-[var(--color-border)] rounded-lg">
-            <Typography variant="h3" className="mb-2">{dict.servicesData.common.noServicesFound}</Typography>
-            <Typography variant="body" className="text-[var(--color-text-muted)] mb-6">
+          <div className="text-center py-20 border-2 border-dashed border-[var(--nt-ink-200)] rounded-3xl bg-white p-12 mt-10">
+            <h3 className="text-xl font-bold text-[var(--ink)] mb-2">{dict.servicesData.common.noServicesFound}</h3>
+            <p className="text-[var(--ink-soft)] mb-6">
               {dict.servicesData.common.noServicesFoundDesc} "{searchParams?.q}".
-            </Typography>
-            <LocalizedLink href="/services" className="btn btn-primary">
+            </p>
+            <LocalizedLink href="/services" className="inline-block px-7 py-3 rounded-full font-bold text-sm bg-[var(--nt-accent)] text-white hover:bg-blue-700 transition-all shadow-md">
               {dict.servicesData.common.viewAllServices}
             </LocalizedLink>
           </div>
         )}
-
-
       </div>
-    </div>
+    </main>
   );
 }

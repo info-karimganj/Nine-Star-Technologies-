@@ -74,91 +74,119 @@ export default async function ProductDetailPage({ params }: Props) {
     <main className="w-full">
       <AnalyticsTracker event="product_view" properties={{ product_id: productMeta.id, product_title: product.title }} />
       <ServiceJsonLd name={product.title as unknown as string} description={product.shortDescription as unknown as string} />
-      {/* Breadcrumb & Hero */}
-      <section className="bg-[var(--color-primary)] text-[var(--color-base)] pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-8">
-            <Link href={`/${resolvedParams.lang}/products`} className="text-[var(--color-base)]/60 hover:text-[var(--color-base)] transition-colors text-sm font-medium">
-              {dict.productDetail.backToProducts}
+      {/* 1. Luxury Editorial Hero Header */}
+      <section className="bg-white border-b border-[var(--nt-ink-200)] pt-20 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
+        {/* Subtle Ambient Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[650px] h-[300px] bg-gradient-to-b from-blue-50/80 via-sky-50/40 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+          <div className="mb-6">
+            <Link href={`/${resolvedParams.lang}/products`} className="inline-flex items-center gap-2 text-xs font-mono font-medium text-[var(--nt-accent)] hover:underline">
+              <span>&larr;</span>
+              <span>{dict.productDetail.backToProducts}</span>
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-4 inline-block px-3 py-1 bg-[var(--color-base)]/10 rounded-full text-xs font-semibold tracking-wider uppercase text-[var(--color-base)]/80">
-                {product.availability}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="hero-badge mb-4">
+                <span className="hero-pulse-dot"></span>
+                <span>{product.availability} System</span>
               </div>
-              <Typography variant="h1" className="text-[var(--color-base)] mb-6">
+              <h1 className="heading-xl text-[var(--ink)] mb-4 tracking-tight">
                 {product.title}
-              </Typography>
-              <Typography variant="body" className="text-[var(--color-text-muted)] text-xl leading-relaxed mb-8">
+              </h1>
+              <p className="body-lead text-[var(--ink-soft)] text-lg sm:text-xl leading-relaxed mb-8">
                 {product.overview}
-              </Typography>
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <LocalizedLink href="/contact" className="btn btn-primary btn-lg text-center" style={{ textDecoration: 'none' }}>
+                <LocalizedLink 
+                  href="/contact" 
+                  className="px-8 py-3.5 rounded-full font-bold text-sm bg-[var(--nt-accent)] text-white hover:bg-blue-700 transition-all shadow-md text-center"
+                >
                   {product.ctaText || dict.productDetail.getStarted}
                 </LocalizedLink>
-                <LocalizedLink href="/contact" className="btn btn-outline btn-lg border-[var(--color-base)]/20 text-[var(--color-base)] hover:bg-[var(--color-base)]/10 hover:text-[var(--color-base)] text-center" style={{ textDecoration: 'none' }}>
+                <LocalizedLink 
+                  href="/contact" 
+                  className="px-8 py-3.5 rounded-full font-bold text-sm border border-[var(--nt-ink-200)] text-[var(--ink)] hover:bg-slate-50 transition-all text-center"
+                >
                   {dict.productDetail.contactSales}
                 </LocalizedLink>
               </div>
             </div>
             
-            {/* Hero Image/UI Mockup */}
-            <div className="bg-surface/10 border border-[var(--color-base)]/10 rounded-2xl aspect-[4/3] flex items-center justify-center relative overflow-hidden shadow-2xl">
+            {/* Visual Feature Card Mockup */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-blue-50 via-indigo-50/30 to-white border border-[var(--nt-ink-200)] rounded-3xl aspect-[4/3] flex flex-col items-center justify-center p-8 relative overflow-hidden shadow-sm">
+              <div className="w-16 h-16 rounded-2xl bg-white border border-[var(--nt-ink-200)] shadow-xs flex items-center justify-center text-2xl mb-4">
+                ⭐
+              </div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--nt-accent)] font-bold mb-1">Architecture Verified</span>
+              <span className="text-sm text-[var(--ink-soft)] text-center font-medium">Enterprise-ready deployment framework</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Problem & Features */}
-      <section className="py-20 bg-[var(--color-base)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      {/* 2. The Problem & Features */}
+      <section className="py-20 md:py-24 bg-[#fbfcfd]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           
           {/* Problem Statement */}
           <div className="max-w-3xl mx-auto text-center mb-20">
-            <Typography variant="h2" className="mb-6">{dict.productDetail.problemSolves}</Typography>
-            <Typography variant="body" className="text-[var(--color-text)] opacity-80 text-lg leading-relaxed bg-[var(--color-surface)] p-8 rounded-xl border border-[var(--color-border)]">
-              {product.problem}
-            </Typography>
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 font-semibold mb-2 block">
+              Core Challenge
+            </span>
+            <h2 className="heading-sm text-[var(--ink)] mb-4">{dict.productDetail.problemSolves}</h2>
+            <div className="text-[var(--ink)] text-base sm:text-lg leading-relaxed bg-white p-8 rounded-2xl border border-[var(--nt-ink-200)] border-l-4 border-l-amber-500 shadow-xs italic">
+              &ldquo;{product.problem}&rdquo;
+            </div>
           </div>
 
           {/* Core Features */}
-          <Typography variant="h2" className="mb-12 text-center">{dict.productDetail.coreFeatures}</Typography>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center mb-12">
+            <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+              Capabilities
+            </span>
+            <h2 className="heading-md text-[var(--ink)]">{dict.productDetail.coreFeatures}</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {product.features.map((feature: any, idx: number) => (
-              <Card key={idx} className="p-8 border border-[var(--color-border)] hover:shadow-sm transition-shadow">
-                <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/5 text-[var(--color-primary)] flex items-center justify-center mb-6">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              <div key={idx} className="p-8 rounded-2xl bg-white border border-[var(--nt-ink-200)] hover:border-[var(--nt-accent)] hover:shadow-lg transition-all shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[var(--nt-accent)] flex items-center justify-center mb-5 font-mono font-bold text-sm border border-blue-100">
+                  0{idx + 1}
                 </div>
-                <Typography variant="h3" className="mb-3">{feature.title}</Typography>
-                <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-sm">
+                <h3 className="text-lg font-bold text-[var(--ink)] mb-2">{feature.title}</h3>
+                <p className="text-[var(--ink-soft)] text-sm leading-relaxed">
                   {feature.description}
-                </Typography>
-              </Card>
+                </p>
+              </div>
             ))}
           </div>
 
         </div>
       </section>
 
-      {/* Use Cases & Technology */}
-      <section className="py-20 bg-[var(--color-surface)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {/* 3. Use Cases & Technology */}
+      <section className="py-20 md:py-24 bg-white border-t border-[var(--nt-ink-200)]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             
             {/* Use Cases */}
             <div>
-              <Typography variant="h2" className="mb-8">{dict.productDetail.useCases}</Typography>
-              <div className="space-y-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+                Deployment Scenarios
+              </span>
+              <h2 className="heading-sm text-[var(--ink)] mb-6">{dict.productDetail.useCases}</h2>
+              <div className="space-y-4">
                 {product.useCases.map((useCase: any, idx: number) => (
-                  <div key={idx} className="bg-[var(--color-base)] p-6 rounded-xl border border-[var(--color-border)]">
-                    <Typography variant="h3" className="mb-2 text-lg">{useCase.title}</Typography>
-                    <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-sm">
+                  <div key={idx} className="bg-[#f8fafc] p-6 rounded-2xl border border-[var(--nt-ink-200)]">
+                    <h3 className="text-base font-bold text-[var(--ink)] mb-1.5">{useCase.title}</h3>
+                    <p className="text-[var(--ink-soft)] text-sm leading-relaxed">
                       {useCase.description}
-                    </Typography>
+                    </p>
                   </div>
                 ))}
               </div>
@@ -166,13 +194,16 @@ export default async function ProductDetailPage({ params }: Props) {
 
             {/* Technology Stack */}
             <div>
-              <Typography variant="h2" className="mb-8">{dict.productDetail.technology}</Typography>
-              <Typography variant="body" className="text-[var(--color-text)] opacity-70 mb-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-[var(--nt-accent)] font-semibold mb-2 block">
+                Technical Foundation
+              </span>
+              <h2 className="heading-sm text-[var(--ink)] mb-4">{dict.productDetail.technology}</h2>
+              <p className="text-[var(--ink-soft)] text-sm sm:text-base mb-6 leading-relaxed">
                 {dict.productDetail.techSubtitle}
-              </Typography>
-              <div className="flex flex-wrap gap-3">
+              </p>
+              <div className="flex flex-wrap gap-2.5">
                 {product.technology.map((tech: string, idx: number) => (
-                  <span key={idx} className="px-4 py-2 bg-[var(--color-base)] border border-[var(--color-border)] rounded-full text-sm font-medium text-[var(--color-text)] opacity-80">
+                  <span key={idx} className="px-4 py-2 bg-slate-50 border border-[var(--nt-ink-200)] rounded-xl text-xs font-mono font-medium text-[var(--ink)]">
                     {tech}
                   </span>
                 ))}
@@ -183,14 +214,17 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 md:py-24 bg-[var(--color-base)] border-t border-[var(--color-border)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-          <Typography variant="h2" className="mb-6">{dict.productDetail.readyToAction}</Typography>
-          <Typography variant="body" className="text-[var(--color-text)] opacity-70 text-lg mb-10">
+      {/* 4. Bottom CTA */}
+      <section className="py-20 md:py-28 bg-[#fbfcfd] border-t border-[var(--nt-ink-200)]">
+        <div className="site-container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+          <h2 className="heading-md text-[var(--ink)] mb-4">{dict.productDetail.readyToAction}</h2>
+          <p className="text-[var(--ink-soft)] text-base sm:text-lg mb-8 leading-relaxed">
             {dict.productDetail.requestDemo.replace('{productTitle}', product.title)}
-          </Typography>
-          <LocalizedLink href="/contact" className="btn btn-primary btn-lg" style={{ textDecoration: 'none' }}>
+          </p>
+          <LocalizedLink 
+            href="/contact" 
+            className="inline-block px-8 py-3.5 rounded-full font-bold text-sm bg-[var(--nt-accent)] text-white hover:bg-blue-700 transition-all shadow-md"
+          >
             {product.ctaText || dict.productDetail.requestDemoBtn}
           </LocalizedLink>
         </div>
