@@ -53,12 +53,9 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserInfo | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Skip layout chrome on login page
-  if (pathname === '/admin/login') {
-    return <>{children}</>;
-  }
-
   useEffect(() => {
+    if (pathname === '/admin/login') return;
+
     fetch('/api/admin/auth/me')
       .then((res) => {
         if (!res.ok) throw new Error('Not authenticated');
@@ -74,7 +71,12 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
       .catch(() => {
         router.push('/admin/login');
       });
-  }, [router]);
+  }, [pathname, router]);
+
+  // Skip layout chrome on login page
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
 
   const handleLogout = async () => {
     await fetch('/api/admin/auth/logout', { method: 'POST' });
