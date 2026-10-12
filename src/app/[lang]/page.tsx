@@ -98,39 +98,57 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
   return (
     <main className="flex flex-col overflow-x-hidden">
-      {/* 1. Hero Section (Editorial High-Impact Layout) */}
-      <section className="homepage-hero relative min-h-[85vh] flex flex-col justify-center items-center py-20 px-4 bg-white overflow-hidden text-center">
-        {/* Floating Ambient Blobs */}
-        <span className="blob" style={{ width: '280px', height: '280px', background: 'rgba(37, 99, 235, 0.12)', top: '8%', right: '10%' }}></span>
-        <span className="blob" style={{ width: '160px', height: '160px', background: 'rgba(6, 182, 212, 0.16)', bottom: '12%', left: '8%', animationDelay: '1.5s' }}></span>
-        <span className="blob" style={{ width: '90px', height: '90px', background: 'rgba(245, 158, 11, 0.14)', top: '48%', right: '6%', animationDelay: '3s' }}></span>
+      {/* 1. Hero Section (Luxury High-End Editorial Layout) */}
+      <section className="homepage-hero relative min-h-[90vh] flex flex-col justify-center items-center py-24 sm:py-32 px-4 bg-white overflow-hidden text-center">
+        {/* Subtle Tech Grid Background */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.035]"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)',
+            backgroundSize: '48px 48px'
+          }}
+        ></div>
 
-        <div className="site-container relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-6">
-          {/* Pulsing Geographic Badge */}
-          <div className="hero-badge shadow-xs">
-            <span className="hero-pulse-dot"></span>
-            <span>Ninestar Technologies &bull; Scale Globally</span>
+        {/* Floating Luxury Ambient Mesh Glows */}
+        <span className="blob" style={{ width: '380px', height: '380px', background: 'radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%)', top: '5%', right: '8%' }}></span>
+        <span className="blob" style={{ width: '260px', height: '260px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, transparent 70%)', bottom: '10%', left: '6%', animationDelay: '2s' }}></span>
+        <span className="blob" style={{ width: '180px', height: '180px', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%)', top: '45%', right: '4%', animationDelay: '3.5s' }}></span>
+
+        <div className="site-container relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-7">
+          {/* Luxury Live Pill */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs backdrop-blur-md">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="font-mono text-xs uppercase tracking-widest text-slate-700 font-semibold">
+              Available for Q4 Enterprise Projects
+            </span>
           </div>
 
-          {/* Main Display Headline */}
-          <h1 className="m-0 tracking-tight">
-            <span className="display-l block text-[var(--ink)]">WE’RE YOUR PARTNERS IN</span>
-            <span className="display-l block text-[var(--nt-accent)]">GROWTH & TECH</span>
-          </h1>
+          {/* Main Display Headline (High-Impact Editorial Anton) */}
+          <div className="space-y-1">
+            <h1 className="m-0 tracking-tight leading-[0.92]">
+              <span className="display-l block text-[var(--ink)]">WE’RE YOUR PARTNERS IN</span>
+              <span className="display-l block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
+                GROWTH & TECH
+              </span>
+            </h1>
+          </div>
 
           {/* Serif Lead Paragraph */}
-          <p className="body-lead max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-[var(--ink-soft)] leading-relaxed">
-            {dict.home.hero.description || 'A founder-driven technology and digital agency. Full-stack development, Generative Engine Optimisation (GEO), high-intent SEO, and performance scale for forward-thinking enterprises.'}
+          <p className="body-lead max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed font-serif italic">
+            {dict.home.hero.description || 'A founder-driven technology and digital agency. Full-stack engineering, Generative Engine Optimisation (GEO), high-intent SEO, and performance scale for forward-thinking enterprises.'}
           </p>
 
-          {/* Dual Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-3">
+          {/* Luxury Dual Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
             <TrackAction event="cta_clicked" properties={{ location: 'hero', button: 'primary' }}>
               <Link
                 href={`/${lang}/request`}
-                className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all"
+                className="btn-pill-primary shadow-xl hover:shadow-2xl !py-3.5 !px-8 text-sm font-semibold transition-all transform hover:-translate-y-0.5"
               >
-                <span className="w-6 h-6 rounded-full bg-[var(--nt-accent)] flex items-center justify-center text-white text-xs">
+                <span className="w-5 h-5 rounded-full bg-[var(--nt-accent)] flex items-center justify-center text-white text-xs">
                   ⭐
                 </span>
                 {dict.home.hero.ctaPrimary} →
@@ -140,11 +158,18 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
             <TrackAction event="cta_clicked" properties={{ location: 'hero', button: 'secondary' }}>
               <Link
                 href={`/${lang}/contact`}
-                className="btn btn-outline btn-lg hover:bg-slate-50 transition-all"
+                className="btn-pill-outline !py-3.5 !px-8 text-sm font-semibold hover:bg-slate-50 transition-all"
               >
                 {dict.home.hero.ctaSecondary} →
               </Link>
             </TrackAction>
+          </div>
+
+          {/* Micro trust indicators */}
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono uppercase tracking-wider">
+            <span className="flex items-center gap-1.5">&bull; 100% Uptime Guaranteed</span>
+            <span className="flex items-center gap-1.5">&bull; Sub-Second Latency</span>
+            <span className="flex items-center gap-1.5">&bull; Proven ROI Attribution</span>
           </div>
         </div>
       </section>

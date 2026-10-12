@@ -144,47 +144,49 @@ export function Header({ dict }: { dict: any }) {
       </header>
 
       {/* Mobile Navigation Drawer */}
-      <div className={`mobile-drawer ${isMobileMenuOpen ? 'active' : ''}`} onClick={(e) => {
-        if (e.target === e.currentTarget) setIsMobileMenuOpen(false);
-      }}>
-        <div className="mobile-drawer-content">
-          <div>
-            <div className="flex justify-between items-center mb-8">
-              <div className="brand-logo flex items-center gap-2">
-                <div className="logo-symbol">⭐</div>
-                <div className="logo-text">
-                  <span className="logo-title font-display text-xl font-bold">NINESTAR</span>
+      {isMobileMenuOpen && (
+        <div className="mobile-drawer active" onClick={(e) => {
+          if (e.target === e.currentTarget) setIsMobileMenuOpen(false);
+        }}>
+          <div className="mobile-drawer-content">
+            <div>
+              <div className="flex justify-between items-center mb-8">
+                <div className="brand-logo flex items-center gap-2">
+                  <div className="logo-symbol !w-8 !h-8 text-sm">⭐</div>
+                  <div className="logo-text">
+                    <span className="logo-title font-display text-xl font-bold">NINESTAR</span>
+                  </div>
                 </div>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 text-[var(--ink)] cursor-pointer"
+                  aria-label="Close Menu"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12"/>
+                  </svg>
+                </button>
               </div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-[var(--ink)]"
-                aria-label="Close Menu"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6 6 18M6 6l12 12"/>
-                </svg>
-              </button>
+
+              <nav className="flex flex-col gap-3">
+                <Link href="/services" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.services}</Link>
+                <Link href="/solutions" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.solutions}</Link>
+                <Link href="/products" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.products}</Link>
+                <Link href="/case-studies" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.caseStudies}</Link>
+                <Link href="/about" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.about}</Link>
+                <Link href="/process" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.process}</Link>
+                <Link href="/contact" className="text-base font-semibold text-[var(--ink)] py-1.5 hover:text-[var(--nt-accent)] transition-colors" onClick={toggleMobileMenu}>{dict.navigation.contact}</Link>
+              </nav>
             </div>
 
-            <nav className="flex flex-col gap-3">
-              <Link href="/services" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.services}</Link>
-              <Link href="/solutions" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.solutions}</Link>
-              <Link href="/products" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.products}</Link>
-              <Link href="/case-studies" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.caseStudies}</Link>
-              <Link href="/about" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.about}</Link>
-              <Link href="/process" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.process}</Link>
-              <Link href="/contact" className="text-lg font-semibold text-[var(--ink)] py-1" onClick={toggleMobileMenu}>{dict.navigation.contact}</Link>
-            </nav>
-          </div>
-
-          <div className="mt-8 border-t border-[var(--nt-ink-200)] pt-6 flex flex-col gap-4">
-            <Link href="/request" className="btn btn-primary w-full text-center justify-center" onClick={toggleMobileMenu}>
-              {dict.navigation.startRequest} →
-            </Link>
+            <div className="mt-8 border-t border-[var(--nt-ink-200)] pt-6 flex flex-col gap-4">
+              <Link href="/request" className="btn btn-primary w-full text-center justify-center py-3" onClick={toggleMobileMenu}>
+                {dict.navigation.startRequest} →
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
