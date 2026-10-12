@@ -117,13 +117,15 @@ export function CookieConsentBanner({ lang }: CookieConsentBannerProps) {
   const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
 
   useEffect(() => {
-    setMounted(true);
-    const existing = getStoredConsent();
-    if (!existing || !existing.hasInteracted) {
-      setShowBanner(true);
-    } else {
-      setPrefs(existing);
-    }
+    queueMicrotask(() => {
+      setMounted(true);
+      const existing = getStoredConsent();
+      if (!existing || !existing.hasInteracted) {
+        setShowBanner(true);
+      } else {
+        setPrefs(existing);
+      }
+    });
 
     // Listen for manual reopen trigger from footer or button
     const handleOpen = () => {
