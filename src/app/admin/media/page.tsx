@@ -69,7 +69,10 @@ export default function AdminMediaPage() {
   };
 
   const copyUrl = (url: string) => {
-    navigator.clipboard.writeText(window.location.origin + url);
+    const fullUrl = url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')
+      ? url
+      : `${window.location.origin}${url.startsWith('/') ? '' : '/'}${url}`;
+    navigator.clipboard.writeText(fullUrl);
     alert('Public Image URL copied to clipboard!');
   };
 
@@ -164,7 +167,12 @@ export default function AdminMediaPage() {
               <img src={selectedItem.url} alt={selectedItem.altText} className="max-h-72 max-w-full object-contain" style={{ maxHeight: '18rem', maxWidth: '100%' }} />
             </div>
             <div className="space-y-1.5 text-xs text-slate-300">
-              <p><strong className="text-slate-400">File URL:</strong> <span className="font-mono text-[11px] text-amber-400">{selectedItem.url}</span></p>
+              <p className="flex items-center gap-1.5 overflow-hidden">
+                <strong className="text-slate-400 shrink-0">File URL:</strong>
+                <span className="font-mono text-[11px] text-amber-400 truncate block max-w-[320px]">
+                  {selectedItem.url.startsWith('data:') ? 'Embedded Cloud/Data URI (Click Copy Public URL)' : selectedItem.url}
+                </span>
+              </p>
               <p><strong className="text-slate-400">Size:</strong> {(selectedItem.sizeBytes / 1024).toFixed(1)} KB</p>
               <p><strong className="text-slate-400">Uploaded by:</strong> {selectedItem.uploadedBy || 'Admin'}</p>
               <p><strong className="text-slate-400">Date:</strong> {new Date(selectedItem.createdAt).toLocaleDateString()}</p>

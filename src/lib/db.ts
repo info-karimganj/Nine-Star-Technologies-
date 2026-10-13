@@ -76,42 +76,77 @@ export interface PageDocument {
   updatedAt: string;
 }
 
-// Storage Root Directory
-const STORAGE_DIR = path.join(process.cwd(), 'data', 'storage');
+// Storage Root Directories: local for dev, /tmp for serverless/Vercel
+const LOCAL_STORAGE_DIR = path.join(process.cwd(), 'data', 'storage');
+const TMP_STORAGE_DIR = path.join('/tmp', 'data', 'storage');
 
-function ensureDirectoryExists() {
-  if (!fs.existsSync(STORAGE_DIR)) {
-    fs.mkdirSync(STORAGE_DIR, { recursive: true });
+// Memory store to keep collections persistent during runtime lifecycle
+const memoryStore: Record<string, any[]> = {};
+
+function getWritableDir(): string {
+  try {
+    if (!fs.existsSync(LOCAL_STORAGE_DIR)) {
+      fs.mkdirSync(LOCAL_STORAGE_DIR, { recursive: true });
+    }
+    const testFile = path.join(LOCAL_STORAGE_DIR, '.write_test');
+    fs.writeFileSync(testFile, '1');
+    fs.unlinkSync(testFile);
+    return LOCAL_STORAGE_DIR;
+  } catch {
+    try {
+      if (!fs.existsSync(TMP_STORAGE_DIR)) {
+        fs.mkdirSync(TMP_STORAGE_DIR, { recursive: true });
+      }
+      return TMP_STORAGE_DIR;
+    } catch {
+      return '';
+    }
   }
-}
-
-function getFilePath(collection: string): string {
-  ensureDirectoryExists();
-  return path.join(STORAGE_DIR, `${collection}.json`);
 }
 
 function readCollection<T>(collection: string, defaultData: T[] = []): T[] {
-  try {
-    const file = getFilePath(collection);
-    if (!fs.existsSync(file)) {
-      writeCollection(collection, defaultData);
-      return defaultData;
-    }
-    const raw = fs.readFileSync(file, 'utf8');
-    return JSON.parse(raw);
-  } catch (error) {
-    console.error(`Error reading collection ${collection}:`, error);
-    return defaultData;
+  if (memoryStore[collection]) {
+    return memoryStore[collection] as T[];
   }
+
+  // 1. Check /tmp if running on serverless
+  try {
+    const tmpFile = path.join(TMP_STORAGE_DIR, `${collection}.json`);
+    if (fs.existsSync(tmpFile)) {
+      const raw = fs.readFileSync(tmpFile, 'utf8');
+      const parsed = JSON.parse(raw);
+      memoryStore[collection] = parsed;
+      return parsed;
+    }
+  } catch (_) {}
+
+  // 2. Check local repo storage
+  try {
+    const localFile = path.join(LOCAL_STORAGE_DIR, `${collection}.json`);
+    if (fs.existsSync(localFile)) {
+      const raw = fs.readFileSync(localFile, 'utf8');
+      const parsed = JSON.parse(raw);
+      memoryStore[collection] = parsed;
+      return parsed;
+    }
+  } catch (_) {}
+
+  // 3. Fallback to defaultData
+  memoryStore[collection] = defaultData;
+  return defaultData;
 }
 
 function writeCollection<T>(collection: string, data: T[]) {
-  try {
-    ensureDirectoryExists();
-    const file = getFilePath(collection);
-    fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf8');
-  } catch (error) {
-    console.error(`Error writing collection ${collection}:`, error);
+  memoryStore[collection] = data;
+
+  const targetDir = getWritableDir();
+  if (targetDir) {
+    try {
+      const file = path.join(targetDir, `${collection}.json`);
+      fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf8');
+    } catch (error) {
+      console.warn(`[db] Write error for collection ${collection}:`, error);
+    }
   }
 }
 

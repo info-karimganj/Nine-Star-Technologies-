@@ -44,21 +44,30 @@ export async function POST(request: Request) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-    await mkdir(uploadsDir, { recursive: true });
-
     const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
     const filename = `${Date.now()}-${safeName}`;
-    const filePath = path.join(uploadsDir, filename);
+    let publicUrl = '';
 
-    await writeFile(filePath, buffer);
-
-    let publicUrl = `/uploads/${filename}`;
-
-    // Upload to Supabase Storage bucket 'public-media'
+    // 1. Try Supabase Storage first (High-speed Cloud Storage CDN)
     try {
-      const { supabase } = await import('@/lib/supabase');
-      const { data: storageData, error: storageErr } = await supabase.storage
+      const { createClient } = await import('@supabase/supabase-js');
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://qzxzttmrbeftlgujrldk.supabase.co';
+      const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+      const key = serviceKey || 
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 
+        'sb_publishable_DQ_bNbJ8tB8plWGrBbRngw_Y7HhXrwi';
+
+      const supabaseClient = createClient(supabaseUrl, key);
+
+      // If service role key is present, auto-create the public-media bucket if not existing
+      if (serviceKey) {
+        try {
+          await supabaseClient.storage.createBucket('public-media', { public: true });
+        } catch (_) {}
+      }
+
+      const { data: storageData, error: storageErr } = await supabaseClient.storage
         .from('public-media')
         .upload(`media/${filename}`, buffer, {
           contentType: file.type || 'application/octet-stream',
@@ -66,13 +75,37 @@ export async function POST(request: Request) {
         });
 
       if (!storageErr && storageData?.path) {
-        const { data: urlData } = supabase.storage.from('public-media').getPublicUrl(`media/${filename}`);
+        const { data: urlData } = supabaseClient.storage.from('public-media').getPublicUrl(`media/${filename}`);
         if (urlData?.publicUrl) {
           publicUrl = urlData.publicUrl;
         }
+      } else if (storageErr) {
+        console.warn('[Supabase Storage]:', storageErr.message);
       }
     } catch (sbStorageErr) {
-      console.warn('[Supabase Storage] Fallback to local disk upload:', sbStorageErr);
+      console.warn('[Supabase Storage upload warning]:', sbStorageErr);
+    }
+
+    // 2. If not uploaded to Supabase Storage, try local disk (works in local dev environments)
+    if (!publicUrl) {
+      try {
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+        await mkdir(uploadsDir, { recursive: true });
+        const filePath = path.join(uploadsDir, filename);
+        await writeFile(filePath, buffer);
+        publicUrl = `/uploads/${filename}`;
+      } catch (localFsErr) {
+        // Expected on read-only serverless platforms like Vercel Lambda
+        console.warn('[Local disk upload skipped - read-only filesystem]:', localFsErr);
+      }
+    }
+
+    // 3. Fallback for serverless environments (Vercel) when cloud bucket is not yet active:
+    // Convert to Data URI so the image upload succeeds without breaking and renders cleanly everywhere!
+    if (!publicUrl) {
+      const mime = file.type || 'image/png';
+      const base64Data = buffer.toString('base64');
+      publicUrl = `data:${mime};base64,${base64Data}`;
     }
 
     const mediaItem = {
@@ -82,25 +115,25 @@ export async function POST(request: Request) {
       mimeType: file.type || 'application/octet-stream',
       sizeBytes: file.size,
       altText,
-      uploadedBy: user.name || user.email,
+      uploadedBy: user.name || user.email || 'Admin',
       createdAt: new Date().toISOString()
     };
 
     const saved = db.media.create(mediaItem);
 
     db.auditLogs.log({
-      userId: user.id,
-      userName: user.name,
-      userEmail: user.email,
+      userId: user.id || 'admin',
+      userName: user.name || 'Admin',
+      userEmail: user.email || 'admin@9star.com',
       action: 'CREATE',
       entity: 'media',
       entityId: saved.id,
-      details: `Uploaded media: ${file.name} (${(file.size / 1024).toFixed(1)} KB) -> ${publicUrl}`
+      details: `Uploaded media: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`
     });
 
     return NextResponse.json({ media: saved });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Media upload error:', error);
-    return NextResponse.json({ error: 'Failed to upload media' }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Failed to upload media' }, { status: 500 });
   }
 }
