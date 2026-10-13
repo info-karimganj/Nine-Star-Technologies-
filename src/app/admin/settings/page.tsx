@@ -152,6 +152,18 @@ export default function AdminSettingsPage() {
           </div>
         </div>
       </div>
+
+      {/* Bottom Save Action Bar */}
+      <div className="flex items-center justify-between pt-2">
+        <p className="text-xs text-slate-400">Click save to apply your changes to the live website.</p>
+        <button
+          type="submit"
+          disabled={saving}
+          className="px-6 py-3 rounded-lg !bg-[#d4af37] hover:!bg-[#e0be48] !text-[#070e17] font-bold text-sm tracking-wide transition-colors cursor-pointer shadow-lg disabled:opacity-50"
+        >
+          {saving ? 'Saving...' : '💾 Save Settings'}
+        </button>
+      </div>
     </form>
   );
 }
