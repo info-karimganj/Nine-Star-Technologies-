@@ -1,14 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { Typography, Button, Card, CardHeader, CardContent } from '@/components/ui';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { Metadata } from 'next';
-import { TrackAction } from '@/components/analytics/TrackAction';
-import { ProblemFinderClient } from '@/components/home/ProblemFinderClient';
-
 import { constructMetadata } from '@/seo/metadata';
 import { siteConfig } from '@/seo/config';
+import { getSiteSettings, getServices } from '@/data/cms';
+import { HomeInteractiveClient } from '@/components/home/HomeInteractiveClient';
 
 export async function generateMetadata({
   params,
@@ -17,8 +15,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = await getDictionary(lang);
+  const settings = await getSiteSettings();
+
   return constructMetadata({
-    title: `${dict.home.hero.title} | ${siteConfig.name}`,
+    title: `${dict.home.hero.title || 'Building the future with AI and strategy'} | ${siteConfig.name}`,
     description: dict.home.hero.description,
     url: `${siteConfig.url}/${lang}`,
   });
@@ -27,495 +27,595 @@ export async function generateMetadata({
 export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await props.params;
   const dict = await getDictionary(lang);
-
-  const pressCoverage = [
-    '⚡ TechCrunch Daily',
-    '📰 Prothom Alo Business',
-    '🌐 The Daily Star',
-    '📈 Search Engine Journal',
-    '📺 Channel I Feature',
-    '🚀 Product Hunt Top 5',
-    '📊 Bloomberg Technology',
-    '💼 Forbes Tech Council',
-  ];
+  const settings = await getSiteSettings();
+  const dbServices = await getServices();
 
   const editorialServices = [
     {
       index: '01',
-      title: 'Search Engine Optimization (SEO)',
-      desc: 'Build compounding organic authority that captures intent-rich search queries and drives perpetual revenue.',
+      title: lang === 'bn' ? 'সার্চ ইঞ্জিন অপ্টিমাইজেশন (SEO)' : 'Search Engine Optimization',
+      desc: lang === 'bn' ? 'অর্গানিক অথরিটি তৈরি করুন যা নিয়মিত গ্রাহক এবং দীর্ঘমেয়াদি রেভিনিউ নিশ্চিত করে।' : 'Build compounding organic authority that captures intent-rich search queries and drives perpetual revenue.',
       href: `/${lang}/services`,
     },
     {
       index: '02',
-      title: 'Generative Engine Optimization (GEO)',
-      desc: 'Ensure your brand is proactively cited and recommended by ChatGPT, Perplexity, Claude, and Google AI Overviews.',
+      title: lang === 'bn' ? 'জেনারেটিভ ইঞ্জিন অপ্টিমাইজেশন (GEO)' : 'Generative Engine Optimization',
+      desc: lang === 'bn' ? 'ChatGPT, Perplexity এবং Google AI তে আপনার ব্র্যান্ডের রিকমেন্ডেশন নিশ্চিত করুন।' : 'Ensure your brand is proactively cited and recommended by ChatGPT, Perplexity, Claude, and Google AI Overviews.',
       href: `/${lang}/services`,
     },
     {
       index: '03',
-      title: 'Web & Cloud Engineering',
-      desc: 'Ultra-fast Next.js and full-stack web applications engineered for speed, clean UX, and 100% uptime.',
+      title: lang === 'bn' ? 'ওয়েব ও ক্লাউড ইঞ্জিনিয়ারিং' : 'Web & Cloud Engineering',
+      desc: lang === 'bn' ? 'Next.js এবং ফুল-স্ট্যাক ওয়েব অ্যাপ্লিকেশন যা গতি এবং ১০০% আপটাইমের জন্য অপ্টিমাইজড।' : 'Ultra-fast, modular Next.js and full-stack web applications engineered for speed, clean UX, and 100% uptime.',
       href: `/${lang}/services`,
     },
     {
       index: '04',
-      title: 'Performance Media & Ads',
-      desc: 'High-return Google Search, Meta Ads, and programmatic campaigns with strict attribution and verifiable ROAS.',
+      title: lang === 'bn' ? 'পারফরম্যান্স মিডিয়া ও বিজ্ঞাপন' : 'Performance Media & Ads',
+      desc: lang === 'bn' ? 'গুগল সার্চ ও মেটা বিজ্ঞাপনের মাধ্যমে সর্বোচ্চ আরওএএস (ROAS) অর্জন।' : 'High-return Google Search, Meta Ads, and programmatic campaigns with strict attribution and verifiable ROAS.',
       href: `/${lang}/services`,
     },
     {
       index: '05',
-      title: 'Conversion Rate Optimization',
-      desc: 'Double the output of your existing traffic through data-backed UI/UX redesigns and behavioral heatmaps.',
+      title: lang === 'bn' ? 'কনভার্সন রেট অপ্টিমাইজেশন (CRO)' : 'Conversion Rate Optimization',
+      desc: lang === 'bn' ? 'ডাটা-চালিত ইউআই/ইউএক্স রিডিজাইন এবং হিটম্যাপ অ্যানালাইসিসের মাধ্যমে সেলস দ্বিগুণ করুন।' : 'Double the output of your existing traffic through data-backed UI/UX redesigns, behavioral heatmaps, and multivariate testing.',
       href: `/${lang}/services`,
     },
     {
       index: '06',
-      title: 'AI Automations & Custom Agents',
-      desc: 'Streamline operational bottlenecks with custom LLM agents, automated lead nurturing, and CRM synchronization.',
+      title: lang === 'bn' ? 'এআই অটোমেশন ও এজেন্টস' : 'AI Automations & Agents',
+      desc: lang === 'bn' ? 'কাস্টম এলএলএম এজেন্ট এবং সিআরএম অটোমেশনের মাধ্যমে কাজের গতি বাড়ান।' : 'Streamline operational bottlenecks with custom LLM agents, automated lead nurturing, and CRM synchronization.',
       href: `/${lang}/services`,
     },
     {
       index: '07',
-      title: 'Product Design & UI/UX Audit',
-      desc: 'Intuitive, beautiful interfaces crafted with precision design systems that captivate users and elevate brand perception.',
+      title: lang === 'bn' ? 'প্রোডাক্ট ডিজাইন ও ইউআই/ইউএক্স অডিট' : 'Product Design & UX Audit',
+      desc: lang === 'bn' ? 'আধুনিক ডিজাইন সিস্টেমের মাধ্যমে আকর্ষণীয় এবং ব্যবহারকারী-বান্ধব ইন্টারফেস।' : 'Intuitive, beautiful interfaces crafted with precision design systems that captivate users and elevate brand perception.',
       href: `/${lang}/services`,
     },
     {
       index: '08',
-      title: 'Retention & Lifecycle Email',
-      desc: 'Automated onboarding journeys, customer re-engagement sequences, and high-converting newsletters.',
+      title: lang === 'bn' ? 'রিটেনশন ও লাইফসাইকেল ইমেইল' : 'Retention & Lifecycle Email',
+      desc: lang === 'bn' ? 'স্বয়ংক্রিয় অনবোর্ডিং এবং কাস্টমার রি-এনগেজমেন্ট ইমেইল ফানেল।' : 'Automated onboarding journeys, customer re-engagement sequences, and high-converting newsletters.',
       href: `/${lang}/services`,
     },
     {
       index: '09',
-      title: 'Analytics & Deep Attribution',
-      desc: 'Complete clarity on marketing ROI with server-side tracking, BigQuery data pipelines, and real-time dashboards.',
+      title: lang === 'bn' ? 'অ্যানালিটিক্স ও ডিপ অ্যাট্রিবিউশন' : 'Analytics & Deep Attribution',
+      desc: lang === 'bn' ? 'সার্ভার-সাইড ট্র্যাকিং এবং এক্সিকিউটিভ ড্যাশবোর্ডের মাধ্যমে নিখুঁত আরওআই পর্যবেক্ষণ।' : 'Complete clarity on marketing ROI with server-side tracking, BigQuery data pipelines, and real-time executive dashboards.',
       href: `/${lang}/services`,
     },
   ];
 
   return (
-    <main className="flex flex-col overflow-x-hidden">
-      {/* 1. Hero Section (Luxury High-End Editorial Layout) */}
-      <section className="homepage-hero relative min-h-[90vh] flex flex-col justify-center items-center py-24 sm:py-32 px-4 bg-white overflow-hidden text-center">
-        {/* Subtle Tech Grid Background */}
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-[0.035]"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)',
-            backgroundSize: '48px 48px'
-          }}
-        ></div>
+    <main className="w-full overflow-x-hidden">
+      
+      {/* ==========================================================================
+           1. HERO SECTION (AZURE SKY & CUMULUS CLOUDS — REFERENCE IMAGE SIGNATURE)
+           ========================================================================== */}
+      <div className="hero-outer-frame">
+        <div className="hero-sky-card">
+          <div className="hero-light-beam"></div>
+          <div className="hero-clouds-layer"></div>
+          <div className="hero-clouds-photo-texture"></div>
 
-        {/* Floating Luxury Ambient Mesh Glows */}
-        <span className="blob" style={{ width: '380px', height: '380px', background: 'radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%)', top: '5%', right: '8%' }}></span>
-        <span className="blob" style={{ width: '260px', height: '260px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.16) 0%, transparent 70%)', bottom: '10%', left: '6%', animationDelay: '2s' }}></span>
-        <span className="blob" style={{ width: '180px', height: '180px', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%)', top: '45%', right: '4%', animationDelay: '3.5s' }}></span>
-
-        <div className="site-container relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-7">
-          {/* Luxury Live Pill */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 shadow-xs backdrop-blur-md">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="font-mono text-xs uppercase tracking-widest text-slate-700 font-semibold">
-              Available for Q4 Enterprise Projects
-            </span>
-          </div>
-
-          {/* Main Display Headline (High-Impact Editorial Anton) */}
-          <div className="space-y-1">
-            <h1 className="m-0 tracking-tight leading-[0.92]">
-              <span className="display-l block text-[var(--ink)]">WE’RE YOUR PARTNERS IN</span>
-              <span className="display-l block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">
-                GROWTH & TECH
+          <div className="hero-content-inner site-container">
+            {/* Top Pill Badge */}
+            <div className="hero-top-pill">
+              <span className="hero-pulse-dot"></span>
+              <span>
+                {lang === 'bn'
+                  ? 'নাইনস্টার টেকনোলজিস • বিশ্বমানের প্রবৃদ্ধি'
+                  : '9STAR Technologies • Scaled for Global Dominance'}
               </span>
+            </div>
+
+            {/* Display Headline */}
+            <h1 className="hero-display-headline">
+              {lang === 'bn' ? (
+                <>এআই এবং আধুনিক কৌশলে<br />আগামীর ভবিষ্যৎ নির্মাণ</>
+              ) : (
+                <>Building the future with<br />AI and strategy</>
+              )}
             </h1>
+
+            {/* Subtitle */}
+            <p className="hero-lead-text">
+              {lang === 'bn'
+                ? 'আমরা ডেটা-চালিত ইঞ্জিনিয়ারিং, ইন্টেলিজেন্ট অটোমেশন এবং কৌশলগত পরামর্শের মাধ্যমে ব্যবসায়ের দ্রুত প্রবৃদ্ধি নিশ্চিত করি।'
+                : 'We help organizations unlock growth and efficiency through data-driven consulting, intelligent automation, and high-performance engineering.'}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="hero-cta-group">
+              <Link href={`/${lang}/services`} className="btn btn-glass btn-lg">
+                {lang === 'bn' ? 'সার্ভিস দেখুন' : 'VIEW SERVICES'}
+              </Link>
+              <button type="button" className="btn btn-neon btn-lg trigger-audit-btn cursor-pointer">
+                <span>{lang === 'bn' ? 'শুরু করুন' : 'GET STARTED'}</span>
+                <span className="arrow-circle">↗</span>
+              </button>
+            </div>
           </div>
 
-          {/* Serif Lead Paragraph */}
-          <p className="body-lead max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed font-serif italic">
-            {dict.home.hero.description || 'A founder-driven technology and digital agency. Full-stack engineering, Generative Engine Optimisation (GEO), high-intent SEO, and performance scale for forward-thinking enterprises.'}
-          </p>
+          {/* 3D Floating Perspective Deck & Interactive Modal Component */}
+          <HomeInteractiveClient lang={lang} contactEmail={settings?.contactEmail} />
+        </div>
+      </div>
 
-          {/* Luxury Dual Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
-            <TrackAction event="cta_clicked" properties={{ location: 'hero', button: 'primary' }}>
-              <Link
-                href={`/${lang}/request`}
-                className="btn-pill-primary shadow-xl hover:shadow-2xl !py-3.5 !px-8 text-sm font-semibold transition-all transform hover:-translate-y-0.5"
-              >
-                <span className="w-5 h-5 rounded-full bg-[var(--nt-accent)] flex items-center justify-center text-white text-xs">
-                  ⭐
-                </span>
-                {dict.home.hero.ctaPrimary} →
-              </Link>
-            </TrackAction>
-
-            <TrackAction event="cta_clicked" properties={{ location: 'hero', button: 'secondary' }}>
-              <Link
-                href={`/${lang}/contact`}
-                className="btn-pill-outline !py-3.5 !px-8 text-sm font-semibold hover:bg-slate-50 transition-all"
-              >
-                {dict.home.hero.ctaSecondary} →
-              </Link>
-            </TrackAction>
-          </div>
-
-          {/* Micro trust indicators */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono uppercase tracking-wider">
-            <span className="flex items-center gap-1.5">&bull; 100% Uptime Guaranteed</span>
-            <span className="flex items-center gap-1.5">&bull; Sub-Second Latency</span>
-            <span className="flex items-center gap-1.5">&bull; Proven ROI Attribution</span>
+      {/* ==========================================================================
+           2. PARTNER LOGOS STRIP (MINIMALIST MONOCHROME)
+           ========================================================================== */}
+      <section className="partner-logo-strip" aria-label="Technology and Platform Partners">
+        <div className="site-container">
+          <div className="partner-logo-row">
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2zm0-10h2v8h-2z"/></svg>
+              <span>Google Partner</span>
+            </div>
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+              <span>Meta Verified</span>
+            </div>
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.7 14.4c-.3-.2-1-.6-2.1-.6-1.5 0-2.4.9-2.4 2.1 0 1.2.9 2 2.5 2 .9 0 1.6-.3 2-.5v-3zm-6.2 3.1c-.6.3-1.4.5-2.2.5-1.9 0-2.8-1.1-2.8-2.6 0-1.8 1.3-2.7 3.3-2.7.6 0 1.2.1 1.7.3v4.5zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/></svg>
+              <span>AWS Solutions</span>
+            </div>
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 10 18H2L12 2z"/></svg>
+              <span>Vercel Certified</span>
+            </div>
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a2.5 2.5 0 0 1-5 0v-5a2.5 2.5 0 0 1 5 0z"/></svg>
+              <span>OpenAI API</span>
+            </div>
+            <div className="partner-logo-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 14h9l-1 8 12-12h-9l1-8z"/></svg>
+              <span>Supabase Ready</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Halftone & Press Marquee Section */}
-      <section className="halftone relative bg-[var(--abyss)] py-12 overflow-hidden text-white">
-        <div className="site-container relative z-10 mx-auto px-4">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="h-[1px] w-12 bg-slate-600/40"></span>
-            <span className="font-serif uppercase tracking-[0.18em] text-xs text-slate-400 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[var(--nt-cyan)] inline-block"></span>
-              RECOGNIZED & FEATURED ACROSS GLOBAL MEDIA
-            </span>
-            <span className="h-[1px] w-12 bg-slate-600/40"></span>
+      {/* ==========================================================================
+           3. "• ABOUT US" / VALUE PROPOSITION & 4-CARD BENTO GRID
+           ========================================================================== */}
+      <section className="about-bento-section" id="agency">
+        <div className="site-container">
+          
+          <div className="about-header-group">
+            <div className="eyebrow-dot">
+              {lang === 'bn' ? 'আমাদের সম্পর্কে' : 'ABOUT US'}
+            </div>
+            <h2 className="about-display-headline">
+              {lang === 'bn' ? (
+                <>
+                  একটি গ্লোবাল কনসাল্টিং পার্টনার<br />
+                  যা গড়ে তুলছে{' '}
+                  <span className="inline-badge-pill badge-cyan">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </span>{' '}
+                  সংশ্লিষ্ট স্মার্ট<br />
+                  <span className="muted-text">
+                    এবং{' '}
+                    <span className="inline-badge-pill badge-lime">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                        <path d="M9 18h6"/><path d="M10 22h4"/>
+                      </svg>
+                    </span>{' '}
+                    অভিযোজ্য প্ল্যাটফর্ম
+                  </span>
+                </>
+              ) : (
+                <>
+                  A global consulting partner<br />
+                  dedicated to building{' '}
+                  <span className="inline-badge-pill badge-cyan">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </span>{' '}
+                  smarter<br />
+                  <span className="muted-text">
+                    and{' '}
+                    <span className="inline-badge-pill badge-lime">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-1 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                        <path d="M9 18h6"/><path d="M10 22h4"/>
+                      </svg>
+                    </span>{' '}
+                    more adaptive
+                  </span>
+                </>
+              )}
+            </h2>
           </div>
 
-          <div className="marquee-container">
-            <div className="marquee-fade-overlay"></div>
-            <div className="marquee-track">
-              {pressCoverage.concat(pressCoverage).map((chip, idx) => (
-                <div key={idx} className="press-chip text-sm font-semibold text-slate-800">
-                  {chip}
+          {/* 4-Card Bento Grid */}
+          <div className="bento-showcase-grid">
+            
+            {/* Card 1: Photo Card with Docked Stat Box */}
+            <div className="bento-card-photo">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+                alt="Tech innovator portrait"
+                className="bento-photo-img"
+              />
+              <div className="bento-photo-overlay"></div>
+              
+              <div className="bento-photo-header">
+                <span className="bento-brand-tag">9STAR</span>
+                <div className="bento-icon-pill">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
 
-      {/* 3. 01 / THE AGENCY Metrics Section */}
-      <section className="py-20 bg-white border-b border-[var(--nt-ink-200)]" id="agency">
-        <div className="site-container max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p className="eyebrow mb-3">01 / THE AGENCY</p>
-              <h2 className="heading-xl mb-5 text-[var(--ink)]">
-                We engineer digital platforms that convert visitors into lifetime customers.
-              </h2>
-              <p className="body-lead mb-8 text-[var(--ink-soft)] text-base sm:text-lg">
-                Ninestar Technologies is a high-conviction digital engineering and performance agency. We don’t hide behind confusing spreadsheets or sell bloated contracts. You partner directly with elite developers and growth strategists fully dedicated to your bottom line.
+              <div className="bento-docked-stat-card">
+                <div className="stat-huge-number">150+</div>
+                <p className="stat-desc">
+                  {lang === 'bn'
+                    ? 'বিশ্বসেরা এআই এবং ক্লাউড প্রযুক্তি পার্টনারদের সাথে কোলাবোরেশন।'
+                    : 'Collaborating with leading AI and cloud technology providers.'}
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Testimonial & 100% Commitment */}
+            <div className="bento-card-testimonial">
+              <div>
+                <span className="tag-label">
+                  {lang === 'bn' ? 'পরিমাপযোগ্য ফলাফলে প্রতিশ্রুতি' : 'Commitment to measurable'}
+                </span>
+                <div className="stat-huge-number">100%</div>
+              </div>
+
+              <div>
+                <div className="avatar-stack">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Client 1" />
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Client 2" />
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Client 3" />
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Client 4" />
+                </div>
+
+                <blockquote className="testimonial-quote">
+                  {lang === 'bn'
+                    ? '“তাদের অটোমেশন স্ট্র্যাটেজি আমাদের কাজের ধরন পুরোপুরি বদলে দিয়েছে। এটি অত্যন্ত দ্রুত, স্মার্ট এবং নিখুঁত।”'
+                    : '“Their automation strategy completely reshaped how we work. It’s efficient, intelligent, and seamless.”'}
+                </blockquote>
+              </div>
+            </div>
+
+            {/* Card 3: Neon Lime 520k+ Data Points Card */}
+            <div className="bento-card-lime">
+              <div>
+                <span className="tag-label">
+                  {lang === 'bn' ? 'ডেটা পয়েন্ট' : 'Data Points'}
+                </span>
+                <div className="stat-huge-number">520k+</div>
+              </div>
+              <p className="stat-desc">
+                {lang === 'bn'
+                  ? 'স্মার্ট ব্যবসায়িক সিদ্ধান্তের জন্য প্রতিমাসে বিশ্লেষিত।'
+                  : 'Analyzed monthly to power smarter business strategies.'}
               </p>
-              <Link href={`/${lang}/services`} className="btn btn-primary">
-                Explore Services →
-              </Link>
             </div>
 
-            {/* Metrics 2x2 counter grid */}
-            <div className="grid grid-cols-2 gap-6 sm:gap-8 bg-[var(--nt-ink-50)] p-8 sm:p-10 rounded-2xl border border-[var(--nt-ink-200)]">
-              <div className="text-center">
-                <div className="font-display text-4xl sm:text-5xl font-bold text-[var(--ink)]">150+</div>
-                <p className="text-xs sm:text-sm text-[var(--ink-soft)] font-medium mt-1">Clients Served</p>
-              </div>
-              <div className="text-center">
-                <div className="font-display text-4xl sm:text-5xl font-bold text-[var(--ink)]">14</div>
-                <p className="text-xs sm:text-sm text-[var(--ink-soft)] font-medium mt-1">Countries Globally</p>
-              </div>
-              <div className="text-center">
-                <div className="font-display text-4xl sm:text-5xl font-bold text-[var(--nt-accent)]">$35M+</div>
-                <p className="text-xs sm:text-sm text-[var(--ink-soft)] font-medium mt-1">Client Revenue Scaled</p>
-              </div>
-              <div className="text-center">
-                <div className="font-display text-4xl sm:text-5xl font-bold text-[var(--nt-accent)]">9+</div>
-                <p className="text-xs sm:text-sm text-[var(--ink-soft)] font-medium mt-1">Years of Excellence</p>
-              </div>
+            {/* Card 4: Dark Card Continents 20+ */}
+            <div className="bento-card-dark">
+              <span className="dark-label">
+                {lang === 'bn' ? 'গ্লোবাল উপস্থিতি ও মহাদেশ' : 'Global Reach & Continents'}
+              </span>
+              <span className="dark-number">20+</span>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* 4. Interactive Problem Finder (Ninestar Intelligent Diagnostic) */}
-      <section id="problem-finder" className="py-20 bg-[var(--paper-deep)] border-b border-[var(--nt-ink-200)]">
-        <div className="site-container max-w-4xl mx-auto px-4 text-center mb-10">
-          <p className="eyebrow mb-2">INTELLIGENT DIAGNOSTIC</p>
-          <h2 className="heading-xl mb-3 text-[var(--ink)]">
-            {dict.home.problemFinder?.title || 'What Are You Trying to Solve?'}
-          </h2>
-          <p className="body-lead max-w-xl mx-auto text-sm sm:text-base">
-            {dict.home.problemFinder?.subtitle || 'Select your challenge below to uncover tailor-made roadmaps and instant solutions.'}
-          </p>
-        </div>
-        <div className="site-container max-w-5xl mx-auto px-4">
-          <ProblemFinderClient problems={dict.home.problemFinder?.problems || []} lang={lang} />
-        </div>
-      </section>
-
-      {/* 5. 02 / CAPABILITIES & SERVICES (Editorial 3x3 Grid with Hover Inversion) */}
-      <section className="py-24 bg-white border-b border-[var(--nt-ink-200)]" id="services">
-        <div className="site-container max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      {/* ==========================================================================
+           4. SERVICES & CAPABILITIES (3x3 BENTO CARDS GRID)
+           ========================================================================== */}
+      <section className="services-modern-section" id="services">
+        <div className="site-container">
+          
+          <div className="section-head-split">
             <div>
-              <p className="eyebrow mb-2">02 / CAPABILITIES</p>
-              <h2 className="heading-xl text-[var(--ink)]">What We Build & Deliver</h2>
+              <div className="eyebrow-dot">
+                {lang === 'bn' ? '০২ / সক্ষমতা' : '02 / CAPABILITIES'}
+              </div>
+              <h2 className="section-heading-l">
+                {lang === 'bn' ? 'আমাদের সেবা ও সমাধান' : 'What We Build & Deliver'}
+              </h2>
             </div>
-            <Link href={`/${lang}/request`} className="btn btn-outline self-start sm:self-auto">
-              Schedule Consultation →
+            <Link href={`/${lang}/request`} className="btn btn-dark">
+              {lang === 'bn' ? 'পরামর্শের জন্য শিডিউল করুন →' : 'Schedule Consultation →'}
             </Link>
           </div>
 
-          <div className="services-grid-editorial shadow-xs">
+          <div className="modern-services-grid">
             {editorialServices.map((svc) => (
               <Link
                 key={svc.index}
                 href={svc.href}
-                className="service-card-editorial group text-left"
+                className="service-bento-card group"
               >
-                <div>
-                  <span className="font-mono text-xs font-semibold text-[var(--nt-ink-400)] block mb-2">{svc.index}</span>
-                  <h3 className="font-sans text-lg font-bold text-[var(--ink)] leading-snug mb-2 group-hover:text-white transition-colors">
-                    {svc.title}
-                  </h3>
-                  <p className="text-sm text-[var(--ink-soft)] leading-relaxed group-hover:text-slate-300 transition-colors">
-                    {svc.desc}
-                  </p>
+                <div className="service-card-top">
+                  <span className="service-index-badge">{svc.index}</span>
+                  <div className="service-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
                 </div>
-                <div className="service-icon mt-4 flex justify-end text-[var(--nt-ink-400)]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 7h10v10M7 17 17 7"/>
-                  </svg>
+                <h3 className="service-title">{svc.title}</h3>
+                <p className="service-desc">{svc.desc}</p>
+                <div className="service-card-action">
+                  <span>{lang === 'bn' ? 'বিস্তারিত দেখুন' : 'Explore Service'}</span>
+                  <span>↗</span>
                 </div>
               </Link>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* 6. 03 / WORK & CASE STUDIES (Dark Editorial Theme) */}
-      <section className="py-24 bg-[var(--nt-ink-900)] text-white border-b border-[var(--nt-ink-700)]" id="case-studies">
-        <div className="site-container max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      {/* ==========================================================================
+           5. PROVEN RESULTS & CASE STUDIES (OBSIDIAN DARK LUXURY THEME)
+           ========================================================================== */}
+      <section className="case-studies-section" id="case-studies">
+        <div className="site-container">
+          
+          <div className="section-head-split">
             <div>
-              <p className="eyebrow eyebrow-light mb-2">03 / PROVEN RESULTS</p>
-              <h2 className="heading-xl text-white">Case Studies That Speak For Themselves</h2>
+              <div className="eyebrow-dot" style={{ color: 'var(--neon-lime)' }}>
+                {lang === 'bn' ? '০৩ / প্রমাণিত ফলাফল' : '03 / PROVEN RESULTS'}
+              </div>
+              <h2 className="section-heading-l" style={{ color: '#ffffff' }}>
+                {lang === 'bn' ? 'আমাদের সফলতার কেস স্টাডি' : 'Case Studies That Speak For Themselves'}
+              </h2>
             </div>
-            <Link href={`/${lang}/case-studies`} className="btn btn-outline-white self-start sm:self-auto">
-              Request Full Case Library →
+            <Link href={`/${lang}/case-studies`} className="btn btn-outline-white">
+              {lang === 'bn' ? 'সম্পূর্ণ কেস লাইব্রেরি দেখুন →' : 'Request Full Case Library →'}
             </Link>
           </div>
 
-          <div className="case-studies-grid-dark rounded-xl overflow-hidden border border-[var(--nt-ink-700)]">
-            <div className="case-study-card-dark p-8 sm:p-10">
+          <div className="case-studies-grid">
+            
+            {/* Case Study 1 */}
+            <div className="case-study-card">
               <div>
-                <span className="eyebrow eyebrow-light block mb-2">Hospitality & Booking</span>
-                <h3 className="font-serif text-2xl text-white leading-snug mb-6">From invisible to fully booked across 3 countries</h3>
-                <div className="flex gap-6 mb-6">
+                <span className="case-study-tag">Hospitality & Booking</span>
+                <h3 className="case-study-title">
+                  {lang === 'bn' ? '৩টি দেশে শূন্য থেকে ১০০% ফুললি বুকড' : 'From invisible to fully booked across 3 countries'}
+                </h3>
+                <div className="case-study-metrics">
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">+220%</div>
-                    <div className="text-xs text-slate-400 mt-1">Organic Visitors</div>
+                    <div className="case-metric-val">+220%</div>
+                    <div className="case-metric-label">Organic Visitors</div>
                   </div>
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">#1 Rank</div>
-                    <div className="text-xs text-slate-400 mt-1">18 Target Keywords</div>
+                    <div className="case-metric-val">#1 Rank</div>
+                    <div className="case-metric-label">18 Target Keywords</div>
+                  </div>
+                  <div>
+                    <div className="case-metric-val">-35%</div>
+                    <div className="case-metric-label">OTA Costs</div>
                   </div>
                 </div>
               </div>
-              <Link href={`/${lang}/case-studies`} className="text-sm text-[var(--nt-cyan)] hover:underline inline-flex items-center gap-1 font-semibold">
-                Read Deep Dive →
+              <Link href={`/${lang}/case-studies`} className="case-link-action">
+                <span>{lang === 'bn' ? 'বিস্তারিত কেস স্টাডি' : 'Read Deep Dive'}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
             </div>
 
-            <div className="case-study-card-dark p-8 sm:p-10">
+            {/* Case Study 2 */}
+            <div className="case-study-card">
               <div>
-                <span className="eyebrow eyebrow-light block mb-2">SaaS & Enterprise</span>
-                <h3 className="font-serif text-2xl text-white leading-snug mb-6">Scaling B2B pipeline via Generative AI & Next.js</h3>
-                <div className="flex gap-6 mb-6">
+                <span className="case-study-tag">EdTech & SaaS</span>
+                <h3 className="case-study-title">
+                  {lang === 'bn' ? (
+                    <>কোনো অপ্রয়োজনীয় খরচ ছাড়াই <em>রিকারিং রেভিনিউ বৃদ্ধি</em></>
+                  ) : (
+                    <>Scaling recurring revenue with <em>zero wasted ad spend</em></>
+                  )}
+                </h3>
+                <div className="case-study-metrics">
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">4.8x</div>
-                    <div className="text-xs text-slate-400 mt-1">Qualified Pipeline</div>
+                    <div className="case-metric-val">+315%</div>
+                    <div className="case-metric-label">Qualified Signups</div>
                   </div>
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">&lt;0.8s</div>
-                    <div className="text-xs text-slate-400 mt-1">Core Web Vitals</div>
+                    <div className="case-metric-val">Top 3</div>
+                    <div className="case-metric-label">AI Citing</div>
+                  </div>
+                  <div>
+                    <div className="case-metric-val">4.6x</div>
+                    <div className="case-metric-label">Blended ROAS</div>
                   </div>
                 </div>
               </div>
-              <Link href={`/${lang}/case-studies`} className="text-sm text-[var(--nt-cyan)] hover:underline inline-flex items-center gap-1 font-semibold">
-                Read Deep Dive →
+              <Link href={`/${lang}/case-studies`} className="case-link-action">
+                <span>{lang === 'bn' ? 'বিস্তারিত কেস স্টাডি' : 'Read Deep Dive'}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
             </div>
 
-            <div className="case-study-card-dark p-8 sm:p-10">
+            {/* Case Study 3 */}
+            <div className="case-study-card">
               <div>
-                <span className="eyebrow eyebrow-light block mb-2">E-Commerce Architecture</span>
-                <h3 className="font-serif text-2xl text-white leading-snug mb-6">Headless migration and global checkout conversion</h3>
-                <div className="flex gap-6 mb-6">
+                <span className="case-study-tag">FinTech Platform</span>
+                <h3 className="case-study-title">
+                  {lang === 'bn' ? (
+                    <>স্বল্প খরচে প্রাতিষ্ঠানিক <em>হাই-ভ্যালু লিড অর্জন</em></>
+                  ) : (
+                    <>Institutional leads at a <em>fraction</em> of benchmark cost</>
+                  )}
+                </h3>
+                <div className="case-study-metrics">
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">+48%</div>
-                    <div className="text-xs text-slate-400 mt-1">Mobile Checkout</div>
+                    <div className="case-metric-val">-48%</div>
+                    <div className="case-metric-label">Acquisition Cost</div>
                   </div>
                   <div>
-                    <div className="font-serif text-3xl font-bold text-white">0 Downtime</div>
-                    <div className="text-xs text-slate-400 mt-1">BFCM Peak</div>
+                    <div className="case-metric-val">+85%</div>
+                    <div className="case-metric-label">SQL Conversion</div>
+                  </div>
+                  <div>
+                    <div className="case-metric-val">$12M</div>
+                    <div className="case-metric-label">Pipeline Generated</div>
                   </div>
                 </div>
               </div>
-              <Link href={`/${lang}/case-studies`} className="text-sm text-[var(--nt-cyan)] hover:underline inline-flex items-center gap-1 font-semibold">
-                Read Deep Dive →
+              <Link href={`/${lang}/case-studies`} className="case-link-action">
+                <span>{lang === 'bn' ? 'বিস্তারিত কেস স্টাডি' : 'Read Deep Dive'}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================================================
+           6. CLIENT MARQUEE NETWORK
+           ========================================================================== */}
+      <section className="client-marquee-section" id="clients">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div className="marquee-container">
+            <div className="marquee-fade-overlay"></div>
+            <div className="marquee-track">
+              <div className="client-pill"><span className="client-dot"></span> Ariston Global Logistics</div>
+              <div className="client-pill"><span className="client-dot"></span> Apex Capital Partners</div>
+              <div className="client-pill"><span className="client-dot"></span> Nova Health Systems</div>
+              <div className="client-pill"><span className="client-dot"></span> CloudSpark Software</div>
+              <div className="client-pill"><span className="client-dot"></span> Horizon Real Estate</div>
+              <div className="client-pill"><span className="client-dot"></span> StellarPay FinTech</div>
+              <div className="client-pill"><span className="client-dot"></span> Notion Enterprise Group</div>
+              <div className="client-pill"><span className="client-dot"></span> Hostinger Cloud Platform</div>
+              <div className="client-pill"><span className="client-dot"></span> Ariston Global Logistics</div>
+              <div className="client-pill"><span className="client-dot"></span> Apex Capital Partners</div>
+              <div className="client-pill"><span className="client-dot"></span> Nova Health Systems</div>
+              <div className="client-pill"><span className="client-dot"></span> CloudSpark Software</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. 04 / CLIENT PORTFOLIO TICKER */}
-      <section className="py-12 bg-white border-b border-[var(--nt-ink-200)] overflow-hidden">
-        <div className="site-container mx-auto px-4 mb-6 text-center">
-          <p className="eyebrow mb-2">TRUSTED ECOSYSTEM</p>
-          <h3 className="font-serif italic text-sm text-[var(--nt-ink-400)]">Powering high-velocity businesses and digital innovators</h3>
-        </div>
-        <div className="marquee-container">
-          <div className="marquee-fade-overlay"></div>
-          <div className="marquee-track">
-            {['Apex Cloud Solutions', 'Vanguard E-Commerce', 'Nordic Health Systems', 'Quantum Logistics', 'Fintech Velocity', 'SilkRoad Global', 'Starlight Hospitality', 'Synapse Media Group', 'Apex Cloud Solutions', 'Vanguard E-Commerce', 'Nordic Health Systems', 'Quantum Logistics'].map((client, idx) => (
-              <div key={idx} className="client-pill">
-                <span className="client-dot"></span>
-                <span>{client}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. 05 / INSIGHTS & STRATEGY */}
-      <section className="py-20 bg-[var(--paper)] border-b border-[var(--nt-ink-200)]" id="insights">
-        <div className="site-container max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      {/* ==========================================================================
+           7. MEDIA & KNOWLEDGE BREAKDOWN SHOWCASE
+           ========================================================================== */}
+      <section className="sec" id="showcase" style={{ background: '#ffffff' }}>
+        <div className="site-container">
+          <div className="section-head-split">
             <div>
-              <p className="eyebrow mb-2">05 / INSIGHTS & STRATEGY</p>
-              <h2 className="heading-xl text-[var(--ink)]">Latest Articles & Engineering Breakdowns</h2>
+              <div className="eyebrow-dot">
+                {lang === 'bn' ? '০৪ / নলেজ ও মিডিয়া' : '04 / KNOWLEDGE & MEDIA'}
+              </div>
+              <h2 className="section-heading-l">
+                {lang === 'bn' ? 'টেক অ্যানালাইসিস ও স্ট্র্যাটেজি সেশন' : 'Tech Breakdowns & Strategy Sessions'}
+              </h2>
             </div>
-            <Link href={`/${lang}/services`} className="btn-pill-outline self-start sm:self-auto">
-              Explore All Articles →
-            </Link>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              {lang === 'bn' ? 'ইউটিউবে সাবস্ক্রাইব করুন →' : 'Subscribe on YouTube →'}
+            </a>
           </div>
 
-          <div className="space-y-2">
-            <Link href={`/${lang}/services`} className="article-item group">
-              <span className="eyebrow block mb-2">GEO & AI Search</span>
-              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
-                What Is Generative Engine Optimisation (GEO) And Why It Dominates 2026
-              </h3>
-              <p className="article-desc">
-                GEO is the revolutionary marketing concept replacing manual search queries. Discover how AI answer engines index knowledge and how your company can become the top recommended source.
-              </p>
-              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
-                <time>October 2026</time>
-                <span>&bull;</span>
-                <span>8 min read</span>
+          <div className="video-grid">
+            <div className="video-card">
+              <div className="video-thumb">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="Generative Engine Optimization Masterclass" />
+                <div className="play-overlay"><div className="play-circle"><div className="play-triangle"></div></div></div>
               </div>
-            </Link>
+              <div style={{ padding: '22px 24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <span className="service-index-badge" style={{ fontSize: '0.7rem' }}>MASTERCLASS</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>15 Min Watch</span>
+                </div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--obsidian-900)', lineHeight: 1.4 }}>
+                  How Generative Search (GEO) Is Replacing Classic Google Results in 2026
+                </h4>
+              </div>
+            </div>
 
-            <Link href={`/${lang}/services`} className="article-item group">
-              <span className="eyebrow block mb-2">Engineering & Speed</span>
-              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
-                Why Legacy WordPress Sites Lose 60% of Mobile Visitors (And How We Fix It)
-              </h3>
-              <p className="article-desc">
-                Bloated plugins and sluggish Core Web Vitals kill conversions before prospects even read your offer. Here is how modern Next.js and JAMstack architecture restores sub-second load times.
-              </p>
-              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
-                <time>September 2026</time>
-                <span>&bull;</span>
-                <span>11 min read</span>
+            <div className="video-card">
+              <div className="video-thumb">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="Full Funnel Architecture Guide" />
+                <div className="play-overlay"><div className="play-circle"><div className="play-triangle"></div></div></div>
               </div>
-            </Link>
+              <div style={{ padding: '22px 24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <span className="service-index-badge" style={{ fontSize: '0.7rem' }}>ARCHITECTURE</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>24 Min Watch</span>
+                </div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--obsidian-900)', lineHeight: 1.4 }}>
+                  Building Modern Next.js Fullstack Apps Built to Convert High-Intent B2B Leads
+                </h4>
+              </div>
+            </div>
 
-            <Link href={`/${lang}/services`} className="article-item group">
-              <span className="eyebrow block mb-2">Paid Acquisition</span>
-              <h3 className="article-title group-hover:text-[var(--nt-accent)] transition-colors">
-                The Real Reason Your Google Ads CPA Is Rising — And The Modern B2B Fix
-              </h3>
-              <p className="article-desc">
-                Blind broad-match bidding and lack of first-party data signals burn client capital. We reveal the exact full-funnel structure we run across our enterprise portfolio.
-              </p>
-              <div className="flex items-center gap-3 text-xs text-[var(--nt-ink-400)] font-mono">
-                <time>August 2026</time>
-                <span>&bull;</span>
-                <span>7 min read</span>
+            <div className="video-card">
+              <div className="video-thumb">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=700&q=80" alt="Conversion Optimization Breakdown" />
+                <div className="play-overlay"><div className="play-circle"><div className="play-triangle"></div></div></div>
               </div>
-            </Link>
+              <div style={{ padding: '22px 24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <span className="service-index-badge" style={{ fontSize: '0.7rem' }}>CRO PLAYBOOK</span>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>18 Min Watch</span>
+                </div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--obsidian-900)', lineHeight: 1.4 }}>
+                  7 Critical Landing Page Mistakes Costing You 40% of Your Paid Ad Budget
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 9. Topics & Disciplines Strip */}
-      <section className="py-14 bg-[var(--paper-deep)] border-b border-[var(--nt-ink-200)]">
-        <div className="site-container max-w-4xl mx-auto px-4 text-center">
-          <h3 className="heading-lg mb-2 text-[var(--ink)]">Explore Topics & Disciplines</h3>
-          <p className="text-sm text-[var(--ink-soft)] max-w-lg mx-auto mb-6">
-            Practical insights straight from our engineers and marketers running high-volume enterprise infrastructure.
-          </p>
-          <div className="flex flex-wrap gap-2.5 justify-center">
-            {['Web Development', 'Generative Engine Optimization', 'Search Engine Optimization', 'AI Automation', 'Google Ads', 'Meta Ads', 'CRO & UI/UX', 'Cloud Architecture', 'Next.js Scalability'].map((topic, i) => (
-              <Link key={i} href={`/${lang}/services`} className="category-pill">
-                {topic}
-              </Link>
-            ))}
+      {/* ==========================================================================
+           8. GRAND PRE-FOOTER CTA CARD (DIALED DIRECTLY TO SITE SETTINGS)
+           ========================================================================== */}
+      <section className="site-container">
+        <div className="prefooter-cta-card">
+          <div className="prefooter-ambient-glow"></div>
+          <div style={{ position: 'relative', zIndex: 2, maxWidth: '740px', margin: '0 auto', textAlign: 'center', paddingInline: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '28px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+              {lang === 'bn' ? 'চলুন শুরু করি এক নতুন যাত্রা।' : 'Let’s start a conversation.'}
+            </h2>
+            <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.6, maxWidth: '580px' }}>
+              {lang === 'bn'
+                ? 'আপনার ডিজিটাল প্রবৃদ্ধির পথে কী বাধা রয়েছে তা জানতে আজই ৯স্টার টেকনোলজিস থেকে ফ্রি অডিট গ্রহণ করুন।'
+                : 'Ready to discover what’s holding your digital growth back? Get a comprehensive audit from 9STAR Technologies today.'}
+            </p>
+            
+            {/* Show dynamic contact phone if configured in Admin */}
+            {settings?.contactPhone && (
+              <a
+                href={`tel:${settings.contactPhone}`}
+                className="inline-flex items-center gap-2 text-white/90 hover:text-white font-mono text-sm tracking-wider"
+              >
+                📞 {settings.contactPhone}
+              </a>
+            )}
+
+            <button type="button" className="btn btn-neon btn-lg trigger-audit-btn cursor-pointer">
+              <span>{lang === 'bn' ? 'ফ্রি টেক অডিট বুক করুন' : 'Book a Free Tech Audit'}</span>
+              <span className="arrow-circle">↗</span>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* 10. FAQ Section */}
-      <section className="py-20 bg-white border-b border-[var(--nt-ink-200)]">
-        <div className="site-container max-w-4xl mx-auto px-4 sm:px-6">
-          <p className="eyebrow text-center mb-2">FAQ</p>
-          <h2 className="heading-xl text-center text-[var(--ink)] mb-12">{dict.home.faq?.title || 'Frequently Asked Questions'}</h2>
-          <div className="space-y-4">
-            {dict.home.faq?.questions?.map((q: { q: string; a: string }, idx: number) => (
-              <div key={idx} className="p-6 rounded-xl border border-[var(--nt-ink-200)] bg-[var(--paper-deep)]">
-                <h3 className="text-base font-bold text-[var(--ink)] mb-2">{q.q}</h3>
-                <p className="text-sm text-[var(--ink-soft)] leading-relaxed">{q.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 11. Final High-Converting CTA */}
-      <section className="py-28 text-center bg-[var(--abyss)] text-white relative overflow-hidden">
-        <div className="site-container max-w-3xl mx-auto px-4 relative z-10 flex flex-col items-center">
-          <div className="hero-badge !bg-white/10 !border-white/20 !text-white mb-6">
-            <span className="hero-pulse-dot !bg-[var(--nt-cyan)]"></span>
-            <span>Founder-Led Technical Execution</span>
-          </div>
-          <h2 className="display-l mb-4 text-white">Let’s Start a Conversation.</h2>
-          <p className="body-lead mb-8 text-slate-300 max-w-xl mx-auto text-base sm:text-lg">
-            Ready to discover what’s holding your digital growth back? Book a complimentary engineering and growth audit with Ninestar Technologies today.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href={`/${lang}/request`}
-              className="btn btn-primary btn-lg !bg-[var(--nt-accent)] !border-[var(--nt-accent)] shadow-xl hover:!bg-[var(--nt-accent-hover)] transition-all"
-            >
-              <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[var(--nt-accent)] text-xs">
-                ⭐
-              </span>
-              Get a Free Tech Audit →
-            </Link>
-            <Link
-              href={`/${lang}/contact`}
-              className="btn btn-outline-white btn-lg"
-            >
-              Contact Our Engineers →
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
