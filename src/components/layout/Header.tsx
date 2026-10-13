@@ -19,14 +19,14 @@ export function Header({ dict }: { dict: any }) {
           <div className="flex items-center justify-between h-20">
             {/* Editorial Brand Logo */}
             <Link href="/" className="brand-logo flex items-center gap-2.5 shrink-0 focus-visible:outline-none" aria-label="Ninestar Technologies Home">
-              <div className="logo-symbol">
+              <div className="logo-symbol !bg-blue-50/90 !border !border-blue-200 !text-blue-600 shadow-sm">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                 </svg>
               </div>
               <div className="logo-text">
-                <span className="logo-title font-display text-2xl font-bold tracking-tight text-[var(--ink)] leading-none">NINESTAR</span>
-                <span className="logo-sub font-mono text-[0.62rem] tracking-[0.16em] text-[var(--nt-accent)] uppercase font-semibold">TECHNOLOGIES</span>
+                <span className="logo-title font-display text-2xl font-extrabold tracking-tight !text-slate-950 leading-none">NINESTAR</span>
+                <span className="logo-sub font-mono text-[0.65rem] tracking-[0.18em] !text-blue-600 uppercase font-bold">TECHNOLOGIES</span>
               </div>
             </Link>
 
@@ -39,24 +39,24 @@ export function Header({ dict }: { dict: any }) {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
-                  className="nav-link flex items-center gap-1.5 bg-transparent border-none cursor-pointer text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors py-2"
+                  className="nav-link flex items-center gap-1.5 bg-transparent border-none cursor-pointer text-sm font-semibold !text-slate-800 hover:!text-blue-600 transition-colors py-2"
                   aria-expanded={activeDropdown === 'offerings'}
                   aria-haspopup="menu"
                 >
                   {dict.navigation.offerings}
-                  <svg className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${activeDropdown === 'offerings' ? 'rotate-180 text-[var(--nt-accent)]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${activeDropdown === 'offerings' ? 'rotate-180 !text-blue-600' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m6 9 6 6 6-6" />
                   </svg>
                 </button>
                 {activeDropdown === 'offerings' && (
                   <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-[var(--nt-ink-200)] rounded-xl shadow-xl p-2 z-50">
-                    <Link href="/services" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/services" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.services}
                     </Link>
-                    <Link href="/solutions" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/solutions" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.solutions}
                     </Link>
-                    <Link href="/products" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/products" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.products}
                     </Link>
                   </div>
@@ -70,31 +70,31 @@ export function Header({ dict }: { dict: any }) {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
-                  className="nav-link flex items-center gap-1.5 bg-transparent border-none cursor-pointer text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors py-2"
+                  className="nav-link flex items-center gap-1.5 bg-transparent border-none cursor-pointer text-sm font-semibold !text-slate-800 hover:!text-blue-600 transition-colors py-2"
                   aria-expanded={activeDropdown === 'company'}
                   aria-haspopup="menu"
                 >
                   {dict.navigation.company}
-                  <svg className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180 text-[var(--nt-accent)]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${activeDropdown === 'company' ? 'rotate-180 !text-blue-600' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m6 9 6 6 6-6" />
                   </svg>
                 </button>
                 {activeDropdown === 'company' && (
                   <div className="absolute top-full left-0 mt-1 w-64 bg-white border border-[var(--nt-ink-200)] rounded-xl shadow-xl p-2 z-50">
-                    <Link href="/about" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/about" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.about}
                     </Link>
-                    <Link href="/process" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/process" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.process}
                     </Link>
-                    <Link href="/case-studies" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+                    <Link href="/case-studies" className="block px-3 py-2.5 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-800 hover:text-blue-600 transition-colors">
                       {dict.navigation.caseStudies}
                     </Link>
                   </div>
                 )}
               </div>
 
-              <Link href="/contact" className="text-sm font-medium text-[var(--ink)] hover:text-[var(--nt-accent)] transition-colors">
+              <Link href="/contact" className="text-sm font-semibold !text-slate-800 hover:!text-blue-600 transition-colors">
                 {dict.navigation.contact}
               </Link>
             </nav>
@@ -152,9 +152,10 @@ export function Header({ dict }: { dict: any }) {
             <div>
               <div className="flex justify-between items-center mb-8">
                 <div className="brand-logo flex items-center gap-2">
-                  <div className="logo-symbol !w-8 !h-8 text-sm">⭐</div>
+                  <div className="logo-symbol !w-8 !h-8 text-sm !bg-blue-50 !border !border-blue-200 !text-blue-600 flex items-center justify-center">⭐</div>
                   <div className="logo-text">
-                    <span className="logo-title font-display text-xl font-bold">NINESTAR</span>
+                    <span className="logo-title font-display text-xl font-extrabold !text-slate-950">NINESTAR</span>
+                    <span className="logo-sub font-mono text-[0.62rem] tracking-[0.16em] !text-blue-600 uppercase font-bold">TECHNOLOGIES</span>
                   </div>
                 </div>
                 <button
