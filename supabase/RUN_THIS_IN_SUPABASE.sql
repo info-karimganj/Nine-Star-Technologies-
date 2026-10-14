@@ -51,6 +51,17 @@ CREATE TABLE IF NOT EXISTS public.site_settings (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
 );
 
+-- Ensure all columns exist even if site_settings was previously created
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS contact_email TEXT DEFAULT 'mdyasinarafath20@gmail.com';
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS contact_phone TEXT DEFAULT '+8801988941753';
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS whatsapp_number TEXT DEFAULT '+8801988941753';
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS support_email TEXT DEFAULT 'mdyasinarafath20@gmail.com';
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS business_hours JSONB;
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS office_address JSONB;
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS social_links JSONB;
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS global_seo JSONB;
+ALTER TABLE public.site_settings ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now());
+
 -- 3.2 Admin Profiles
 CREATE TABLE IF NOT EXISTS public.admin_profiles (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -64,6 +75,11 @@ CREATE TABLE IF NOT EXISTS public.admin_profiles (
     created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
 );
+
+ALTER TABLE public.admin_profiles ADD COLUMN IF NOT EXISTS password_hash TEXT;
+ALTER TABLE public.admin_profiles ADD COLUMN IF NOT EXISTS salt TEXT;
+ALTER TABLE public.admin_profiles ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'SUPER_ADMIN';
+ALTER TABLE public.admin_profiles ADD COLUMN IF NOT EXISTS is_active BOOLEAN DEFAULT true;
 
 -- 3.3 Service Categories
 CREATE TABLE IF NOT EXISTS public.categories (
