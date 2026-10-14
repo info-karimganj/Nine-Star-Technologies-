@@ -14,6 +14,8 @@ interface Props {
   params: Promise<{ lang: Locale; slug: string }>;
 }
 
+export const instant = false;
+
 export async function generateStaticParams() {
   const solutions = await getSolutions();
   if (solutions.length === 0) {

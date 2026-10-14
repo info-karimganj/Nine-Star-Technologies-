@@ -34,10 +34,10 @@ export async function Footer({ dict }: { dict: any }) {
                   {settings.contactEmail}
                 </a>
               )}
-              {settings?.contactPhone && (
+              {(settings?.contactPhone || settings?.whatsappNumber) && (
                 <p className="text-xs text-white/90 font-mono mt-1">
-                  <a href={`tel:${settings.contactPhone}`} className="hover:text-[var(--nt-cyan)] transition-colors">
-                    📞 {settings.contactPhone}
+                  <a href={`tel:${(settings.contactPhone || settings.whatsappNumber).replace(/[^\d+]/g, '')}`} className="hover:text-[var(--nt-cyan)] transition-colors">
+                    📞 {settings.contactPhone || settings.whatsappNumber}
                   </a>
                 </p>
               )}

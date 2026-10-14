@@ -1,18 +1,18 @@
 [
   {
-    "contactEmail": "contact@9startechnologies.com",
-    "contactPhone": "",
-    "whatsappNumber": "",
-    "supportEmail": "support@9startechnologies.com",
+    "contactEmail": "mdyasinarafath20@gmail.com",
+    "contactPhone": "+8801988941753",
+    "whatsappNumber": "+8801988941753",
+    "supportEmail": "mdyasinarafath20@gmail.com",
     "businessHours": {
-      "en": "Mon-Fri, 9:00 AM - 6:00 PM EST",
-      "bn": "সোম-শুক্র, সকাল ৯:০০ - সন্ধ্যা ৬:০০ (ইএসটি)",
-      "ar": "الاثنين-الجمعة، 9:00 صباحاً - 6:00 مساءً بتوقيت شرق الولايات المتحدة"
+      "en": "Mon - Fri: 9:00 AM - 6:00 PM (BST)",
+      "bn": "সোম - শুক্র: সকাল ৯:০০ - সন্ধ্যা ৬:০০",
+      "ar": "الاثنين - الجمعة: 9:00 صباحاً - 6:00 مساءً"
     },
     "officeAddress": {
-      "en": "",
-      "bn": "",
-      "ar": ""
+      "en": "Dhaka · Singapore · London",
+      "bn": "ঢাকা · সিঙ্গাপুর · লন্ডন",
+      "ar": "دكا · سنغافورة · لندن"
     },
     "socialLinks": {
       "facebook": "https://facebook.com/9star",
@@ -23,12 +23,12 @@
       "title": {
         "en": "9STAR Technologies",
         "bn": "নাইনস্টার টেকনোলজিস",
-        "ar": "ناিন ستار للتقنية"
+        "ar": "ناين ستار للتقنية"
       },
       "description": {
         "en": "Empowering businesses with cutting-edge software and automation.",
         "bn": "অত্যাধুনিক সফটওয়্যার এবং অটোমেশনের মাধ্যমে ব্যবসাকে শক্তিশালী করা।",
-        "ar": "تمكين الشركات بأحدث البرمجيات والأتمتة."
+        "ar": "تمكين الشركات بأحدث البرمجيات والأتمতة."
       }
     }
   }

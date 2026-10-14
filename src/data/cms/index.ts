@@ -1393,19 +1393,19 @@ const mockFaqs: FAQ[] = [];
 const mockTestimonials: Testimonial[] = [];
 
 const mockSiteSettings: SiteSettings = {
-  contactEmail: 'contact@9star.com',
-  contactPhone: '',
-  whatsappNumber: '',
-  supportEmail: 'contact@9startechnologies.com',
+  contactEmail: 'mdyasinarafath20@gmail.com',
+  contactPhone: '+8801988941753',
+  whatsappNumber: '+8801988941753',
+  supportEmail: 'mdyasinarafath20@gmail.com',
   businessHours: {
-    en: 'Monday - Friday (Business Hours)',
+    en: 'Mon - Fri: 9:00 AM - 6:00 PM (BST)',
     bn: 'সোম - শুক্র (অফিস সময়)',
     ar: 'الاثنين - الجمعة (ساعات العمل الرسمية)',
   },
   officeAddress: {
-    en: '',
-    bn: '',
-    ar: '',
+    en: 'Dhaka · Singapore · London',
+    bn: 'ঢাকা · সিঙ্গাপুর · লন্ডন',
+    ar: 'دكا · سنغافورة · لندن',
   },
   socialLinks: {
     facebook: 'https://facebook.com/9star',
@@ -1557,6 +1557,30 @@ export const getTestimonials = cache(async function() {
 
 // Site Settings
 export const getSiteSettings = cache(async function() {
+  // 1. Try reading live from Supabase (shared cloud database across all serverless instances)
+  try {
+    const { supabase } = await import('@/lib/supabase');
+    const { data, error } = await supabase
+      .from('site_settings')
+      .select('*')
+      .eq('id', 'primary')
+      .maybeSingle();
+
+    if (!error && data && data.contact_email) {
+      return {
+        contactEmail: data.contact_email,
+        contactPhone: data.contact_phone || mockSiteSettings.contactPhone,
+        whatsappNumber: data.whatsapp_number || mockSiteSettings.whatsappNumber,
+        supportEmail: data.support_email || data.contact_email,
+        businessHours: data.business_hours || mockSiteSettings.businessHours,
+        officeAddress: data.office_address || mockSiteSettings.officeAddress,
+        socialLinks: data.social_links || mockSiteSettings.socialLinks,
+        globalSeo: data.global_seo || mockSiteSettings.globalSeo,
+      } as SiteSettings;
+    }
+  } catch (_) {}
+
+  // 2. Fallback to local db store or mock
   try {
     return db.settings.get() || mockSiteSettings;
   } catch {

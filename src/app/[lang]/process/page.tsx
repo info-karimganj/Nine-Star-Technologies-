@@ -19,6 +19,8 @@ export async function generateMetadata({
   };
 }
 
+export const instant = false;
+
 const processSteps = [
   {
     id: '01',

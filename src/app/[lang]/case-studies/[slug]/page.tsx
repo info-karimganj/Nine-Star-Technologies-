@@ -12,6 +12,8 @@ interface Props {
   params: Promise<{ lang: string; slug: string }>;
 }
 
+export const instant = false;
+
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies();
   return caseStudies.map((cs) => ({

@@ -7,7 +7,7 @@ interface HomeInteractiveClientProps {
   contactEmail?: string;
 }
 
-export function HomeInteractiveClient({ lang, contactEmail = 'contact@9startechnologies.com' }: HomeInteractiveClientProps) {
+export function HomeInteractiveClient({ lang, contactEmail = 'mdyasinarafath20@gmail.com' }: HomeInteractiveClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({

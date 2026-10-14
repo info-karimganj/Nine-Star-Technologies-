@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { getSiteSettings } from '@/data/cms';
 
 export async function generateMetadata(props: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
   const { lang } = await props.params;
@@ -18,6 +19,13 @@ export async function generateMetadata(props: { params: Promise<{ lang: Locale }
 export default async function ContactPage(props: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await props.params;
   const dict = await getDictionary(lang);
+  const settings = await getSiteSettings();
+
+  const email = settings?.contactEmail || 'mdyasinarafath20@gmail.com';
+  const phone = settings?.contactPhone || settings?.whatsappNumber || '+8801988941753';
+  const phoneClean = phone.replace(/[^\d+]/g, '');
+  const office = settings?.officeAddress?.[lang] || settings?.officeAddress?.en || 'Dhaka · Singapore · London';
+  const hours = settings?.businessHours?.[lang] || settings?.businessHours?.en || 'Mon - Fri: 9:00 AM - 6:00 PM (BST)';
   
   return (
     <main className="w-full bg-[var(--paper)]">
@@ -67,8 +75,8 @@ export default async function ContactPage(props: { params: Promise<{ lang: Local
                 </div>
                 <div>
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--nt-ink-400)] block font-semibold mb-1">{dict.contact.info.email}</span>
-                  <a href="mailto:contact@9startechnologies.com" className="text-[var(--ink)] hover:text-[var(--nt-accent)] font-semibold transition-colors">
-                    contact@9startechnologies.com
+                  <a href={`mailto:${email}`} className="text-[var(--ink)] hover:text-[var(--nt-accent)] font-semibold transition-colors">
+                    {email}
                   </a>
                 </div>
               </div>
@@ -81,9 +89,16 @@ export default async function ContactPage(props: { params: Promise<{ lang: Local
                 </div>
                 <div>
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--nt-ink-400)] block font-semibold mb-1">{dict.contact.info.phone}</span>
-                  <a href="tel:+18005550199" className="text-[var(--ink)] hover:text-[var(--nt-accent)] font-semibold transition-colors">
-                    +1 (800) 555-0199
+                  <a href={`tel:${phoneClean}`} className="text-[var(--ink)] hover:text-[var(--nt-accent)] font-semibold transition-colors">
+                    {phone}
                   </a>
+                  {settings?.whatsappNumber && settings.whatsappNumber !== phone && (
+                    <div className="mt-1">
+                      <a href={`https://wa.me/${settings.whatsappNumber.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-600 hover:underline font-mono">
+                        WhatsApp: {settings.whatsappNumber}
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -96,8 +111,8 @@ export default async function ContactPage(props: { params: Promise<{ lang: Local
                 </div>
                 <div>
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--nt-ink-400)] block font-semibold mb-1">{dict.contact.info.office}</span>
-                  <p className="text-[var(--ink)] font-medium text-sm leading-relaxed">
-                    123 Innovation Drive, Tech District<br />San Francisco, CA 94105
+                  <p className="text-[var(--ink)] font-medium text-sm leading-relaxed whitespace-pre-line">
+                    {office}
                   </p>
                 </div>
               </div>
@@ -111,7 +126,7 @@ export default async function ContactPage(props: { params: Promise<{ lang: Local
                 <div>
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--nt-ink-400)] block font-semibold mb-1">{dict.contact.info.hours}</span>
                   <p className="text-[var(--ink)] font-medium text-sm leading-relaxed">
-                    Mon - Fri: 9:00 AM - 6:00 PM (PT)
+                    {hours}
                   </p>
                 </div>
               </div>

@@ -482,19 +482,19 @@ export const db = {
       const data = readCollection<SiteSettings>('settings');
       if (data.length > 0) return data[0];
       const defaultSettings: SiteSettings = {
-        contactEmail: 'contact@9startechnologies.com',
-        contactPhone: '',
-        whatsappNumber: '',
-        supportEmail: 'support@9startechnologies.com',
+        contactEmail: 'mdyasinarafath20@gmail.com',
+        contactPhone: '+8801988941753',
+        whatsappNumber: '+8801988941753',
+        supportEmail: 'mdyasinarafath20@gmail.com',
         businessHours: {
           en: 'Mon-Fri, 9:00 AM - 6:00 PM EST',
           bn: 'সোম-শুক্র, সকাল ৯:০০ - সন্ধ্যা ৬:০০ (ইএসটি)',
           ar: 'الاثنين-الجمعة، 9:00 صباحاً - 6:00 مساءً بتوقيت شرق الولايات المتحدة',
         },
         officeAddress: {
-          en: '',
-          bn: '',
-          ar: '',
+          en: 'Dhaka · Singapore · London',
+          bn: 'ঢাকা · সিঙ্গাপুর · লন্ডন',
+          ar: 'دكا · سنغافورة · لندن',
         },
         socialLinks: {
           facebook: 'https://facebook.com/9star',

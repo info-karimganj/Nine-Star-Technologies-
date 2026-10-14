@@ -31,6 +31,8 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+export const instant = false;
+
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
