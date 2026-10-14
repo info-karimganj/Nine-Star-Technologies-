@@ -20,7 +20,7 @@ export function ServicesFilter({ categories, activeCategory, searchQuery, lang, 
     <div className="flex flex-col gap-6 mb-12">
       {/* Search Form */}
       <div className="w-full max-w-2xl mx-auto">
-        <form action="/services" method="GET" className="flex w-full">
+        <form action={`/${lang}/services`} method="GET" className="flex w-full">
           {activeCategory && <input type="hidden" name="category" value={activeCategory} />}
           <div className="relative w-full">
             <input
@@ -47,7 +47,7 @@ export function ServicesFilter({ categories, activeCategory, searchQuery, lang, 
       <div className="flex-none overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
         <div className="flex gap-3 min-w-max justify-start sm:justify-center">
           <Link
-            href={searchQuery ? `/services?q=${encodeURIComponent(searchQuery)}` : "/services"}
+            href={searchQuery ? `/${lang}/services?q=${encodeURIComponent(searchQuery)}` : `/${lang}/services`}
             className={getButtonClass(!activeCategory)}
           >
             {allCategoriesText}
@@ -55,7 +55,7 @@ export function ServicesFilter({ categories, activeCategory, searchQuery, lang, 
           {categories.map((cat) => (
             <Link
               key={cat.id}
-              href={`/services?category=${cat.id}${searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : ''}`}
+              href={`/${lang}/services?category=${cat.id}${searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : ''}`}
               className={getButtonClass(activeCategory === cat.id)}
             >
               {cat.title[lang] || cat.title.en}

@@ -3,6 +3,11 @@ import { db } from '@/lib/db';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
+import {
+  getSupabaseServiceByIdOrSlug,
+  upsertSupabaseService,
+  deleteSupabaseService
+} from '@/lib/supabase-services';
 
 async function getAuthUser() {
   const cookieStore = await cookies();
@@ -14,6 +19,16 @@ async function getAuthUser() {
 // GET single service
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  
+  // 1. Try Supabase
+  try {
+    const supabaseService = await getSupabaseServiceByIdOrSlug(id);
+    if (supabaseService) {
+      return NextResponse.json({ service: supabaseService });
+    }
+  } catch (_) {}
+
+  // 2. Fallback
   const service = db.services.getById(id);
   if (!service) {
     return NextResponse.json({ error: 'Service not found' }, { status: 404 });
@@ -32,9 +47,22 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     const { id } = await params;
     const body = await request.json();
 
+    // 1. Local fallback update
     const updated = db.services.update(id, body);
-    if (!updated) {
-      return NextResponse.json({ error: 'Service not found' }, { status: 404 });
+
+    // 2. Supabase persistent update
+    try {
+      const existingSupabase = await getSupabaseServiceByIdOrSlug(id);
+      const serviceToSave = {
+        ...(existingSupabase || {}),
+        ...(updated || {}),
+        ...body,
+        id,
+        updatedAt: new Date().toISOString()
+      };
+      await upsertSupabaseService(serviceToSave);
+    } catch (sbErr) {
+      console.warn('[Supabase Service Update Warning]:', sbErr);
     }
 
     db.auditLogs.log({
@@ -44,15 +72,24 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
       action: 'UPDATE',
       entity: 'SERVICE',
       entityId: id,
-      details: `Updated service: ${updated.title.en}`
+      details: `Updated service: ${body.title?.en || updated?.title?.en || id}`
     });
 
-    revalidatePath('/[lang]/services', 'page');
-    revalidatePath(`/[lang]/services/${updated.slug}`, 'page');
-    revalidatePath(`/[lang]/services/${id}`, 'page');
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/[lang]/services', 'page');
+      revalidatePath('/en/services', 'page');
+      revalidatePath('/bn/services', 'page');
+      revalidatePath('/ar/services', 'page');
+      if (updated?.slug) {
+        revalidatePath(`/[lang]/services/${updated.slug}`, 'page');
+      }
+      revalidatePath(`/[lang]/services/${id}`, 'page');
+    } catch (_) {}
 
-    return NextResponse.json({ success: true, service: updated });
+    return NextResponse.json({ success: true, service: updated || body });
   } catch (error) {
+    console.error('Failed to update service:', error);
     return NextResponse.json({ error: 'Failed to update service' }, { status: 500 });
   }
 }
@@ -66,12 +103,17 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     }
 
     const { id } = await params;
+    
+    // 1. Local fallback delete
     const existing = db.services.getById(id);
-    if (!existing) {
-      return NextResponse.json({ error: 'Service not found' }, { status: 404 });
-    }
-
     db.services.delete(id);
+
+    // 2. Supabase persistent delete
+    try {
+      await deleteSupabaseService(id);
+    } catch (sbErr) {
+      console.warn('[Supabase Service Delete Warning]:', sbErr);
+    }
 
     db.auditLogs.log({
       userId: user.userId,
@@ -80,13 +122,20 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
       action: 'DELETE',
       entity: 'SERVICE',
       entityId: id,
-      details: `Deleted service: ${existing.title.en}`
+      details: `Deleted service: ${existing?.title?.en || id}`
     });
 
-    revalidatePath('/[lang]/services', 'page');
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/[lang]/services', 'page');
+      revalidatePath('/en/services', 'page');
+      revalidatePath('/bn/services', 'page');
+      revalidatePath('/ar/services', 'page');
+    } catch (_) {}
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error('Failed to delete service:', error);
     return NextResponse.json({ error: 'Failed to delete service' }, { status: 500 });
   }
 }

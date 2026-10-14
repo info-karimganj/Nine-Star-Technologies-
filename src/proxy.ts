@@ -32,12 +32,12 @@ export function proxy(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = i18n.defaultLocale;
-    response = NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-        request.url
-      )
+    const redirectUrl = new URL(
+      `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+      request.url
     );
+    redirectUrl.search = request.nextUrl.search;
+    response = NextResponse.redirect(redirectUrl);
   }
 
   // Apply Security Headers

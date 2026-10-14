@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
+import { getSupabaseServices, upsertSupabaseService } from '@/lib/supabase-services';
 
 async function getAuthUser() {
   const cookieStore = await cookies();
@@ -11,9 +12,17 @@ async function getAuthUser() {
   return verifyToken(token);
 }
 
-// GET all services
+// GET all services (from Supabase with local fallback)
 export async function GET() {
   try {
+    const supabaseServices = await getSupabaseServices(true);
+    if (supabaseServices && supabaseServices.length > 0) {
+      const localServices = db.services.getAll();
+      const existingIds = new Set(supabaseServices.map((s) => s.id));
+      const remainingLocal = localServices.filter((s) => !existingIds.has(s.id));
+      return NextResponse.json({ services: [...supabaseServices, ...remainingLocal] });
+    }
+
     const services = db.services.getAll();
     return NextResponse.json({ services });
   } catch (error) {
@@ -66,7 +75,15 @@ export async function POST(request: Request) {
       updatedAt: new Date().toISOString()
     };
 
+    // 1. Local Fallback save
     const saved = db.services.create(newService as any);
+
+    // 2. Persistent Cloud Save to Supabase
+    try {
+      await upsertSupabaseService(saved);
+    } catch (sbErr) {
+      console.warn('[Supabase Service Save Warning]:', sbErr);
+    }
 
     db.auditLogs.log({
       userId: user.userId,
@@ -79,8 +96,15 @@ export async function POST(request: Request) {
     });
 
     // Revalidate public website service paths
-    revalidatePath('/[lang]/services', 'page');
-    revalidatePath(`/[lang]/services/${saved.slug}`, 'page');
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/[lang]/services', 'page');
+      revalidatePath('/en/services', 'page');
+      revalidatePath('/bn/services', 'page');
+      revalidatePath('/ar/services', 'page');
+      revalidatePath(`/[lang]/services/${saved.slug}`, 'page');
+      revalidatePath(`/[lang]/services/${saved.id}`, 'page');
+    } catch (_) {}
 
     return NextResponse.json({ success: true, service: saved });
   } catch (error) {

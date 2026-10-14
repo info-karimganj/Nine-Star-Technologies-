@@ -1433,6 +1433,26 @@ import { db } from '@/lib/db';
 // Categories
 export const getCategories = cache(async function() {
   try {
+    const { getSupabaseServerClient } = await import('@/lib/supabase');
+    const supabase = getSupabaseServerClient();
+    const { data } = await supabase.from('categories').select('*').eq('is_active', true).order('sort_order', { ascending: true });
+    if (data && data.length > 0) {
+      const existingIds = new Set(data.map((c: any) => c.id));
+      const dbCats = data.map((c: any) => ({
+        id: c.id,
+        slug: c.slug,
+        title: typeof c.title === 'string' ? JSON.parse(c.title) : c.title,
+        description: typeof c.description === 'string' ? JSON.parse(c.description) : c.description,
+        icon: c.icon,
+        order: c.sort_order ?? 0,
+        isActive: c.is_active ?? true,
+      }));
+      const remainingMocks = mockCategories.filter((m) => !existingIds.has(m.id));
+      return [...dbCats, ...remainingMocks];
+    }
+  } catch (_) {}
+
+  try {
     const list = db.categories.getAll();
     return list.length > 0 ? list : mockCategories;
   } catch {
@@ -1442,6 +1462,19 @@ export const getCategories = cache(async function() {
 
 // Services
 export const getServices = cache(async function() {
+  // 1. Fetch live from Supabase cloud database
+  try {
+    const { getSupabaseServices } = await import('@/lib/supabase-services');
+    const supabaseServices = await getSupabaseServices(false);
+    if (supabaseServices && supabaseServices.length > 0) {
+      const existingIds = new Set(supabaseServices.map((s) => s.id));
+      const existingSlugs = new Set(supabaseServices.map((s) => s.slug));
+      const remainingMocks = mockServices.filter((m) => !existingIds.has(m.id) && !existingSlugs.has(m.slug));
+      return [...supabaseServices, ...remainingMocks];
+    }
+  } catch (_) {}
+
+  // 2. Fallback to local db or mock
   try {
     const list = db.services.getAll(false);
     return list.length > 0 ? list : mockServices;
@@ -1451,12 +1484,20 @@ export const getServices = cache(async function() {
 });
 
 export const getServiceBySlug = cache(async function(slug: string) {
+  // 1. Fetch live from Supabase
+  try {
+    const { getSupabaseServiceByIdOrSlug } = await import('@/lib/supabase-services');
+    const service = await getSupabaseServiceByIdOrSlug(slug);
+    if (service && service.isActive) return service;
+  } catch (_) {}
+
+  // 2. Fallback to local db or mock
   try {
     const s = db.services.getById(slug);
     if (s && s.isActive) return s;
-    return mockServices.find(s => s.slug === slug || s.id === slug);
+    return mockServices.find((s) => s.slug === slug || s.id === slug);
   } catch {
-    return mockServices.find(s => s.slug === slug || s.id === slug);
+    return mockServices.find((s) => s.slug === slug || s.id === slug);
   }
 });
 
